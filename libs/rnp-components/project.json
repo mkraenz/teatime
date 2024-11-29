@@ -1,0 +1,9 @@
+{
+  "name": "rnp-components",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/rnp-components/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project rnp-components --web",
+  "targets": {}
+}

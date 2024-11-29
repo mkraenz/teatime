@@ -2479,7 +2479,7 @@
     minimatch "9.0.3"
     tslib "^2.3.0"
 
-"@nx/react@20.1.4":
+"@nx/react@20.1.4", "@nx/react@^20.1.4":
   version "20.1.4"
   resolved "https://registry.yarnpkg.com/@nx/react/-/react-20.1.4.tgz#7cf9a194ab31ba71a27e61d16f0c9f87fd3e4e24"
   integrity sha512-7LKFEC3Z02Panjtmz9NSH5keuUEwdczAp2Cn8zrN4WYuolqRiJ5B4ynBQpdLQ3WER351S0zdnfJLlD+bsTWc5Q==

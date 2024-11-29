@@ -4,6 +4,7 @@ module.exports = [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
+  ...nx.configs['flat/react'],
   {
     ignores: ['**/dist'],
   },
@@ -21,6 +22,13 @@ module.exports = [
               onlyDependOnLibsWithTags: ['*'],
             },
           ],
+        },
+      ],
+      'react/self-closing-comp': [
+        'error',
+        {
+          component: true,
+          html: true,
         },
       ],
     },
