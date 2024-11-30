@@ -40,7 +40,15 @@
     "i18next": "*",
     "react-i18next": "*",
     "lodash": "*",
-    "@react-native-async-storage/async-storage": "*"
+    "@react-native-async-storage/async-storage": "*",
+    "expo-localization": "*",
+    "redux": "*",
+    "react-redux": "*",
+    "redux-persist": "*",
+    "@types/redux-persist": "*",
+    "@reduxjs/toolkit": "*",
+    "moment": "*",
+    "expo-crypto": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions"
