@@ -14,10 +14,10 @@ import { connect, ConnectedProps } from 'react-redux';
 // import DailiesNav from "./dailies/DailiesNav";
 // import HistoryNav from "./history/HistoryNav";
 import { GlobalDrawerParamList, Routes } from './nav.types';
-// import QuestionsNav from "./questions/QuestionsNav";
 // import StatisticsScreen from "./statistics/StatisticsScreen";
 import Home from '../app/Home';
 import { useTranslation } from '../localization/useTranslations';
+import QuestionsNav from '../questions/QuestionsNav';
 import SettingsScreen from '../settings/SettingsScreen';
 import { RootState } from '../store';
 
@@ -143,16 +143,16 @@ const NavigationApp: FC<PropsFromRedux> = ({
             title: t("routes:history"),
             drawerIcon: (props) => <List.Icon icon="history" {...props} />,
           }}
-        />
+        /> */}
         <Drawer.Screen
           name="Customize Questions"
           component={QuestionsNav}
           options={{
             headerShown: false,
-            title: t("routes:customizeQuestions"),
+            title: t('routes:customizeQuestions'),
             drawerIcon: (props) => <List.Icon icon="pencil" {...props} />,
           }}
-        /> */}
+        />
         <Drawer.Screen
           name="Settings"
           component={SettingsScreen}
