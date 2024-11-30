@@ -11,7 +11,6 @@ interface Props {
   value: boolean;
   accessibilityLabel?: string;
   accessibilityHint?: string;
-  /** @default switch */
   accessibilityRole?: AccessibilityRole;
   disabled?: boolean;
 }
@@ -32,15 +31,14 @@ const SettingsSwitchRow: FC<Props> = ({
     <List.Item
       title={title}
       titleStyle={{
-        paddingLeft: 12,
         color: disabled ? theme.colors.disabled : theme.colors.text,
       }}
       description={description}
       descriptionNumberOfLines={2}
-      descriptionStyle={{ paddingLeft: 12 }}
       accessible
       right={() => (
         <Switch
+          style={{ alignSelf: 'center' }}
           onChange={() => onPress()}
           value={value}
           // workaround: accessible={false} did not work
@@ -55,6 +53,7 @@ const SettingsSwitchRow: FC<Props> = ({
       accessibilityHint={accessibilityHint}
       disabled={disabled}
       accessibilityValue={{ text: value ? t('general:on') : t('general:off') }}
+      style={{ paddingHorizontal: 12 }}
     />
   );
 };

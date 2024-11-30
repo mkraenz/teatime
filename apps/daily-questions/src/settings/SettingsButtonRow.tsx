@@ -15,11 +15,7 @@ interface Props {
   accessibilityRole?: AccessibilityRole;
 }
 
-const styles = StyleSheet.create({
-  paddingLeft: {
-    paddingLeft: 12,
-  },
-});
+const styles = StyleSheet.create({});
 
 const SettingsButtonRow: FC<Props> = ({
   title,
@@ -36,9 +32,8 @@ const SettingsButtonRow: FC<Props> = ({
   return (
     <List.Item
       title={title}
-      titleStyle={[styles.paddingLeft, { color: textColor }]}
+      titleStyle={[{ color: textColor }]}
       description={description}
-      descriptionStyle={styles.paddingLeft}
       right={
         value !== undefined
           ? () => (
@@ -60,6 +55,7 @@ const SettingsButtonRow: FC<Props> = ({
       accessibilityHint={accessibilityHint}
       disabled={disabled}
       accessibilityValue={{ text: value }}
+      style={{ paddingHorizontal: 12 }}
     />
   );
 };
