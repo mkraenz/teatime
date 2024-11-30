@@ -31,7 +31,11 @@
     "react-native-paper": "*",
     "react-native-safe-area-context": "*",
     "react-native-vector-icons": "*",
-    "@react-native-vector-icons/common": "*"
+    "@react-native-vector-icons/common": "*",
+    "@expo/metro-runtime": "*",
+    "@react-navigation/native": "*",
+    "react-native-screens": "*",
+    "@react-navigation/drawer": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions"
