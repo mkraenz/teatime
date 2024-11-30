@@ -42,7 +42,13 @@ const SettingsButtonRow: FC<Props> = ({
       right={
         value !== undefined
           ? () => (
-              <Text style={{ textAlignVertical: 'center', color: textColor }}>
+              <Text
+                style={{
+                  textAlignVertical: 'center',
+                  color: textColor,
+                  alignSelf: 'center',
+                }}
+              >
                 {value}
               </Text>
             )
