@@ -1,1 +1,1 @@
-export * from './Text';
+export * from './lib/text';

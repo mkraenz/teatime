@@ -7,7 +7,7 @@
   "exclude": [
     "**/*.spec.ts",
     "**/*.spec.tsx",
-    "src/test-setup.ts",
+    "src/lib/text/test-setup.ts",
     "jest.config.ts",
     "src/**/*.spec.ts",
     "src/**/*.test.ts"

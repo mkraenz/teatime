@@ -9,9 +9,32 @@
     "react-native": "*",
     "expo": "*",
     "react-native-svg": "*",
-    "react-native-web": "*"
+    "react-native-web": "*",
+    "@nx/eslint-plugin": "*",
+    "jest-expo": "*",
+    "@nx/devkit": "*",
+    "@nx/eslint": "*",
+    "@nx/jest": "*",
+    "@nx/js": "*",
+    "@nx/react": "*",
+    "@nx/web": "*",
+    "@nx/webpack": "*",
+    "enhanced-resolve": "*",
+    "metro-resolver": "*",
+    "node-fetch": "*",
+    "picocolors": "*",
+    "tsconfig-paths": "*",
+    "tslib": "*",
+    "@expo/metro-config": "*",
+    "react-native-svg-transformer": "*",
+    "react": "*",
+    "react-native-paper": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-vector-icons": "*",
+    "@react-native-vector-icons/common": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions"
-  }
+  },
+  "devDependencies": {}
 }

@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
+import { Text } from '@teatime/rnp-components';
 import React, { useRef, useState } from 'react';
 import {
   Linking,
@@ -6,7 +7,6 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -238,7 +238,7 @@ export const App = () => {
                     strokeLinejoin="round"
                     strokeWidth="2"
                     d="M9 5l7 7-7 7"
-                   />
+                  />
                 </Svg>
               </TouchableOpacity>
             </View>
