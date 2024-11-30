@@ -1,8 +1,10 @@
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { MD2DarkTheme, MD2LightTheme } from 'react-native-paper';
 
-export type FullTheme = typeof MD2LightTheme & {
-  colors: { appbarText: string };
-};
+export type FullTheme = typeof MD2LightTheme &
+  typeof DefaultTheme & {
+    colors: { appbarText: string };
+  };
 
 export enum Color {
   LightBlue = '#00C0FA',
@@ -21,11 +23,17 @@ export const lightTheme: FullTheme = {
   ...MD2LightTheme,
   roundness: 12,
   colors: {
+    ...DefaultTheme.colors,
     ...MD2LightTheme.colors,
     primary: Color.CorporateBlue,
     accent: Color.Orange,
     tooltip: Color.White,
     appbarText: Color.White,
+  },
+  // @ts-expect-error -- not worth fixing
+  fonts: {
+    ...DefaultTheme.fonts,
+    ...MD2LightTheme.fonts,
   },
 };
 
@@ -33,6 +41,7 @@ export const lightTheme: FullTheme = {
  * thus passing WCAG AAA
  */
 export const highContrastLightTheme: FullTheme = {
+  ...DefaultTheme,
   ...lightTheme,
   colors: {
     ...lightTheme.colors,
@@ -41,16 +50,28 @@ export const highContrastLightTheme: FullTheme = {
     tooltip: Color.White,
     appbarText: Color.White,
   },
+  // @ts-expect-error -- not worth fixing
+  fonts: {
+    ...DefaultTheme.fonts,
+    ...MD2LightTheme.fonts,
+  },
 };
 
 export const darkTheme: FullTheme = {
+  ...DefaultTheme,
   ...MD2DarkTheme,
   roundness: 12,
   colors: {
+    ...DarkTheme.colors,
     ...MD2DarkTheme.colors,
     primary: Color.LightBlue,
     accent: Color.LightOrange,
     tooltip: Color.Grey,
     appbarText: Color.White,
+  },
+  // @ts-expect-error -- not worth fixing
+  fonts: {
+    ...DarkTheme.fonts,
+    ...MD2DarkTheme.fonts,
   },
 };

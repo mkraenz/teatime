@@ -3,11 +3,7 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-import {
-  NavigationContainer,
-  DarkTheme as RnNavDarkTheme,
-  DefaultTheme as RnNavLightTheme,
-} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React, { FC } from 'react';
 import { List } from 'react-native-paper';
@@ -92,20 +88,7 @@ const NavigationApp: FC<PropsFromRedux> = ({
   const initialRoute: Routes = 'Dailies';
 
   return (
-    <NavigationContainer
-      theme={{
-        colors: {
-          card: theme.colors.background,
-          background: theme.colors.background,
-          primary: theme.colors.primary,
-          border: theme.colors.background,
-          notification: theme.colors.primary,
-          text: theme.colors.text,
-        },
-        dark: theme.dark,
-        fonts: theme.dark ? RnNavDarkTheme.fonts : RnNavLightTheme.fonts,
-      }}
-    >
+    <NavigationContainer theme={theme}>
       {/* for some reason, translucent status bar is not automatically enabled on android which caused a too large appbar to be rendered */}
       <StatusBar translucent />
       <Drawer.Navigator
