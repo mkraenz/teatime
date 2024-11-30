@@ -35,7 +35,12 @@
     "@expo/metro-runtime": "*",
     "@react-navigation/native": "*",
     "react-native-screens": "*",
-    "@react-navigation/drawer": "*"
+    "@react-navigation/drawer": "*",
+    "expo-status-bar": "*",
+    "i18next": "*",
+    "react-i18next": "*",
+    "lodash": "*",
+    "@react-native-async-storage/async-storage": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions"

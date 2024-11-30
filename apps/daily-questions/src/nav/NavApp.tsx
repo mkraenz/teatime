@@ -8,6 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { FC } from 'react';
 import { List, MD2Theme, useTheme } from 'react-native-paper';
 import Home from '../app/Home';
+import { useTranslation } from '../localization/useTranslations';
 import { GlobalDrawerParamList, Routes } from './nav.types';
 
 // const mapState = (state: RootState) => ({
@@ -21,7 +22,7 @@ const Drawer = createDrawerNavigator<GlobalDrawerParamList>();
 
 const CustomDrawer: FC<DrawerContentComponentProps> = (props) => {
   const theme = useTheme<MD2Theme>();
-  //   const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <DrawerContentScrollView {...props}>
       {Object.values(props.descriptors).map((route) => {
@@ -55,9 +56,9 @@ const CustomDrawer: FC<DrawerContentComponentProps> = (props) => {
               />
             )}
             accessibilityLabel={title}
-            // accessibilityHint={t('general:drawerLabelA11yHint', {
-            //   title,
-            // })}
+            accessibilityHint={t('general:drawerLabelA11yHint', {
+              title,
+            })}
             // using role button over link. @see https://stackoverflow.com/questions/73119202/when-to-use-accessibilityrole-link-in-reactnative
             accessibilityRole="button"
           />
@@ -76,7 +77,7 @@ const NavigationApp: FC = (
   const appbarShownInDailies = true;
   const devMode = false;
   const theme = useTheme<MD2Theme>();
-  //   const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const initialRoute: Routes = 'Dailies';
 
@@ -110,7 +111,7 @@ const NavigationApp: FC = (
           options={{
             headerShown: appbarShownInDailies,
             // header: (props) => <DailiesAppBar {...props} />,
-            // title: t('routes:dailies'),
+            title: t('routes:dailies'),
             drawerIcon: (props) => (
               <List.Icon icon="chat-question" {...props} />
             ),
