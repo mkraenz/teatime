@@ -3,20 +3,30 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import { DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React, { FC } from 'react';
 import { List, MD2Theme, useTheme } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+// import AboutNav from "./about/AboutNav";
+// import BaseAppBar from "./BaseAppBar";
+// import DailiesAppBar from "./dailies/DailiesAppBar";
+// import DailiesNav from "./dailies/DailiesNav";
+// import HistoryNav from "./history/HistoryNav";
+import { GlobalDrawerParamList, Routes } from './nav.types';
+// import QuestionsNav from "./questions/QuestionsNav";
+// import StatisticsScreen from "./statistics/StatisticsScreen";
 import Home from '../app/Home';
 import { useTranslation } from '../localization/useTranslations';
-import { GlobalDrawerParamList, Routes } from './nav.types';
+import SettingsScreen from '../settings/SettingsScreen';
+import { RootState } from '../store';
 
-// const mapState = (state: RootState) => ({
-//   appbarShownInDailies: state.settings.appbarShownInDailies,
-//   devMode: state.settings.devMode,
-// });
-// const connector = connect(mapState);
-// type PropsFromRedux = ConnectedProps<typeof connector>;
+const mapState = (state: RootState) => ({
+  appbarShownInDailies: state.settings.appbarShownInDailies,
+  devMode: state.settings.devMode,
+});
+const connector = connect(mapState);
+type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const Drawer = createDrawerNavigator<GlobalDrawerParamList>();
 
@@ -68,14 +78,10 @@ const CustomDrawer: FC<DrawerContentComponentProps> = (props) => {
   );
 };
 
-const NavigationApp: FC = (
-  {
-    //   appbarShownInDailies,
-    //   devMode,
-  }
-) => {
-  const appbarShownInDailies = true;
-  const devMode = false;
+const NavigationApp: FC<PropsFromRedux> = ({
+  appbarShownInDailies,
+  devMode,
+}) => {
   const theme = useTheme<MD2Theme>();
   const { t } = useTranslation();
 
@@ -83,30 +89,34 @@ const NavigationApp: FC = (
 
   return (
     <NavigationContainer
-    //   theme={{
-    //     colors: {
-    //       card: theme.colors.background,
-    //       background: theme.colors.background,
-    //       primary: theme.colors.primary,
-    //       border: theme.colors.background,
-    //       notification: theme.colors.primary,
-    //       text: theme.colors.text,
-    //     },
-    //     dark: theme.dark,
-    //   }}
+      theme={DarkTheme}
+      // theme={{
+      //   colors: {
+      //     card: theme.colors.background,
+      //     background: theme.colors.background,
+      //     primary: theme.colors.primary,
+      //     border: theme.colors.background,
+      //     notification: theme.colors.primary,
+      //     text: theme.colors.text,
+      //   },
+      //   dark: theme.dark,
+      // }}
     >
       {/* for some reason, translucent status bar is not automatically enabled on android which caused a too large appbar to be rendered */}
       <StatusBar translucent />
       <Drawer.Navigator
         initialRouteName={initialRoute}
-        // screenOptions={{
-        //   // Workaround: using a render function to avoid 'Error: Rendered more hooks than during the previous render.' when using useTranslation() in the BaseAppBar component
-        //   header: (props) => <BaseAppBar {...props} />,
-        // }}
+        screenOptions={
+          {
+            // Workaround: using a render function to avoid 'Error: Rendered more hooks than during the previous render.' when using useTranslation() in the BaseAppBar component
+            // header: (props) => <BaseAppBar {...props} />,
+          }
+        }
         drawerContent={(props) => <CustomDrawer {...props} />}
       >
         <Drawer.Screen
           name="Dailies"
+          // component={DailiesNav}
           component={Home}
           options={{
             headerShown: appbarShownInDailies,
@@ -117,9 +127,54 @@ const NavigationApp: FC = (
             ),
           }}
         />
+        {/* <Drawer.Screen
+          name="Statistics"
+          component={StatisticsScreen}
+          options={{
+            title: t("routes:statistics"),
+            drawerIcon: (props) => <List.Icon icon="chart-line" {...props} />,
+          }}
+        />
+        <Drawer.Screen
+          name="HistoryNav"
+          component={HistoryNav}
+          options={{
+            headerShown: false,
+            title: t("routes:history"),
+            drawerIcon: (props) => <List.Icon icon="history" {...props} />,
+          }}
+        />
+        <Drawer.Screen
+          name="Customize Questions"
+          component={QuestionsNav}
+          options={{
+            headerShown: false,
+            title: t("routes:customizeQuestions"),
+            drawerIcon: (props) => <List.Icon icon="pencil" {...props} />,
+          }}
+        /> */}
+        <Drawer.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{
+            title: t('routes:settings'),
+            drawerIcon: (props) => <List.Icon icon="cog" {...props} />,
+          }}
+        />
+        {/* <Drawer.Screen
+          name="About"
+          component={AboutNav}
+          options={{
+            title: t("routes:about"),
+            headerShown: false,
+            drawerIcon: (props) => (
+              <List.Icon icon="information-outline" {...props} style={{}} />
+            ),
+          }}
+        /> */}
       </Drawer.Navigator>
     </NavigationContainer>
   );
 };
 
-export default NavigationApp;
+export default connector(NavigationApp);

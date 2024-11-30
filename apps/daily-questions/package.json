@@ -48,7 +48,11 @@
     "@types/redux-persist": "*",
     "@reduxjs/toolkit": "*",
     "moment": "*",
-    "expo-crypto": "*"
+    "expo-crypto": "*",
+    "@expo/vector-icons": "*",
+    "@react-native-community/datetimepicker": "*",
+    "expo-notifications": "*",
+    "expo-clipboard": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions"
