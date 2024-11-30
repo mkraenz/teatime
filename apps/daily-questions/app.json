@@ -12,7 +12,8 @@
       "permissions": ["RECEIVE_BOOT_COMPLETED", "SCHEDULE_EXACT_ALARM"],
       "versionCode": 37,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/dailies-logo.png"
+        "foregroundImage": "./assets/dailies-logo.png",
+        "backgroundColor": "#141414"
       },
       "icon": "./assets/dailies-logo_legacy.png"
     },
@@ -22,12 +23,6 @@
     "ios": {
       "bundleIdentifier": "eu.kraenz.dailyquestions",
       "supportsTablet": true
-    },
-    "// android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
     },
     "icon": "./assets/dailies-logo.png",
     "splash": {
