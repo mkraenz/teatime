@@ -11,12 +11,10 @@ const BaseAppBar: FC<DrawerHeaderProps & PropsWithChildren> = (props) => {
       <Appbar.Action
         icon="menu"
         onPress={() => props.navigation.openDrawer()}
-        accessibilityRole="button"
         accessibilityLabel={t('general:openDrawerA11yLabel')}
       />
       <Appbar.Content
         title={title}
-        accessibilityRole="header"
         accessibilityLabel={t('general:appbarHeaderAllyLabel', { title })}
       />
       {props.children}

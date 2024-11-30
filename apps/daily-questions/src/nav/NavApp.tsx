@@ -8,14 +8,15 @@ import { StatusBar } from 'expo-status-bar';
 import React, { FC } from 'react';
 import { List, MD2Theme, useTheme } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
-// import AboutNav from "./about/AboutNav";
+import AboutNav from '../about/AboutNav';
 // import BaseAppBar from "./BaseAppBar";
 // import DailiesAppBar from "./dailies/DailiesAppBar";
 // import DailiesNav from "./dailies/DailiesNav";
 // import HistoryNav from "./history/HistoryNav";
 import { GlobalDrawerParamList, Routes } from './nav.types';
 // import StatisticsScreen from "./statistics/StatisticsScreen";
-import Home from '../app/Home';
+import DailiesAppBar from '../dailies/DailiesAppBar';
+import DailiesNav from '../dailies/DailiesNav';
 import { useTranslation } from '../localization/useTranslations';
 import QuestionsNav from '../questions/QuestionsNav';
 import SettingsScreen from '../settings/SettingsScreen';
@@ -116,11 +117,10 @@ const NavigationApp: FC<PropsFromRedux> = ({
       >
         <Drawer.Screen
           name="Dailies"
-          // component={DailiesNav}
-          component={Home}
+          component={DailiesNav}
           options={{
             headerShown: appbarShownInDailies,
-            // header: (props) => <DailiesAppBar {...props} />,
+            header: (props) => <DailiesAppBar {...props} />,
             title: t('routes:dailies'),
             drawerIcon: (props) => (
               <List.Icon icon="chat-question" {...props} />
@@ -161,17 +161,17 @@ const NavigationApp: FC<PropsFromRedux> = ({
             drawerIcon: (props) => <List.Icon icon="cog" {...props} />,
           }}
         />
-        {/* <Drawer.Screen
+        <Drawer.Screen
           name="About"
           component={AboutNav}
           options={{
-            title: t("routes:about"),
+            title: t('routes:about'),
             headerShown: false,
             drawerIcon: (props) => (
               <List.Icon icon="information-outline" {...props} style={{}} />
             ),
           }}
-        /> */}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
