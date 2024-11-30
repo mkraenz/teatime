@@ -1,25 +1,19 @@
-import * as Notifications from "expo-notifications";
-import { debounce } from "lodash";
-import moment from "moment";
-import React, { FC, useState } from "react";
-import { ScrollView, Share, StyleSheet, View } from "react-native";
-import {
-  Button,
-  MD2Theme,
-  Paragraph,
-  Title,
-  TouchableRipple,
-  useTheme,
-} from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { getDailiesDateOnly, submitDailies } from "../history/history.slice";
-import { useTranslation } from "../localization/useTranslations";
-import { selectQuestions } from "../questions/questions.selectors";
-import { RootState } from "../store";
-import { resetDailies, setCurrentQuestionId } from "./dailies.slice";
-import ResetDailiesBar from "./ResetDailiesBar";
-import SuccessMessage from "./SuccessMessage";
-import SeparateConfirmAndShareButtons from "./summary/SeparateConfirmAndShareButtons";
+import * as Notifications from 'expo-notifications';
+import { debounce } from 'lodash';
+import moment from 'moment';
+import React, { FC, useState } from 'react';
+import { ScrollView, Share, StyleSheet, View } from 'react-native';
+import { Button, Paragraph, Title, TouchableRipple } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { getDailiesDateOnly, submitDailies } from '../history/history.slice';
+import { useTranslation } from '../localization/useTranslations';
+import { selectQuestions } from '../questions/questions.selectors';
+import { RootState } from '../store';
+import { useTheme } from '../theme';
+import { resetDailies, setCurrentQuestionId } from './dailies.slice';
+import ResetDailiesBar from './ResetDailiesBar';
+import SuccessMessage from './SuccessMessage';
+import SeparateConfirmAndShareButtons from './summary/SeparateConfirmAndShareButtons';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,7 +21,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
   },
   contentContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   title: {
     marginBottom: 24,
@@ -36,28 +30,28 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   pointsAnswerRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 12,
   },
   answerTitle: {
     paddingRight: 16,
   },
   fulltextQuestionsContainer: {
-    width: "100%",
+    width: '100%',
     marginBottom: 24,
   },
   fulltextRow: { marginBottom: 12 },
   button: {
     marginBottom: 12,
-    minWidth: "50%",
+    minWidth: '50%',
   },
 });
 
 interface Props {}
 
-const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
 const SHARE_TIMEOUT_IN_MS = 2000; // found by trial and error
 
 const mapState = (state: RootState) => ({
@@ -71,7 +65,7 @@ const mapState = (state: RootState) => ({
     );
     if (!question) {
       throw new Error(
-        "This should never occur since answers are derived from questions."
+        'This should never occur since answers are derived from questions.'
       );
     }
     return {
@@ -93,17 +87,17 @@ const PointsAnswer: FC<{
   answer: string | number;
   onClick: () => void;
 }> = ({ title, answer, onClick }) => {
-  const theme = useTheme<MD2Theme>();
+  const theme = useTheme();
   const { t } = useTranslation();
   return (
     <TouchableRipple
       onPress={onClick}
       accessibilityRole="button"
-      accessibilityLabel={t("dailies:answerRowA11yLabel", {
+      accessibilityLabel={t('dailies:answerRowA11yLabel', {
         questionTitle: title,
         answer,
       })}
-      accessibilityHint={t("dailies:goto", { questionTitle: title })}
+      accessibilityHint={t('dailies:goto', { questionTitle: title })}
     >
       <View style={styles.pointsAnswerRow}>
         <Paragraph style={styles.answerTitle}>{title}</Paragraph>
@@ -125,11 +119,11 @@ const FullTextAnswer: FC<{
     <TouchableRipple
       onPress={onClick}
       accessibilityRole="button"
-      accessibilityLabel={t("dailies:answerRowA11yLabel", {
+      accessibilityLabel={t('dailies:answerRowA11yLabel', {
         questionTitle: title,
         answer,
       })}
-      accessibilityHint={t("dailies:goto", { questionTitle: title })}
+      accessibilityHint={t('dailies:goto', { questionTitle: title })}
     >
       <View style={styles.fulltextRow}>
         {/* TODO #18 color */}
@@ -153,10 +147,10 @@ const ConfirmAndShareButton: FC<{
         leading: true,
         trailing: false,
       })}
-      accessibilityLabel={t("dailies:confirmAndShare")}
-      accessibilityHint={t("dailies:confirmAndShareA11yHint")}
+      accessibilityLabel={t('dailies:confirmAndShare')}
+      accessibilityHint={t('dailies:confirmAndShareA11yHint')}
     >
-      {t("dailies:confirmAndShare")}
+      {t('dailies:confirmAndShare')}
     </Button>
   );
 };
@@ -186,10 +180,10 @@ const SummaryScreen: FC<Props & PropsFromRedux> = ({
   const formatExportMessage = () => {
     const body = answeredQuestions
       .map((q) => {
-        const maybeNewLine = q.type === "fulltext" ? "\n" : "";
+        const maybeNewLine = q.type === 'fulltext' ? '\n' : '';
         return `${maybeNewLine}${q.title}: ${q.answer}`;
       })
-      .join("\n");
+      .join('\n');
     const weekday = days[moment(today, true).day()];
     const header = `${today} ${t(`weekdays:${weekday}`)}\n\n`;
     return `${header}${body}`;
@@ -234,11 +228,11 @@ const SummaryScreen: FC<Props & PropsFromRedux> = ({
     >
       {!appbarShown && <ResetDailiesBar />}
       <Title style={styles.title} accessibilityRole="header">
-        {t("dailies:summaryHeader", { today })}
+        {t('dailies:summaryHeader', { today })}
       </Title>
       <View style={styles.pointsQuestionsContainer}>
         {answeredQuestions
-          .filter((q) => q.type === "points")
+          .filter((q) => q.type === 'points')
           .map((question) => (
             <PointsAnswer
               key={question.id}
@@ -255,7 +249,7 @@ const SummaryScreen: FC<Props & PropsFromRedux> = ({
       </View>
       <View style={styles.fulltextQuestionsContainer}>
         {answeredQuestions
-          .filter((q) => q.type === "fulltext")
+          .filter((q) => q.type === 'fulltext')
           .map((question) => (
             <FullTextAnswer
               key={question.id}
@@ -281,10 +275,10 @@ const SummaryScreen: FC<Props & PropsFromRedux> = ({
       <SuccessMessage
         visible={successMessageShown}
         onDismiss={() => showSuccessMessage(false)}
-        text={t("dailies:confirmedSuccessfully")}
-        dismissActionLabel={t("dailies:ok")}
+        text={t('dailies:confirmedSuccessfully')}
+        dismissActionLabel={t('dailies:ok')}
         dismissActionA11yHint={t(
-          "dailies:confirmedSuccessfullySnackbarDismissActionA11yHint"
+          'dailies:confirmedSuccessfullySnackbarDismissActionA11yHint'
         )}
       />
     </ScrollView>

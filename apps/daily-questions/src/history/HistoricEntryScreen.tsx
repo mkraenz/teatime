@@ -1,15 +1,10 @@
-import { isInteger, isString } from "lodash";
-import React, { FC } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
-import {
-  Button,
-  MD2Theme,
-  Paragraph,
-  Title,
-  useTheme,
-} from "react-native-paper";
-import { useTranslation } from "../localization/useTranslations";
-import { HistoricEntryParams } from "./history-nav";
+import { isInteger, isString } from 'lodash';
+import React, { FC } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Button, Paragraph, Title } from 'react-native-paper';
+import { useTranslation } from '../localization/useTranslations';
+import { useTheme } from '../theme';
+import { HistoricEntryParams } from './history-nav';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +12,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
   },
   contentContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   title: {
     marginBottom: 24,
@@ -26,16 +21,16 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   pointsAnswerRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 12,
   },
   answerTitle: {
     paddingRight: 16,
   },
   fulltextQuestionsContainer: {
-    width: "100%",
+    width: '100%',
     marginBottom: 24,
   },
   fulltextRow: { marginBottom: 12 },
@@ -45,19 +40,19 @@ const PointsAnswer: FC<{
   title?: string;
   answer: string | number;
 }> = ({ title, answer }) => {
-  const theme = useTheme<MD2Theme>();
+  const theme = useTheme();
   const { t } = useTranslation();
   return (
     <View
       style={styles.pointsAnswerRow}
       accessibilityRole="text"
-      accessibilityLabel={t("dailies:answerRowA11yLabel", {
+      accessibilityLabel={t('dailies:answerRowA11yLabel', {
         questionTitle: title,
         answer,
       })}
     >
       <Paragraph style={styles.answerTitle}>
-        {title ?? t("history:questionNotFound")}
+        {title ?? t('history:questionNotFound')}
       </Paragraph>
       <Button
         mode="outlined"
@@ -79,7 +74,7 @@ const FullTextAnswer: FC<{
   return (
     <View style={styles.fulltextRow}>
       <Paragraph>
-        {title ?? t("history:questionNotFound")}: {answer}
+        {title ?? t('history:questionNotFound')}: {answer}
       </Paragraph>
     </View>
   );
@@ -96,13 +91,13 @@ const HistoricEntryScreen: FC<{ route: { params: HistoricEntryParams } }> = (
       contentContainerStyle={styles.contentContainer}
     >
       <Title style={styles.title} accessibilityRole="header">
-        {t("dailies:summaryHeader", { today: date })}
+        {t('dailies:summaryHeader', { today: date })}
       </Title>
       <View style={styles.pointsQuestionsContainer}>
         {questions
           .filter(
             (q) =>
-              q.type === "points" ||
+              q.type === 'points' ||
               (q.type === undefined && isInteger(q.answer))
           )
           .map((question) => (
@@ -117,7 +112,7 @@ const HistoricEntryScreen: FC<{ route: { params: HistoricEntryParams } }> = (
         {questions
           .filter(
             (q) =>
-              q.type === "fulltext" ||
+              q.type === 'fulltext' ||
               (q.type === undefined && isString(q.answer))
           )
           .map((question) => (

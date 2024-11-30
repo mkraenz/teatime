@@ -1,16 +1,12 @@
-import React, { FC } from "react";
-import { Linking, StyleSheet } from "react-native";
-import {
-  MD2Theme,
-  Paragraph,
-  TouchableRipple,
-  useTheme,
-} from "react-native-paper";
-import { useTranslation } from "../localization/useTranslations";
+import React, { FC } from 'react';
+import { Linking, StyleSheet } from 'react-native';
+import { Paragraph, TouchableRipple } from 'react-native-paper';
+import { useTranslation } from '../localization/useTranslations';
+import { useTheme } from '../theme';
 
 const styles = StyleSheet.create({
   link: {
-    textDecorationLine: "underline",
+    textDecorationLine: 'underline',
   },
   container: {
     marginBottom: 24,
@@ -18,23 +14,23 @@ const styles = StyleSheet.create({
 });
 
 const GithubNote: FC = () => {
-  const theme = useTheme<MD2Theme>();
+  const theme = useTheme();
   const { t } = useTranslation();
   const openGithub = () => {
-    Linking.openURL("https://github.com/proSingularity/daily-questions");
+    Linking.openURL('https://github.com/proSingularity/daily-questions');
   };
   return (
     <TouchableRipple
       onPress={openGithub}
       style={styles.container}
       accessibilityRole="link"
-      accessibilityLabel={t("about:githubA11yLabel")}
-      accessibilityHint={t("about:githubA11yHint")}
+      accessibilityLabel={t('about:githubA11yLabel')}
+      accessibilityHint={t('about:githubA11yHint')}
     >
       <Paragraph>
-        {t("about:githubDescription")}
+        {t('about:githubDescription')}
         <Paragraph style={[styles.link, { color: theme.colors.accent }]}>
-          {t("about:githubLinkText")}
+          {t('about:githubLinkText')}
         </Paragraph>
       </Paragraph>
     </TouchableRipple>

@@ -1,16 +1,10 @@
-import { FontAwesome } from "@expo/vector-icons";
-import * as React from "react";
-import { FC } from "react";
-import { View } from "react-native";
-import {
-  Button,
-  Dialog,
-  MD2Theme,
-  Paragraph,
-  Portal,
-  useTheme,
-} from "react-native-paper";
-import { useTranslation } from "../../localization/useTranslations";
+import { FontAwesome } from '@expo/vector-icons';
+import * as React from 'react';
+import { FC } from 'react';
+import { View } from 'react-native';
+import { Button, Dialog, Paragraph, Portal } from 'react-native-paper';
+import { useTranslation } from '../../localization/useTranslations';
+import { useTheme } from '../../theme';
 
 interface Props {
   visible: boolean;
@@ -18,8 +12,8 @@ interface Props {
 }
 
 const WarningIcon: FC = () => {
-  const theme = useTheme<MD2Theme>();
-  return <FontAwesome name={"warning"} size={24} color={theme.colors.accent} />;
+  const theme = useTheme();
+  return <FontAwesome name={'warning'} size={24} color={theme.colors.accent} />;
 };
 
 const ImportHistoryErrorDialog: FC<Props> = ({ visible, onDismiss }) => {
@@ -28,17 +22,17 @@ const ImportHistoryErrorDialog: FC<Props> = ({ visible, onDismiss }) => {
     <Portal>
       <Dialog visible={visible} onDismiss={onDismiss}>
         <Dialog.Title>
-          <WarningIcon /> {t("settings:importHistoryErrorDialogTitle")}{" "}
+          <WarningIcon /> {t('settings:importHistoryErrorDialogTitle')}{' '}
           <WarningIcon />
         </Dialog.Title>
-        <Dialog.Content style={{ flexDirection: "row" }}>
+        <Dialog.Content style={{ flexDirection: 'row' }}>
           <Paragraph>
-            {t("settings:importHistoryErrorDialogDescription")}
+            {t('settings:importHistoryErrorDialogDescription')}
           </Paragraph>
         </Dialog.Content>
-        <View style={{ flexDirection: "row-reverse" }}>
+        <View style={{ flexDirection: 'row-reverse' }}>
           <Dialog.Actions>
-            <Button onPress={() => onDismiss()}>{t("general:ok")}</Button>
+            <Button onPress={() => onDismiss()}>{t('general:ok')}</Button>
           </Dialog.Actions>
         </View>
       </Dialog>

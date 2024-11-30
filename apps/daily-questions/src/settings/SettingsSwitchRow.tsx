@@ -1,7 +1,8 @@
-import React, { FC } from "react";
-import { AccessibilityRole } from "react-native";
-import { List, MD2Theme, Switch, useTheme } from "react-native-paper";
-import { useTranslation } from "../localization/useTranslations";
+import React, { FC } from 'react';
+import { AccessibilityRole } from 'react-native';
+import { List, Switch } from 'react-native-paper';
+import { useTranslation } from '../localization/useTranslations';
+import { useTheme } from '../theme';
 
 interface Props {
   title: string;
@@ -22,10 +23,10 @@ const SettingsSwitchRow: FC<Props> = ({
   value,
   accessibilityLabel,
   accessibilityHint,
-  accessibilityRole = "button", // not using switch as it is not working properly with accessibility
+  accessibilityRole = 'button', // not using switch as it is not working properly with accessibility
   disabled,
 }) => {
-  const theme = useTheme<MD2Theme>();
+  const theme = useTheme();
   const { t } = useTranslation();
   return (
     <List.Item
@@ -53,7 +54,7 @@ const SettingsSwitchRow: FC<Props> = ({
       accessibilityLabel={accessibilityLabel}
       accessibilityHint={accessibilityHint}
       disabled={disabled}
-      accessibilityValue={{ text: value ? t("general:on") : t("general:off") }}
+      accessibilityValue={{ text: value ? t('general:on') : t('general:off') }}
     />
   );
 };

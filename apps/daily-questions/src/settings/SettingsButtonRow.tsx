@@ -1,6 +1,7 @@
-import React, { FC } from "react";
-import { AccessibilityRole, StyleSheet } from "react-native";
-import { List, MD2Theme, Text, useTheme } from "react-native-paper";
+import React, { FC } from 'react';
+import { AccessibilityRole, StyleSheet } from 'react-native';
+import { List, Text } from 'react-native-paper';
+import { useTheme } from '../theme';
 
 interface Props {
   title: string;
@@ -28,9 +29,9 @@ const SettingsButtonRow: FC<Props> = ({
   accessibilityLabel,
   accessibilityHint,
   disabled,
-  accessibilityRole = "button",
+  accessibilityRole = 'button',
 }) => {
-  const theme = useTheme<MD2Theme>();
+  const theme = useTheme();
   const textColor = disabled ? theme.colors.disabled : theme.colors.text;
   return (
     <List.Item
@@ -41,7 +42,7 @@ const SettingsButtonRow: FC<Props> = ({
       right={
         value !== undefined
           ? () => (
-              <Text style={{ textAlignVertical: "center", color: textColor }}>
+              <Text style={{ textAlignVertical: 'center', color: textColor }}>
                 {value}
               </Text>
             )

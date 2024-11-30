@@ -6,7 +6,7 @@ import { myi18n } from '../localization/myi18n';
 import LocalNotifications from '../LocalNotifications';
 import NavApp from '../nav/NavApp';
 import { persistor, store } from '../store';
-import ThemedApp from './ThemedApp';
+import ThemedApp from '../theme/ThemedApp';
 
 export const App = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { LineChart } from 'react-native-chart-kit';
-import { MD2Theme, useTheme } from 'react-native-paper';
 import { History } from '../history/history.slice';
+import { useTheme } from '../theme';
 
 const getXLabels = (history: History) => {
   const modulo = history.length < 8 ? 1 : 2;
@@ -25,7 +25,7 @@ const min = 1;
 const max = 10;
 
 const Chart: FC<Props> = ({ selectedQuestions, history, width, height }) => {
-  const theme = useTheme<MD2Theme>();
+  const theme = useTheme();
 
   const datasets = selectedQuestions
     .filter((q) => q.checked)

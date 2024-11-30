@@ -1,8 +1,9 @@
 import { FontAwesome } from '@expo/vector-icons';
 import React, { FC } from 'react';
 import { View } from 'react-native';
-import { MD2Theme, Snackbar, Text, useTheme } from 'react-native-paper';
-import { Color } from '../app/theme';
+import { Snackbar, Text } from 'react-native-paper';
+import { useTheme } from '../theme';
+import { Color } from '../theme/theme';
 
 interface Props {
   visible: boolean;
@@ -19,7 +20,7 @@ const SuccessMessage: FC<Props> = ({
   dismissActionLabel,
   dismissActionA11yHint,
 }) => {
-  const theme = useTheme<MD2Theme>();
+  const theme = useTheme();
   return (
     <Snackbar
       visible={visible}
