@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { Appbar } from "react-native-paper";
-import { useTranslation } from "./localization/useTranslations";
+import React, { FC } from 'react';
+import { Appbar } from 'react-native-paper';
+import { useTranslation } from './localization/useTranslations';
 
 interface Props {
   navigation: { goBack: () => void };
@@ -18,12 +18,11 @@ const BackAppBar: FC<Props> = (props) => {
       <Appbar.BackAction
         onPress={() => props.navigation.goBack()}
         accessibilityRole="button"
-        accessibilityHint={t("general:navigateBackAllyHint")}
+        accessibilityHint={t('general:navigateBackAllyHint')}
       />
       <Appbar.Content
         title={title}
-        accessibilityRole="header"
-        accessibilityLabel={t("general:appbarHeaderAllyLabel", { title })}
+        accessibilityLabel={t('general:appbarHeaderAllyLabel', { title })}
       />
     </Appbar.Header>
   );

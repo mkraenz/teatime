@@ -3,25 +3,26 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-import { DarkTheme, NavigationContainer } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  DarkTheme as RnNavDarkTheme,
+  DefaultTheme as RnNavLightTheme,
+} from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React, { FC } from 'react';
 import { List, MD2Theme, useTheme } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import AboutNav from '../about/AboutNav';
-// import BaseAppBar from "./BaseAppBar";
-// import DailiesAppBar from "./dailies/DailiesAppBar";
-// import DailiesNav from "./dailies/DailiesNav";
-// import HistoryNav from "./history/HistoryNav";
-import { GlobalDrawerParamList, Routes } from './nav.types';
-// import StatisticsScreen from "./statistics/StatisticsScreen";
+import BaseAppBar from '../BaseAppBar';
 import DailiesAppBar from '../dailies/DailiesAppBar';
 import DailiesNav from '../dailies/DailiesNav';
 import HistoryNav from '../history/HistoryNav';
 import { useTranslation } from '../localization/useTranslations';
 import QuestionsNav from '../questions/QuestionsNav';
 import SettingsScreen from '../settings/SettingsScreen';
+import StatisticsScreen from '../statistics/StatisticsScreen';
 import { RootState } from '../store';
+import { GlobalDrawerParamList, Routes } from './nav.types';
 
 const mapState = (state: RootState) => ({
   appbarShownInDailies: state.settings.appbarShownInDailies,
@@ -91,29 +92,27 @@ const NavigationApp: FC<PropsFromRedux> = ({
 
   return (
     <NavigationContainer
-      theme={DarkTheme}
-      // theme={{
-      //   colors: {
-      //     card: theme.colors.background,
-      //     background: theme.colors.background,
-      //     primary: theme.colors.primary,
-      //     border: theme.colors.background,
-      //     notification: theme.colors.primary,
-      //     text: theme.colors.text,
-      //   },
-      //   dark: theme.dark,
-      // }}
+      theme={{
+        colors: {
+          card: theme.colors.background,
+          background: theme.colors.background,
+          primary: theme.colors.primary,
+          border: theme.colors.background,
+          notification: theme.colors.primary,
+          text: theme.colors.text,
+        },
+        dark: theme.dark,
+        fonts: theme.dark ? RnNavDarkTheme.fonts : RnNavLightTheme.fonts,
+      }}
     >
       {/* for some reason, translucent status bar is not automatically enabled on android which caused a too large appbar to be rendered */}
       <StatusBar translucent />
       <Drawer.Navigator
         initialRouteName={initialRoute}
-        screenOptions={
-          {
-            // Workaround: using a render function to avoid 'Error: Rendered more hooks than during the previous render.' when using useTranslation() in the BaseAppBar component
-            // header: (props) => <BaseAppBar {...props} />,
-          }
-        }
+        screenOptions={{
+          // Workaround: using a render function to avoid 'Error: Rendered more hooks than during the previous render.' when using useTranslation() in the BaseAppBar component
+          header: (props) => <BaseAppBar {...props} />,
+        }}
         drawerContent={(props) => <CustomDrawer {...props} />}
       >
         <Drawer.Screen
@@ -128,14 +127,14 @@ const NavigationApp: FC<PropsFromRedux> = ({
             ),
           }}
         />
-        {/* <Drawer.Screen
+        <Drawer.Screen
           name="Statistics"
           component={StatisticsScreen}
           options={{
-            title: t("routes:statistics"),
+            title: t('routes:statistics'),
             drawerIcon: (props) => <List.Icon icon="chart-line" {...props} />,
           }}
-        /> */}
+        />
         <Drawer.Screen
           name="HistoryNav"
           component={HistoryNav}

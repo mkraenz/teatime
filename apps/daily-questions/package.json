@@ -58,7 +58,8 @@
     "react-native-reanimated": "*",
     "react-native-gesture-handler": "*",
     "expo-constants": "*",
-    "fuse.js": "*"
+    "fuse.js": "*",
+    "react-native-chart-kit": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions"
