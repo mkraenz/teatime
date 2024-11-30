@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { AccessibilityRole, StyleSheet } from 'react-native';
-import { List, Text } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import { useTheme } from '../theme';
+import SettingsBaseRow from './SettingsBaseRow';
 
 interface Props {
   title: string;
@@ -15,47 +16,29 @@ interface Props {
   accessibilityRole?: AccessibilityRole;
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  valueText: {
+    textAlignVertical: 'center',
+    alignSelf: 'center',
+  },
+});
 
-const SettingsButtonRow: FC<Props> = ({
-  title,
-  description,
-  onPress,
-  value,
-  accessibilityLabel,
-  accessibilityHint,
-  disabled,
-  accessibilityRole = 'button',
-}) => {
+const SettingsButtonRow: FC<Props> = ({ value, disabled, ...props }) => {
   const theme = useTheme();
   const textColor = disabled ? theme.colors.disabled : theme.colors.text;
   return (
-    <List.Item
-      title={title}
-      titleStyle={[{ color: textColor }]}
-      description={description}
+    <SettingsBaseRow
+      accessibilityValue={{ text: value }}
       right={
         value !== undefined
           ? () => (
-              <Text
-                style={{
-                  textAlignVertical: 'center',
-                  color: textColor,
-                  alignSelf: 'center',
-                }}
-              >
+              <Text style={[{ color: textColor }, styles.valueText]}>
                 {value}
               </Text>
             )
           : undefined
       }
-      onPress={() => onPress()}
-      accessibilityRole={accessibilityRole}
-      accessibilityLabel={accessibilityLabel}
-      accessibilityHint={accessibilityHint}
-      disabled={disabled}
-      accessibilityValue={{ text: value }}
-      style={{ paddingHorizontal: 12 }}
+      {...props}
     />
   );
 };
