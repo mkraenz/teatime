@@ -1,3 +1,4 @@
-import { MD2Theme, useTheme as useThemeRnp } from 'react-native-paper';
+import { useTheme as useThemeRnp } from 'react-native-paper';
+import { FullTheme } from './theme';
 
-export const useTheme = () => useThemeRnp<MD2Theme>();
+export const useTheme = () => useThemeRnp<FullTheme>();

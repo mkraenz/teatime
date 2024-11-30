@@ -1,18 +1,20 @@
-import { MD2LightTheme, MD2DarkTheme } from "react-native-paper";
+import { MD2DarkTheme, MD2LightTheme } from 'react-native-paper';
 
-export type FullTheme = typeof MD2LightTheme;
+export type FullTheme = typeof MD2LightTheme & {
+  colors: { appbarText: string };
+};
 
 export enum Color {
-  LightBlue = "#00C0FA",
-  Blue = "#0097e6",
-  DarkCorporateBlue = "#004794",
-  CorporateBlue = "#005EC3",
-  Grey = "#272727",
-  LightGrey = "grey", // #808080
-  White = "white", // #ffffff
-  DarkerOrange = "#992F00", // somewhat brown
-  Orange = "#AD5A00",
-  LightOrange = "#E8AF4B",
+  LightBlue = '#00C0FA',
+  Blue = '#0097e6',
+  DarkCorporateBlue = '#004794',
+  CorporateBlue = '#005EC3',
+  Grey = '#272727',
+  LightGrey = 'grey', // #808080
+  White = 'white', // #ffffff
+  DarkerOrange = '#992F00', // somewhat brown
+  Orange = '#AD5A00',
+  LightOrange = '#E8AF4B',
 }
 
 export const lightTheme: FullTheme = {
@@ -23,6 +25,7 @@ export const lightTheme: FullTheme = {
     primary: Color.CorporateBlue,
     accent: Color.Orange,
     tooltip: Color.White,
+    appbarText: Color.White,
   },
 };
 
@@ -36,6 +39,7 @@ export const highContrastLightTheme: FullTheme = {
     primary: Color.DarkCorporateBlue,
     accent: Color.DarkerOrange,
     tooltip: Color.White,
+    appbarText: Color.White,
   },
 };
 
@@ -47,5 +51,6 @@ export const darkTheme: FullTheme = {
     primary: Color.LightBlue,
     accent: Color.LightOrange,
     tooltip: Color.Grey,
+    appbarText: Color.White,
   },
 };
