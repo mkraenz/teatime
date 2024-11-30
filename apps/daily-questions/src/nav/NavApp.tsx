@@ -17,6 +17,7 @@ import { GlobalDrawerParamList, Routes } from './nav.types';
 // import StatisticsScreen from "./statistics/StatisticsScreen";
 import DailiesAppBar from '../dailies/DailiesAppBar';
 import DailiesNav from '../dailies/DailiesNav';
+import HistoryNav from '../history/HistoryNav';
 import { useTranslation } from '../localization/useTranslations';
 import QuestionsNav from '../questions/QuestionsNav';
 import SettingsScreen from '../settings/SettingsScreen';
@@ -134,16 +135,16 @@ const NavigationApp: FC<PropsFromRedux> = ({
             title: t("routes:statistics"),
             drawerIcon: (props) => <List.Icon icon="chart-line" {...props} />,
           }}
-        />
+        /> */}
         <Drawer.Screen
           name="HistoryNav"
           component={HistoryNav}
           options={{
             headerShown: false,
-            title: t("routes:history"),
+            title: t('routes:history'),
             drawerIcon: (props) => <List.Icon icon="history" {...props} />,
           }}
-        /> */}
+        />
         <Drawer.Screen
           name="Customize Questions"
           component={QuestionsNav}

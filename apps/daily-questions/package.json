@@ -56,7 +56,9 @@
     "@react-navigation/stack": "*",
     "react-native-draggable-flatlist": "*",
     "react-native-reanimated": "*",
-    "react-native-gesture-handler": "*"
+    "react-native-gesture-handler": "*",
+    "expo-constants": "*",
+    "fuse.js": "*"
   },
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions"
