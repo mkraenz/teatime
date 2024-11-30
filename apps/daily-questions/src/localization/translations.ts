@@ -36,9 +36,9 @@ const en = {
   },
   statistics: {
     clearHistory: "DANGER: Clear History",
-    ["last7days"]: "last 7 days",
-    ["last30days"]: "last 30 days",
-    ["last1year"]: "last 1 year",
+    "last7days": "last 7 days",
+    "last30days": "last 30 days",
+    "last1year": "last 1 year",
     lifetime: "lifetime",
     insufficientDataInTimeSpan:
       "You completed your daily questions {{numOfEntries}} times in the selected time span. Your statistics show up once you've completed them at least 2 times.",
@@ -299,9 +299,9 @@ export const translations: Translations = {
     },
     statistics: {
       clearHistory: "GEFAHR: Verlauf löschen",
-      ["last7days"]: "letzte 7 Tage",
-      ["last30days"]: "Letzte 30 Tage",
-      ["last1year"]: "Letztes 1 Jahr",
+      "last7days": "letzte 7 Tage",
+      "last30days": "Letzte 30 Tage",
+      "last1year": "Letztes 1 Jahr",
       lifetime: "Lebensdauer",
       insufficientDataInTimeSpan:
         "Du hast deine Täglichen Fragen {{numOfEntries}} mal im ausgewählten Zeitraum abgeschlossen. Deine Statistiken werden hier angezeigt, sobald du sie mindestens 2 mal abgeschlossen hast.",
@@ -547,9 +547,9 @@ export const translations: Translations = {
     },
     statistics: {
       clearHistory: "危険: 履歴をクリア",
-      ["last7days"]: "過去 7 日間",
-      ["last30days"]: "過去 30 日間",
-      ["last1year"]: "過去 1 年間",
+      "last7days": "過去 7 日間",
+      "last30days": "過去 30 日間",
+      "last1year": "過去 1 年間",
       lifetime: "有効期間",
       insufficientDataInTimeSpan:
         "選択した期間内には {{numOfEntries}} 回「毎日の質問」答えました。2回答えた後にはの統計情報が表示されます。",

@@ -1,16 +1,14 @@
-import React, { FC } from "react";
-import { Menu } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { toggleDialogOpen } from "../accessibility/accessibility.slice";
-import { useTranslation } from "../localization/useTranslations";
-import SettingsButtonRow from "./SettingsButtonRow";
-
-interface Props {}
+import React, { FC } from 'react';
+import { Menu } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { toggleDialogOpen } from '../accessibility/accessibility.slice';
+import { useTranslation } from '../localization/useTranslations';
+import SettingsButtonRow from './SettingsButtonRow';
 
 const langCodeToLanguage = {
-  en: "English",
-  de: "Deutsch",
-  ja: "日本語",
+  en: 'English',
+  de: 'Deutsch',
+  ja: '日本語',
 };
 
 const mapDispatch = { toggleDialogOpen };
@@ -41,20 +39,20 @@ const LanguageSelect: FC<PropsFromRedux> = ({ toggleDialogOpen }) => {
     <Menu
       visible={visible}
       onDismiss={closeMenu}
-      overlayAccessibilityLabel={t("general:cancelDialogA11yHint")}
+      overlayAccessibilityLabel={t('general:cancelDialogA11yHint')}
       anchor={
         <SettingsButtonRow
-          title={t("settings:language")}
+          title={t('settings:language')}
           value={selectedLanguage}
-          accessibilityLabel={t("settings:languageA11yLabel")}
-          accessibilityHint={t("settings:languageA11yHint")}
+          accessibilityLabel={t('settings:languageA11yLabel')}
+          accessibilityHint={t('settings:languageA11yHint')}
           onPress={openMenu}
         />
       }
     >
-      <Menu.Item title={"English"} onPress={() => changeLanguage("en")} />
-      <Menu.Item title={"Deutsch"} onPress={() => changeLanguage("de")} />
-      <Menu.Item title={"日本語"} onPress={() => changeLanguage("ja")} />
+      <Menu.Item title={'English'} onPress={() => changeLanguage('en')} />
+      <Menu.Item title={'Deutsch'} onPress={() => changeLanguage('de')} />
+      <Menu.Item title={'日本語'} onPress={() => changeLanguage('ja')} />
     </Menu>
   );
 };

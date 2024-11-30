@@ -1,14 +1,12 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { FC } from "react";
-import { useTranslation } from "react-i18next";
-import { FlatList } from "react-native";
-import { Divider, List } from "react-native-paper";
-import licenses from "../generated/prod-licenses.json";
-import type { AboutNavigationProp, LibraryInfo } from "./about-nav";
+import { useNavigation } from '@react-navigation/native';
+import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FlatList } from 'react-native';
+import { Divider, List } from 'react-native-paper';
+import licenses from '../generated/prod-licenses.json';
+import type { AboutNavigationProp, LibraryInfo } from './about-nav';
 
-interface Props {}
-
-const LicensesListScreen: FC<Props> = (props) => {
+const LicensesListScreen: FC = () => {
   return (
     <FlatList
       data={licenses}
@@ -28,15 +26,15 @@ const LicenseItem: FC<LibraryInfo> = (props) => {
     installedVersion: version,
     author,
   } = props;
-  const title = t("about:licenseItemTitle", { name, version });
-  const description = t("about:licenseItemDescription", { author, license });
+  const title = t('about:licenseItemTitle', { name, version });
+  const description = t('about:licenseItemDescription', { author, license });
   return (
     <List.Item
       title={title}
       description={description}
-      onPress={() => nav.navigate("LicenseInfo", { ...props })}
+      onPress={() => nav.navigate('LicenseInfo', { ...props })}
       accessibilityLabel={`${title}, ${description}`}
-      accessibilityHint={t("about:licenseItemAccessibilityHint")}
+      accessibilityHint={t('about:licenseItemAccessibilityHint')}
       accessibilityRole="button"
     />
   );

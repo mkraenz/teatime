@@ -27,7 +27,7 @@ import settingsReducer, { SettingsState } from './settings/settings.slice';
 /**
  * Logs all actions and states after they are dispatched.
  */
-const logger =
+const _logger =
   (store: any) =>
   (next: any) =>
   (action: any): any => {

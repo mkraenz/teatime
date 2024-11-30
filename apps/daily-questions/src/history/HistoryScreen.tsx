@@ -1,16 +1,16 @@
-import { useNavigation } from "@react-navigation/native";
-import Fuse from "fuse.js";
-import { isEmpty } from "lodash";
-import React, { FC } from "react";
-import { FlatList } from "react-native";
-import { Divider, List } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
-import { Question } from "../questions/questions.slice";
-import { RootState } from "../store";
-import EmptyHistoryList from "./EmptyHistoryList";
-import { HistoricEntryParams, HistoryNavigationProp } from "./history-nav";
-import { History } from "./history.slice";
+import { useNavigation } from '@react-navigation/native';
+import Fuse from 'fuse.js';
+import { isEmpty } from 'lodash';
+import React, { FC } from 'react';
+import { FlatList } from 'react-native';
+import { Divider, List } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
+import { Question } from '../questions/questions.slice';
+import { RootState } from '../store';
+import EmptyHistoryList from './EmptyHistoryList';
+import { HistoricEntryParams, HistoryNavigationProp } from './history-nav';
+import { History } from './history.slice';
 
 const mapState = (state: RootState) => ({
   history: state.history.history,
@@ -36,26 +36,26 @@ function mapHistory(history: History, questions: Question[]) {
           type: matchingTemplate?.type,
         };
       }),
-      searchableString: entry.qs.map((q) => q.a).join(" "),
+      searchableString: entry.qs.map((q) => q.a).join(' '),
     };
   });
 }
 
 const HistoryItem: FC<{ item: HistoricEntryParams }> = ({ item }) => {
   const nav = useNavigation<HistoryNavigationProp>();
-  const answers = item.questions.map((question) => question.answer).join(" ");
+  const answers = item.questions.map((question) => question.answer).join(' ');
   const { t } = useTranslation();
   const date = item.date;
   return (
     <List.Item
       title={date}
       description={answers}
-      accessibilityLabel={t("history:listItemA11yLabel", {
+      accessibilityLabel={t('history:listItemA11yLabel', {
         date,
         answers,
       })}
-      accessibilityHint={t("history:listItemA11yHint", { date })}
-      onPress={() => nav.navigate("HistoricEntry", item)}
+      accessibilityHint={t('history:listItemA11yHint', { date })}
+      onPress={() => nav.navigate('HistoricEntry', item)}
     />
   );
 };
@@ -65,15 +65,13 @@ const HistoryScreen: FC<PropsFromRedux> = ({
   questions,
   searchQuery,
 }) => {
-  const { t } = useTranslation();
-
   const mappedHistoryNewestFirst = mapHistory(history, questions).reverse();
   if (isEmpty(mappedHistoryNewestFirst)) {
     return <EmptyHistoryList />;
   }
 
   const fuse = new Fuse(mappedHistoryNewestFirst, {
-    keys: ["date", "searchableString"],
+    keys: ['date', 'searchableString'],
     // ensure long answers also get matched
     ignoreLocation: true,
   });
@@ -85,14 +83,12 @@ const HistoryScreen: FC<PropsFromRedux> = ({
     ? mappedHistoryNewestFirst
     : mappedSearchResults;
   return (
-    <>
-      <FlatList
-        data={data}
-        renderItem={(item) => <HistoryItem {...item} />}
-        keyExtractor={(item) => item.date}
-        ItemSeparatorComponent={Divider}
-      ></FlatList>
-    </>
+    <FlatList
+      data={data}
+      renderItem={(item) => <HistoryItem {...item} />}
+      keyExtractor={(item) => item.date}
+      ItemSeparatorComponent={Divider}
+    />
   );
 };
 

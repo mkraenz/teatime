@@ -56,7 +56,7 @@ const CustomDrawer: FC<DrawerContentComponentProps> = (props) => {
                 : theme.colors.text,
             }}
             left={() => (
-              // @ts-expect-error
+              // @ts-expect-error -- seems to work fine.
               <DrawerIcon
                 color={
                   route.navigation.isFocused()

@@ -48,7 +48,7 @@ const ResetDailiesBar: FC<PropsFromRedux> = ({
         onPress={show}
         accessibilityLabel={t("dailies:resetButtonAllyLabel")}
         accessibilityHint={t("dailies:resetButtonAllyHint")}
-      ></IconButton>
+       />
     </View>
   );
 };

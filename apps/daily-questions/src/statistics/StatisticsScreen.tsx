@@ -11,6 +11,9 @@ import ChartSelection from "./ChartSelection";
 import TimeSpanSelector, { TimeSpan } from "./TimeSpanSelector";
 import WarningBanner from "./WarningBanner";
 
+import { StyleSheet } from "react-native";
+import { selectQuestions } from "../questions/questions.selectors";
+
 export const chartColors = [
   "red",
   "blue",
@@ -70,9 +73,6 @@ const isWithin = (timeSpan: TimeSpan, dateOnly: string): boolean => {
       return true;
   }
 };
-
-import { StyleSheet } from "react-native";
-import { selectQuestions } from "../questions/questions.selectors";
 const styles = StyleSheet.create({
   insufficientDataContainer: {
     flex: 1,

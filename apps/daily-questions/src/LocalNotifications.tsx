@@ -72,7 +72,7 @@ const LocalNotifications: FC<PropsFromRedux> = ({
         shouldSetBadge: false,
       }),
     });
-  }, [settings]);
+  }, [settings, t]);
 
   useEffect(() => {
     if (Platform.OS === 'web') return;
@@ -85,7 +85,7 @@ const LocalNotifications: FC<PropsFromRedux> = ({
       }
     };
     rescheduleNotifications();
-  }, [settings]);
+  }, [settings, t]);
 
   return null;
 };

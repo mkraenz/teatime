@@ -48,7 +48,8 @@ const questionsSlice = createSlice({
     archiveQuestion(state, action: PayloadAction<{ id: string }>) {
       const index = state.questions.findIndex(
         (q) => q.id === action.payload.id
-      )!;
+      );
+      if (index === undefined) return;
       const question = state.questions[index];
       question.active = false;
       // moveQuestion() assumes: archived questions get moved to the end of the questions list
