@@ -1,27 +1,27 @@
-import { isEmpty } from "lodash";
-import React, { FC, useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
-import { defaultQuestions } from "../questions/default-questions";
+import { isEmpty } from 'lodash';
+import React, { FC, useEffect, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
+import { defaultQuestions } from '../questions/default-questions';
 import {
   selectActiveQuestions,
   selectIsEmptyActiveQuestions,
-} from "../questions/questions.selectors";
-import { setQuestions } from "../questions/questions.slice";
-import { RootState } from "../store";
-import { selectAnswers } from "./dailies.selectors";
+} from '../questions/questions.selectors';
+import { setQuestions } from '../questions/questions.slice';
+import { RootState } from '../store';
+import { selectAnswers } from './dailies.selectors';
 import {
   initAnswers,
   resetDailies,
   setAnswer,
   setCurrentQuestionId,
-} from "./dailies.slice";
-import FullTextQuestionScreen from "./FulltextQuestionScreen";
-import LoadingScreen from "./LoadingScreen";
-import NoQuestionsScreen from "./NoQuestionsScreen";
-import PointsQuestionScreen from "./PointsQuestionScreen";
-import SummaryScreen from "./SummaryScreen";
+} from './dailies.slice';
+import FullTextQuestionScreen from './FulltextQuestionScreen';
+import LoadingScreen from './LoadingScreen';
+import NoQuestionsScreen from './NoQuestionsScreen';
+import PointsQuestionScreen from './PointsQuestionScreen';
+import SummaryScreen from './SummaryScreen';
 
 const styles = StyleSheet.create({
   container: {
@@ -88,7 +88,7 @@ const DailiesNav: FC<PropsFromRedux> = ({
     if (isEmpty(answers)) {
       initAnswers({ questions });
     }
-  }, [answers, questions, questionsEmpty]);
+  }, [answers, questions, questionsEmpty, t, initAnswers, setQuestions]);
 
   if (questionsEmpty) return <NoQuestionsScreen />;
 
@@ -117,7 +117,7 @@ const DailiesNav: FC<PropsFromRedux> = ({
       setCurrentQuestionId({ id: nextQuestionId });
     }
   };
-  if (question.type === "points") {
+  if (question.type === 'points') {
     return (
       <View style={styles.container}>
         <PointsQuestionScreen
