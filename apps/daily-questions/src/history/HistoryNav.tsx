@@ -1,11 +1,11 @@
-import { DrawerHeaderProps } from "@react-navigation/drawer";
-import { createStackNavigator } from "@react-navigation/stack";
-import BackAppBar from "../BackAppBar";
-import { useTranslation } from "../localization/useTranslations";
-import HistoricEntryScreen from "./HistoricEntryScreen";
-import { HistoryStackParamList } from "./history-nav";
-import HistoryAppBar from "./HistoryAppBar";
-import HistoryScreen from "./HistoryScreen";
+import { DrawerHeaderProps } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+import BackAppBar from '../BackAppBar';
+import { useTranslation } from '../localization/useTranslations';
+import HistoricEntryScreen from './HistoricEntryScreen';
+import { HistoryStackParamList } from './history-nav';
+import HistoryAppBar from './HistoryAppBar';
+import HistoryScreen from './HistoryScreen';
 
 const Stack = createStackNavigator<HistoryStackParamList>();
 
@@ -24,14 +24,17 @@ const HistoryNav = () => {
           header: (props) => (
             <HistoryAppBar {...(props as unknown as DrawerHeaderProps)} />
           ),
-          title: t("routes:history"),
+          title: t('routes:history'),
         }}
       />
       <Stack.Screen
         name="HistoricEntry"
         // TODO wait for https://github.com/react-navigation/react-navigation/issues/10802 to be resolved
         component={HistoricEntryScreen as unknown as React.ComponentType}
-        options={{ header: BackAppBar, title: t("routes:historicEntry") }}
+        options={{
+          header: (props) => <BackAppBar {...props} />,
+          title: t('routes:historicEntry'),
+        }}
       />
     </Stack.Navigator>
   );

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Appbar } from 'react-native-paper';
+import AppbarBackAction from './common/components/AppbarBackAction';
 import { useTranslation } from './localization/useTranslations';
 
 interface Props {
@@ -15,9 +16,8 @@ const BackAppBar: FC<Props> = (props) => {
   const title = props.options.title ?? props.route.name;
   return (
     <Appbar.Header>
-      <Appbar.BackAction
+      <AppbarBackAction
         onPress={() => props.navigation.goBack()}
-        accessibilityRole="button"
         accessibilityHint={t('general:navigateBackAllyHint')}
       />
       <Appbar.Content

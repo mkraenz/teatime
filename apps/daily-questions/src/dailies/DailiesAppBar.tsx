@@ -1,14 +1,14 @@
-import { DrawerHeaderProps } from "@react-navigation/drawer";
-import React, { FC } from "react";
-import { Appbar } from "react-native-paper";
-import { connect, ConnectedProps, useSelector } from "react-redux";
-import { toggleDialogOpen } from "../accessibility/accessibility.slice";
-import BaseAppBar from "../BaseAppBar";
-import { useTranslation } from "../localization/useTranslations";
-import { selectIsEmptyActiveQuestions } from "../questions/questions.selectors";
-import { RootState } from "../store";
-import { resetDailies } from "./dailies.slice";
-import ResetDailiesConfirmationDialog from "./ResetDailiesConfirmationDialog";
+import { DrawerHeaderProps } from '@react-navigation/drawer';
+import React, { FC } from 'react';
+import { connect, ConnectedProps, useSelector } from 'react-redux';
+import { toggleDialogOpen } from '../accessibility/accessibility.slice';
+import BaseAppBar from '../BaseAppBar';
+import AppbarAction from '../common/components/AppbarAction';
+import { useTranslation } from '../localization/useTranslations';
+import { selectIsEmptyActiveQuestions } from '../questions/questions.selectors';
+import { RootState } from '../store';
+import { resetDailies } from './dailies.slice';
+import ResetDailiesConfirmationDialog from './ResetDailiesConfirmationDialog';
 
 const mapState = (state: RootState) => ({
   dialogOpen: state.accessibility.dialogOpen,
@@ -40,15 +40,15 @@ const DailiesAppBar: FC<DrawerHeaderProps & PropsFromRedux> = (props) => {
         }}
       />
       {!activeQuestionsEmpty && (
-        <Appbar.Action
+        <AppbarAction
           icon="restart"
           onPress={() => {
             props.toggleDialogOpen();
             showConfirmation(true);
           }}
           accessibilityRole="button"
-          accessibilityLabel={t("dailies:resetButtonAllyLabel")}
-          accessibilityHint={t("dailies:resetButtonAllyHint")}
+          accessibilityLabel={t('dailies:resetButtonAllyLabel')}
+          accessibilityHint={t('dailies:resetButtonAllyHint')}
         />
       )}
     </BaseAppBar>
