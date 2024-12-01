@@ -1,14 +1,14 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { FC } from "react";
-import { StyleSheet, View } from "react-native";
-import { Button, Paragraph } from "react-native-paper";
-import { useTranslation } from "../localization/useTranslations";
-import { GlobalDrawerNavigationProp } from "../nav";
+import { useNavigation } from '@react-navigation/native';
+import React, { FC } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Button, Paragraph } from 'react-native-paper';
+import { useTranslation } from '../localization/useTranslations';
+import { GlobalDrawerNavigationProp } from '../nav/nav.types';
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
   },
   text: {
@@ -20,13 +20,13 @@ const NoQuestionsScreen: FC = () => {
   const { t } = useTranslation();
   const nav = useNavigation<GlobalDrawerNavigationProp>();
   const handlePress = () => {
-    nav.navigate("Customize Questions");
+    nav.navigate('Customize Questions');
   };
   return (
     <View style={[StyleSheet.absoluteFill, styles.container]}>
-      <Paragraph style={styles.text}>{t("dailies:noQuestions")}</Paragraph>
+      <Paragraph style={styles.text}>{t('dailies:noQuestions')}</Paragraph>
       <Button onPress={handlePress} mode="contained">
-        {t("dailies:noQuestionsButton")}
+        {t('dailies:noQuestionsButton')}
       </Button>
     </View>
   );

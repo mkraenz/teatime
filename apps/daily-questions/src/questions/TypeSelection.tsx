@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StyleProp } from 'react-native';
+import { ViewStyle } from 'react-native';
 import { Button, Menu } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { toggleDialogOpen } from '../accessibility/accessibility.slice';
@@ -13,7 +13,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 interface Props {
   type: 'points' | 'fulltext';
   setType: (type: 'points' | 'fulltext') => void;
-  style: StyleProp<typeof Button>;
+  style: ViewStyle;
 }
 
 const TypeSelection: FC<Props & PropsFromRedux> = ({

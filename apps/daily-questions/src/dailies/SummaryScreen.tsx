@@ -153,7 +153,7 @@ const ConfirmAndShareButton: FC<{
   );
 };
 
-const SummaryScreen: FC<Props & PropsFromRedux> = ({
+const SummaryScreen: FC<PropsFromRedux> = ({
   answeredQuestions,
   startOfNextDayTime,
   appbarShown,
