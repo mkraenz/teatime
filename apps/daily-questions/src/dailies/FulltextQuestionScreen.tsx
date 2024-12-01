@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Paragraph, TextInput, Title } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
+  id: string;
   title: string;
   questionLong: string;
   onAnswer: (answer: number | string) => void;
@@ -46,6 +47,7 @@ const connector = connect(mapState);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const FulltextQuestionScreen: FC<Props & PropsFromRedux> = ({
+  id,
   title,
   questionLong,
   answer,
@@ -56,6 +58,9 @@ const FulltextQuestionScreen: FC<Props & PropsFromRedux> = ({
   const { t } = useTranslation();
   const [text, setText] = useState(answer?.toString() ?? '');
   const [errored, setError] = useState(false);
+  useEffect(() => {
+    setText(answer?.toString() ?? '');
+  }, [id, answer]);
 
   const onNext = () => {
     if (!text) {

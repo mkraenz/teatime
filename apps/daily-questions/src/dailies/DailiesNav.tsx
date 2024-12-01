@@ -134,7 +134,7 @@ const DailiesNav: FC<PropsFromRedux> = ({
   return (
     <View style={styles.container}>
       <FullTextQuestionScreen
-        key={question.id}
+        id={question.id}
         title={question.title}
         questionLong={question.questionLong}
         answer={answer.answer}
