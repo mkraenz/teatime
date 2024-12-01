@@ -64,9 +64,7 @@
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions",
     "pregenerate:used-licenses": "mkdir -p ./src/generated",
-    "generate:used-licenses": "license-report --output=json --config license-report.config.json --only=prod > ./src/generated/prod-licenses.json",
-    "android": "expo run:android",
-    "ios": "expo run:ios"
+    "generate:used-licenses": "license-report --output=json --config license-report.config.json --only=prod > ./src/generated/prod-licenses.json"
   },
   "devDependencies": {},
   "packageManager": "yarn@1.22.19"
