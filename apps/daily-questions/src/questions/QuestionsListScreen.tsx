@@ -74,6 +74,7 @@ const QuestionsListScreen: FC<PropsFromRedux> = ({
         data={activeQuestions}
         renderItem={ListItem}
         keyExtractor={(q) => q.id}
+        // TODO BUG right after adding a new question, moving the new question seems to cause an error `TypeError: Cannot read property 'id' of undefined, js engine: hermes`. Or maybe it's moving the penultimate question to the end?
         onDragEnd={({ to, data }) => {
           moveQuestion({ to, id: data[to].id });
         }}
