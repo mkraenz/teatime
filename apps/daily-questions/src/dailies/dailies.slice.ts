@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Answer {
+export interface Answer {
   questionId: string;
   answer: string | number;
 }
