@@ -6,6 +6,8 @@ This repo was moved into the monorepo from [mkraenz/daily-questions](https://git
 
 Check the [Readme of You are Awesome App! Daily Motivation Up!](https://github.com/proSingularity/you-are-awesome-app) on how to debug and much more.
 
+<!-- TODO rewrite for monorepo setup -->
+
 ## Getting Started
 
 ```sh
