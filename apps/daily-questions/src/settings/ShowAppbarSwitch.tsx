@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
-import { RootState } from "../store";
-import { showAppbarInDailies } from "./settings.slice";
-import SettingsSwitchRow from "./SettingsSwitchRow";
+import React, { FC } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
+import { RootState } from '../store';
+import { showAppbarInDailies } from './settings.slice';
+import SettingsSwitchRow from './SettingsSwitchRow';
 
 const mapState = (state: RootState) => ({
   appbarShown: state.settings.appbarShownInDailies,
@@ -22,9 +22,9 @@ const ShowAppBarSwitch: FC<PropsFromRedux> = ({
   return (
     <SettingsSwitchRow
       disabled={screenReaderEnabled}
-      title={t("settings:showAppbar")}
-      accessibilityLabel={t("settings:showAppbar")}
-      accessibilityHint={t("settings:showAppbarA11yHint")}
+      title={t('settings:showAppbar')}
+      accessibilityLabel={t('settings:showAppbar')}
+      accessibilityHint={t('settings:showAppbarA11yHint')}
       value={appbarShown}
       onPress={() => showAppbarInDailies(!appbarShown)}
     />

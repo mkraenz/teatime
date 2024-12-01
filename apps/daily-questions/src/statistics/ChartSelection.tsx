@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { StyleSheet, View } from "react-native";
-import { Checkbox } from "react-native-paper";
+import React, { FC } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Checkbox } from 'react-native-paper';
 
 interface Question {
   id: string;
@@ -32,7 +32,7 @@ const ChartSelection: FC<Props> = ({
             <Checkbox.Item
               key={q.id}
               label={q.title}
-              status={q.checked ? "checked" : "unchecked"}
+              status={q.checked ? 'checked' : 'unchecked'}
               onPress={() => {
                 const newSelectedQuestions = [...selectedQuestions];
                 newSelectedQuestions[i] = { ...q, checked: !q.checked };

@@ -1,4 +1,4 @@
-import type { StackNavigationProp } from "@react-navigation/stack";
+import type { StackNavigationProp } from '@react-navigation/stack';
 
 export interface LibraryInfo {
   name: string;
@@ -9,9 +9,9 @@ export interface LibraryInfo {
 }
 
 export type AboutStackParamList = {
-  ["About screen"]: undefined;
-  ["LicenseList"]: undefined;
-  ["LicenseInfo"]: LibraryInfo;
+  ['About screen']: undefined;
+  ['LicenseList']: undefined;
+  ['LicenseInfo']: LibraryInfo;
 };
 
 export type AboutNavigationProp = StackNavigationProp<AboutStackParamList>;

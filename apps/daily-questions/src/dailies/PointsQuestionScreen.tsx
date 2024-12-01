@@ -1,19 +1,19 @@
-import { inRange } from "lodash";
-import React, { FC, useState } from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import { Button, Paragraph, TextInput, Title } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
-import { RootState } from "../store";
-import { selectAnswerList } from "./dailies.selectors";
+import { inRange } from 'lodash';
+import React, { FC, useState } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
+import { Button, Paragraph, TextInput, Title } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
+import { RootState } from '../store';
+import { selectAnswerList } from './dailies.selectors';
 
 const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     paddingLeft: 16,
     paddingRight: 16,
-    justifyContent: "space-evenly",
-    alignItems: "center",
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
     minHeight: 280,
   },
   title: {
@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
     paddingVertical: 4, // quickfix: title gets clipped at top without padding
   },
   button: {
-    width: "75%",
+    width: '75%',
   },
   input: {
-    width: "100%",
+    width: '100%',
   },
 });
 
@@ -47,8 +47,8 @@ const connector = connect(mapState);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const parsePoints = (input: string) => {
-  const newText = input[input.length - 1] ?? "";
-  const parsedText = parseInt(newText.replace(/[^0-9]/g, ""), 10);
+  const newText = input[input.length - 1] ?? '';
+  const parsedText = parseInt(newText.replace(/[^0-9]/g, ''), 10);
   return parsedText === 0 ? 10 : parsedText;
 };
 
@@ -63,7 +63,7 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
   autofocusEnabled,
 }) => {
   const { t } = useTranslation();
-  const [answerInput, setAnswerInput] = useState(answer?.toString() ?? "");
+  const [answerInput, setAnswerInput] = useState(answer?.toString() ?? '');
 
   const handleChangeText = (text: string | undefined): void => {
     if (!text) return;
@@ -92,7 +92,7 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
         value={answerInput}
         placeholder={
           howToPlaceholderVisible
-            ? t("dailies:pointsQuestionPlaceholder")
+            ? t('dailies:pointsQuestionPlaceholder')
             : undefined
         }
         autoFocus={autofocusEnabled}
@@ -104,19 +104,19 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
         ]}
         autoComplete="off"
         onSubmitEditing={handleNext}
-        accessibilityLabel={t("dailies:pointsQuestionInputA11yLabel", {
+        accessibilityLabel={t('dailies:pointsQuestionInputA11yLabel', {
           questionTitle: title,
           questionLong,
         })}
         accessibilityHint={
           autoNavigateToNextScreen
-            ? t("dailies:pointsQuestionInputWithAutoNavigateA11yHint")
-            : t("dailies:pointsQuestionInputWithoutAutoNavigateA11yHint")
+            ? t('dailies:pointsQuestionInputWithAutoNavigateA11yHint')
+            : t('dailies:pointsQuestionInputWithoutAutoNavigateA11yHint')
         }
       />
 
       <Paragraph
-        accessibilityLabel={t("dailies:shortAnswerListA11yLabel", {
+        accessibilityLabel={t('dailies:shortAnswerListA11yLabel', {
           answers: answerList,
         })}
       >
@@ -128,11 +128,11 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
           onPress={handleNext}
           style={styles.button}
           mode="outlined"
-          accessibilityLabel={t("dailies:next")}
-          accessibilityHint={t("dailies:nextA11yHint")}
+          accessibilityLabel={t('dailies:next')}
+          accessibilityHint={t('dailies:nextA11yHint')}
           disabled={nextButtonDisabled}
         >
-          {t("dailies:next")}
+          {t('dailies:next')}
         </Button>
       )}
     </ScrollView>

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Answer {
   questionId: string;
@@ -18,9 +18,9 @@ const initialState: DailiesState = {
   allQuestionsAnswered: false,
 };
 
-const uninitializedAnswer = "";
+const uninitializedAnswer = '';
 const dailiesSlice = createSlice({
-  name: "dailies",
+  name: 'dailies',
   initialState,
   reducers: {
     setCurrentQuestionId(

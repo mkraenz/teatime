@@ -1,17 +1,17 @@
-import React, { FC } from "react";
-import { StyleSheet } from "react-native";
-import { Button, Menu } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { toggleDialogOpen } from "../accessibility/accessibility.slice";
-import { useTranslation } from "../localization/useTranslations";
+import React, { FC } from 'react';
+import { StyleSheet } from 'react-native';
+import { Button, Menu } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { toggleDialogOpen } from '../accessibility/accessibility.slice';
+import { useTranslation } from '../localization/useTranslations';
 
 export const timeSpans = [
-  "last7days",
-  "last30days",
-  "last1year",
-  "lifetime",
+  'last7days',
+  'last30days',
+  'last1year',
+  'lifetime',
 ] as const;
-export type TimeSpan = typeof timeSpans[number];
+export type TimeSpan = (typeof timeSpans)[number];
 
 const mapDispatch = { toggleDialogOpen };
 const connector = connect(null, mapDispatch);
@@ -25,7 +25,7 @@ interface Props {
 const styles = StyleSheet.create({
   button: {
     marginBottom: 12,
-    minWidth: "50%",
+    minWidth: '50%',
   },
 });
 
@@ -50,18 +50,18 @@ const TimeSpanSelector: FC<Props & PropsFromRedux> = ({
     <Menu
       visible={visible}
       onDismiss={closeMenu}
-      overlayAccessibilityLabel={t("statistics:timeSpanSelectMenuA11yLabel")}
+      overlayAccessibilityLabel={t('statistics:timeSpanSelectMenuA11yLabel')}
       anchor={
         <Button
           mode="contained"
           onPress={openMenu}
           style={styles.button}
-          contentStyle={{ flexDirection: "row-reverse" }}
+          contentStyle={{ flexDirection: 'row-reverse' }}
           icon="menu-down"
-          accessibilityLabel={t("statistics:timeSpanSelectButtonA11yLabel", {
+          accessibilityLabel={t('statistics:timeSpanSelectButtonA11yLabel', {
             timeSpan: t(`statistics:${timeSpan}`),
           })}
-          accessibilityHint={t("statistics:timeSpanSelectButtonA11yHint")}
+          accessibilityHint={t('statistics:timeSpanSelectButtonA11yHint')}
         >
           {t(`statistics:${timeSpan}`)}
         </Button>

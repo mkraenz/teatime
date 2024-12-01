@@ -1,15 +1,15 @@
-import { FontAwesome } from "@expo/vector-icons";
-import * as React from "react";
-import { FC } from "react";
-import { View } from "react-native";
+import { FontAwesome } from '@expo/vector-icons';
+import * as React from 'react';
+import { FC } from 'react';
+import { View } from 'react-native';
 import {
   Button,
   Dialog,
   Paragraph,
   Portal,
   useTheme,
-} from "react-native-paper";
-import { useTranslation } from "../../localization/useTranslations";
+} from 'react-native-paper';
+import { useTranslation } from '../../localization/useTranslations';
 
 interface Props {
   visible: boolean;
@@ -19,7 +19,7 @@ interface Props {
 
 const WarningIcon: FC = () => {
   const theme = useTheme();
-  return <FontAwesome name={"warning"} size={24} color={theme.colors.error} />;
+  return <FontAwesome name={'warning'} size={24} color={theme.colors.error} />;
 };
 
 const ImportHistoryConfirmationDialog: FC<Props> = ({
@@ -32,18 +32,18 @@ const ImportHistoryConfirmationDialog: FC<Props> = ({
     <Portal>
       <Dialog visible={visible} onDismiss={onCancel}>
         <Dialog.Title accessibilityRole="header">
-          <WarningIcon /> {t("settings:importHistoryDialogTitle")}{" "}
+          <WarningIcon /> {t('settings:importHistoryDialogTitle')}{' '}
           <WarningIcon />
         </Dialog.Title>
-        <Dialog.Content style={{ flexDirection: "row" }}>
-          <Paragraph>{t("settings:importHistoryDialogDescription")}</Paragraph>
+        <Dialog.Content style={{ flexDirection: 'row' }}>
+          <Paragraph>{t('settings:importHistoryDialogDescription')}</Paragraph>
         </Dialog.Content>
-        <View style={{ flexDirection: "row-reverse" }}>
+        <View style={{ flexDirection: 'row-reverse' }}>
           <Dialog.Actions>
-            <Button onPress={() => onConfirm()}>{t("general:confirm")}</Button>
+            <Button onPress={() => onConfirm()}>{t('general:confirm')}</Button>
           </Dialog.Actions>
           <Dialog.Actions>
-            <Button onPress={() => onCancel()}>{t("general:cancel")}</Button>
+            <Button onPress={() => onCancel()}>{t('general:cancel')}</Button>
           </Dialog.Actions>
         </View>
       </Dialog>

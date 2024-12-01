@@ -1,35 +1,35 @@
-import React, { FC, useEffect, useState } from "react";
-import { Dimensions, ScrollView, View } from "react-native";
-import { Button, Paragraph, useTheme } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { clearHistory, mockHistory } from "../history/history.slice";
-import { useTranslation } from "../localization/useTranslations";
-import { Question } from "../questions/questions.slice";
-import { RootState } from "../store";
-import Chart from "./Chart";
-import ChartSelection from "./ChartSelection";
-import TimeSpanSelector, { TimeSpan } from "./TimeSpanSelector";
-import WarningBanner from "./WarningBanner";
+import React, { FC, useEffect, useState } from 'react';
+import { Dimensions, ScrollView, View } from 'react-native';
+import { Button, Paragraph, useTheme } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { clearHistory, mockHistory } from '../history/history.slice';
+import { useTranslation } from '../localization/useTranslations';
+import { Question } from '../questions/questions.slice';
+import { RootState } from '../store';
+import Chart from './Chart';
+import ChartSelection from './ChartSelection';
+import TimeSpanSelector, { TimeSpan } from './TimeSpanSelector';
+import WarningBanner from './WarningBanner';
 
-import { StyleSheet } from "react-native";
-import { selectQuestions } from "../questions/questions.selectors";
+import { StyleSheet } from 'react-native';
+import { selectQuestions } from '../questions/questions.selectors';
 
 export const chartColors = [
-  "red",
-  "blue",
-  "yellow",
-  "green",
-  "orange",
-  "aqua",
-  "purple",
-  "brown",
-  "navy",
-  "lime",
-  "fuchsia",
-  "teal",
-  "silver",
-  "maroon",
-  "darkgoldenrod", // Remember, Rod loves you.
+  'red',
+  'blue',
+  'yellow',
+  'green',
+  'orange',
+  'aqua',
+  'purple',
+  'brown',
+  'navy',
+  'lime',
+  'fuchsia',
+  'teal',
+  'silver',
+  'maroon',
+  'darkgoldenrod', // Remember, Rod loves you.
 ];
 
 const mapState = (state: RootState) => ({
@@ -43,7 +43,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const getAllQuestionsSelected = (questions: Question[]) => {
   return questions
-    .filter((q) => q.type === "points" && q.active)
+    .filter((q) => q.type === 'points' && q.active)
     .map((q, i) => ({
       id: q.id,
       title: q.title,
@@ -62,13 +62,13 @@ const getNDaysAgo = (days: number, datetime = new Date()) => {
 const isWithin = (timeSpan: TimeSpan, dateOnly: string): boolean => {
   const date = new Date(`${dateOnly}T00:00:00.000Z`);
   switch (timeSpan) {
-    case "last7days":
+    case 'last7days':
       return date >= getNDaysAgo(7);
-    case "last30days":
+    case 'last30days':
       return date >= getNDaysAgo(30);
-    case "last1year":
+    case 'last1year':
       return date >= getNDaysAgo(365);
-    case "lifetime":
+    case 'lifetime':
     default:
       return true;
   }
@@ -76,8 +76,8 @@ const isWithin = (timeSpan: TimeSpan, dateOnly: string): boolean => {
 const styles = StyleSheet.create({
   insufficientDataContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginHorizontal: 24,
   },
   container: {
@@ -100,7 +100,7 @@ const StatisticsScreen: FC<PropsFromRedux> = ({
   useEffect(() => {
     setSelectedQuestions(getAllQuestionsSelected(questions));
   }, [questions]);
-  const [timeSpan, setTimeSpan] = useState<TimeSpan>("last7days");
+  const [timeSpan, setTimeSpan] = useState<TimeSpan>('last7days');
   const { t } = useTranslation();
   const theme = useTheme();
 
@@ -115,7 +115,7 @@ const StatisticsScreen: FC<PropsFromRedux> = ({
       <View style={styles.insufficientDataContainer}>
         <TimeSpanSelector timeSpan={timeSpan} setTimeSpan={setTimeSpan} />
         <Paragraph>
-          {t("statistics:insufficientDataInTimeSpan", {
+          {t('statistics:insufficientDataInTimeSpan', {
             numOfEntries: historyInTimeSpan.length,
           })}
         </Paragraph>
@@ -125,7 +125,7 @@ const StatisticsScreen: FC<PropsFromRedux> = ({
             mode="contained"
             style={{ backgroundColor: theme.colors.error }}
           >
-            {t("statistics:mockHistory")}
+            {t('statistics:mockHistory')}
           </Button>
         )}
       </View>
@@ -141,8 +141,8 @@ const StatisticsScreen: FC<PropsFromRedux> = ({
         <Chart
           history={historyInTimeSpan}
           selectedQuestions={selectedQuestions}
-          width={Dimensions.get("window").width}
-          height={Math.floor((Dimensions.get("window").height * 2) / 3)}
+          width={Dimensions.get('window').width}
+          height={Math.floor((Dimensions.get('window').height * 2) / 3)}
         />
       ) : (
         <WarningBanner
@@ -162,7 +162,7 @@ const StatisticsScreen: FC<PropsFromRedux> = ({
             onPress={() => clearHistory()}
             style={{ backgroundColor: theme.colors.error }}
           >
-            {t("statistics:clearHistory")}
+            {t('statistics:clearHistory')}
           </Button>
         )}
       </View>

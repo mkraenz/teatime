@@ -1,17 +1,17 @@
-import React, { FC } from "react";
-import { StyleSheet, View } from "react-native";
-import { IconButton } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { toggleDialogOpen } from "../accessibility/accessibility.slice";
-import { useTranslation } from "../localization/useTranslations";
-import { resetDailies } from "./dailies.slice";
-import ResetDailiesConfirmationDialog from "./ResetDailiesConfirmationDialog";
+import React, { FC } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { IconButton } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { toggleDialogOpen } from '../accessibility/accessibility.slice';
+import { useTranslation } from '../localization/useTranslations';
+import { resetDailies } from './dailies.slice';
+import ResetDailiesConfirmationDialog from './ResetDailiesConfirmationDialog';
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    width: '100%',
   },
 });
 
@@ -46,9 +46,9 @@ const ResetDailiesBar: FC<PropsFromRedux> = ({
       <IconButton
         icon="restart"
         onPress={show}
-        accessibilityLabel={t("dailies:resetButtonAllyLabel")}
-        accessibilityHint={t("dailies:resetButtonAllyHint")}
-       />
+        accessibilityLabel={t('dailies:resetButtonAllyLabel')}
+        accessibilityHint={t('dailies:resetButtonAllyHint')}
+      />
     </View>
   );
 };

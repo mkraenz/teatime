@@ -1,27 +1,27 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { FC } from "react";
+import { useNavigation } from '@react-navigation/native';
+import React, { FC } from 'react';
 import {
   NestableDraggableFlatList,
   NestableScrollContainer,
   RenderItemParams,
   ScaleDecorator,
-} from "react-native-draggable-flatlist";
-import { Button, List } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
-import { RootState } from "../store";
-import { QuestionsNavigationProp } from "./questions-nav";
-import { selectActiveQuestions } from "./questions.selectors";
-import { moveQuestion, Question } from "./questions.slice";
+} from 'react-native-draggable-flatlist';
+import { Button, List } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
+import { RootState } from '../store';
+import { QuestionsNavigationProp } from './questions-nav';
+import { selectActiveQuestions } from './questions.selectors';
+import { moveQuestion, Question } from './questions.slice';
 
 const ListItem: FC<RenderItemParams<Question>> = ({ item, drag, isActive }) => {
   const nav = useNavigation<QuestionsNavigationProp>();
   const { t } = useTranslation();
 
   const { title, questionLong, type, id, active } = item;
-  const icon = type === "points" ? "numeric" : "format-color-text";
+  const icon = type === 'points' ? 'numeric' : 'format-color-text';
   const gotoEditQuestion = () => {
-    nav.push("Edit Question", { questionLong, type, id, title, active });
+    nav.push('Edit Question', { questionLong, type, id, title, active });
   };
   return (
     <ScaleDecorator>
@@ -34,7 +34,7 @@ const ListItem: FC<RenderItemParams<Question>> = ({ item, drag, isActive }) => {
         disabled={isActive}
         accessibilityLabel={title}
         accessibilityRole="button"
-        accessibilityHint={t("questions:listItemA11yHint")}
+        accessibilityHint={t('questions:listItemA11yHint')}
       />
     </ScaleDecorator>
   );
@@ -55,7 +55,7 @@ const QuestionsListScreen: FC<PropsFromRedux> = ({
 }) => {
   const nav = useNavigation<QuestionsNavigationProp>();
   const { t } = useTranslation();
-  const gotoNewQuestion = () => nav.push("Add new question");
+  const gotoNewQuestion = () => nav.push('Add new question');
 
   return (
     <NestableScrollContainer
@@ -65,10 +65,10 @@ const QuestionsListScreen: FC<PropsFromRedux> = ({
         onPress={gotoNewQuestion}
         mode="contained"
         style={{ marginVertical: 20 }}
-        accessibilityLabel={t("questions:addNewQuestion")}
-        accessibilityHint={t("questions:addNewQuestionA11yHint")}
+        accessibilityLabel={t('questions:addNewQuestion')}
+        accessibilityHint={t('questions:addNewQuestionA11yHint')}
       >
-        {t("questions:addNewQuestion")}
+        {t('questions:addNewQuestion')}
       </Button>
       <NestableDraggableFlatList
         data={activeQuestions}

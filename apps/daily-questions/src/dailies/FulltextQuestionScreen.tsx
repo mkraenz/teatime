@@ -1,19 +1,19 @@
-import React, { FC, useState } from "react";
-import { StyleSheet, View } from "react-native";
-import { Button, Paragraph, TextInput, Title } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
-import { RootState } from "../store";
-import { selectAnswerList } from "./dailies.selectors";
+import React, { FC, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Button, Paragraph, TextInput, Title } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
+import { RootState } from '../store';
+import { selectAnswerList } from './dailies.selectors';
 
 const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     paddingLeft: 16,
     paddingRight: 16,
-    display: "flex",
-    justifyContent: "space-evenly",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
     minHeight: 280,
   },
   title: {
@@ -21,13 +21,13 @@ const styles = StyleSheet.create({
     paddingVertical: 4, // quickfix: title gets clipped at top without padding
   },
   textInput: {
-    width: "100%",
+    width: '100%',
   },
   button: {
-    width: "75%",
+    width: '75%',
   },
   hidden: {
-    display: "none",
+    display: 'none',
   },
 });
 
@@ -54,7 +54,7 @@ const FulltextQuestionScreen: FC<Props & PropsFromRedux> = ({
   autofocusEnabled,
 }) => {
   const { t } = useTranslation();
-  const [text, setText] = useState(answer?.toString() ?? "");
+  const [text, setText] = useState(answer?.toString() ?? '');
   const [errored, setError] = useState(false);
 
   const onNext = () => {
@@ -88,14 +88,14 @@ const FulltextQuestionScreen: FC<Props & PropsFromRedux> = ({
         onPress={onNext}
         style={styles.button}
         mode="outlined"
-        accessibilityLabel={t("dailies:next")}
-        accessibilityHint={t("dailies:nextA11yHint")}
+        accessibilityLabel={t('dailies:next')}
+        accessibilityHint={t('dailies:nextA11yHint')}
         disabled={!text}
       >
-        {t("dailies:next")}
+        {t('dailies:next')}
       </Button>
       <Paragraph
-        accessibilityLabel={t("dailies:shortAnswerListA11yLabel", {
+        accessibilityLabel={t('dailies:shortAnswerListA11yLabel', {
           answers: answerList,
         })}
       >

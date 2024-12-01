@@ -1,8 +1,8 @@
-import * as React from "react";
-import { FC } from "react";
-import { View } from "react-native";
-import { Button, Dialog, Paragraph, Portal } from "react-native-paper";
-import { useTranslation } from "../localization/useTranslations";
+import * as React from 'react';
+import { FC } from 'react';
+import { View } from 'react-native';
+import { Button, Dialog, Paragraph, Portal } from 'react-native-paper';
+import { useTranslation } from '../localization/useTranslations';
 
 interface Props {
   visible: boolean;
@@ -20,25 +20,25 @@ const ResetDailiesConfirmationDialog: FC<Props> = ({
     <Portal>
       <Dialog visible={visible} onDismiss={onCancel}>
         <Dialog.Title accessibilityRole="header">
-          {t("dailies:resetDialogHeader")}
+          {t('dailies:resetDialogHeader')}
         </Dialog.Title>
         <Dialog.Content>
-          <Paragraph>{t("dailies:confirmResetDialogMessage")}</Paragraph>
+          <Paragraph>{t('dailies:confirmResetDialogMessage')}</Paragraph>
         </Dialog.Content>
-        <View style={{ flexDirection: "row-reverse" }}>
+        <View style={{ flexDirection: 'row-reverse' }}>
           <Dialog.Actions>
             <Button
-              accessibilityLabel={t("general:confirm")}
+              accessibilityLabel={t('general:confirm')}
               accessibilityHint={t(
-                "dailies:confirmResetDialogConfirmButtonA11yHint"
+                'dailies:confirmResetDialogConfirmButtonA11yHint'
               )}
               onPress={() => onConfirm()}
             >
-              {t("general:confirm")}
+              {t('general:confirm')}
             </Button>
           </Dialog.Actions>
           <Dialog.Actions>
-            <Button onPress={() => onCancel()}>{t("general:cancel")}</Button>
+            <Button onPress={() => onCancel()}>{t('general:cancel')}</Button>
           </Dialog.Actions>
         </View>
       </Dialog>

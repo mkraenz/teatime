@@ -1,12 +1,12 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface UnpersistedHistoryState {
   searchQuery: string;
 }
-const initialState: UnpersistedHistoryState = { searchQuery: "" };
+const initialState: UnpersistedHistoryState = { searchQuery: '' };
 
 const unpersistedHistorySlice = createSlice({
-  name: "unpersistedHistory",
+  name: 'unpersistedHistory',
   initialState,
   reducers: {
     setSearchQuery(state, action: PayloadAction<{ searchQuery: string }>) {

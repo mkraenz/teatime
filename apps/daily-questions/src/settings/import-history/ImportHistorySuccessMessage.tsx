@@ -1,7 +1,7 @@
-import { FontAwesome } from "@expo/vector-icons";
-import React, { FC } from "react";
-import { Portal, Snackbar, useTheme } from "react-native-paper";
-import { useTranslation } from "../../localization/useTranslations";
+import { FontAwesome } from '@expo/vector-icons';
+import React, { FC } from 'react';
+import { Portal, Snackbar, useTheme } from 'react-native-paper';
+import { useTranslation } from '../../localization/useTranslations';
 
 interface Props {
   visible: boolean;
@@ -19,8 +19,8 @@ const ImportHistorySuccessMessage: FC<Props> = ({ visible, onDismiss }) => {
           name="info-circle"
           size={20}
           color={theme.colors.primary}
-        />{" "}
-        {t("settings:importHistorySuccessMessage")}
+        />{' '}
+        {t('settings:importHistorySuccessMessage')}
       </Snackbar>
     </Portal>
   );

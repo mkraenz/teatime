@@ -1,11 +1,11 @@
-import moment from "moment";
-import React, { FC, useState } from "react";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
-import { RootState } from "../store";
-import { setBelatedDailiesUntilNextDayAtHour } from "./settings.slice";
-import SettingsButtonRow from "./SettingsButtonRow";
-import { DateTimePickerModal } from "../common";
+import moment from 'moment';
+import React, { FC, useState } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
+import { RootState } from '../store';
+import { setBelatedDailiesUntilNextDayAtHour } from './settings.slice';
+import SettingsButtonRow from './SettingsButtonRow';
+import { DateTimePickerModal } from '../common';
 
 const mapState = (state: RootState) => ({
   time: state.settings.belatedDailiesUntilNextDayAt,
@@ -16,7 +16,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const toHHMM = (date: Date) => {
   const momentDate = moment(date);
-  return momentDate.format("hh:mm A");
+  return momentDate.format('hh:mm A');
 };
 
 const BelatedDailiesTimePicker: FC<PropsFromRedux> = ({
@@ -40,9 +40,9 @@ const BelatedDailiesTimePicker: FC<PropsFromRedux> = ({
     <>
       <SettingsButtonRow
         value={toHHMM(date)}
-        title={t("settings:startOfNextDay")}
-        accessibilityLabel={t("settings:startOfNextDay")}
-        accessibilityHint={t("settings:startOfNextDayA11yHint")}
+        title={t('settings:startOfNextDay')}
+        accessibilityLabel={t('settings:startOfNextDay')}
+        accessibilityHint={t('settings:startOfNextDayA11yHint')}
         onPress={() => showTimePicker(true)}
       />
       <DateTimePickerModal

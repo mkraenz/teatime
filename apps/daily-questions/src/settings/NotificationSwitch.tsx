@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
+import React, { FC } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
 import {
   DEFAULT_NOTIFICATION_HOUR,
   DEFAULT_NOTIFICATION_MINUTE,
-} from "../LocalNotifications";
-import { RootState } from "../store";
-import { setNotificationTime } from "./settings.slice";
-import SettingsSwitchRow from "./SettingsSwitchRow";
+} from '../LocalNotifications';
+import { RootState } from '../store';
+import { setNotificationTime } from './settings.slice';
+import SettingsSwitchRow from './SettingsSwitchRow';
 
 const mapState = (state: RootState) => ({
   notificationSettings: state.settings.notifications,
@@ -23,10 +23,10 @@ const NotificationSwitch: FC<PropsFromRedux> = ({
   const { t } = useTranslation();
   return (
     <SettingsSwitchRow
-      title={t("settings:notificationsEnabled")}
-      description={t("settings:notificationsEnabledDescription")}
-      accessibilityLabel={t("settings:notificationsEnabledA11yLabel")}
-      accessibilityHint={t("settings:notificationsEnabledA11yHint")}
+      title={t('settings:notificationsEnabled')}
+      description={t('settings:notificationsEnabledDescription')}
+      accessibilityLabel={t('settings:notificationsEnabledA11yLabel')}
+      accessibilityHint={t('settings:notificationsEnabledA11yHint')}
       value={!!notificationSettings?.enabled}
       onPress={() =>
         setNotificationTime({

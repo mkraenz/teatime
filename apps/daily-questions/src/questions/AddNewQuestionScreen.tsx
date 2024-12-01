@@ -1,13 +1,13 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { FC, useState } from "react";
-import { StyleSheet, View } from "react-native";
-import { Button, TextInput } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { useTranslation } from "../localization/useTranslations";
-import { RootState } from "../store";
-import { QuestionsNavigationProp } from "./questions-nav";
-import { addQuestion } from "./questions.slice";
-import TypeSelection from "./TypeSelection";
+import { useNavigation } from '@react-navigation/native';
+import React, { FC, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Button, TextInput } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { useTranslation } from '../localization/useTranslations';
+import { RootState } from '../store';
+import { QuestionsNavigationProp } from './questions-nav';
+import { addQuestion } from './questions.slice';
+import TypeSelection from './TypeSelection';
 
 const styles = StyleSheet.create({
   marginBottom: {
@@ -28,12 +28,12 @@ const AddNewQuestionScreen: FC<PropsFromRedux> = ({
 }) => {
   const nav = useNavigation<QuestionsNavigationProp>();
   const { t } = useTranslation();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const [titleChanged, setTitleChanged] = useState(false);
-  const [longQuestion, setLongQuestion] = useState("");
-  const [type, setType] = useState<"points" | "fulltext">("points");
+  const [longQuestion, setLongQuestion] = useState('');
+  const [type, setType] = useState<'points' | 'fulltext'>('points');
 
-  const hasErrors = title === "";
+  const hasErrors = title === '';
   const addNewQuestion = () => {
     addQuestion({ title, questionLong: longQuestion, type, active: true });
     nav.goBack();
@@ -47,33 +47,33 @@ const AddNewQuestionScreen: FC<PropsFromRedux> = ({
     <View
       style={[
         StyleSheet.absoluteFill,
-        { justifyContent: "center", paddingHorizontal: 12 },
+        { justifyContent: 'center', paddingHorizontal: 12 },
       ]}
     >
       <TextInput
-        label={t("questions:title")}
+        label={t('questions:title')}
         onChangeText={handleTitleChanged}
         value={title}
         autoFocus={autofocusEnabled}
         autoComplete="off"
-        placeholder={t("questions:placeHolderExample", {
-          example: t("defaultQuestions:Goals"),
+        placeholder={t('questions:placeHolderExample', {
+          example: t('defaultQuestions:Goals'),
         })}
         style={styles.marginBottom}
         error={titleChanged && hasErrors}
-        accessibilityLabel={t("questions:titleInputA11yLabel")}
+        accessibilityLabel={t('questions:titleInputA11yLabel')}
       />
       <TextInput
-        label={t("questions:longQuestion")}
+        label={t('questions:longQuestion')}
         multiline={true}
         onChangeText={setLongQuestion}
         value={longQuestion}
         autoComplete="off"
-        placeholder={t("questions:placeHolderExample", {
-          example: t("defaultQuestions:questionLongGoals"),
+        placeholder={t('questions:placeHolderExample', {
+          example: t('defaultQuestions:questionLongGoals'),
         })}
         style={styles.marginBottom}
-        accessibilityLabel={t("questions:longQuestionInputA11yLabel")}
+        accessibilityLabel={t('questions:longQuestionInputA11yLabel')}
       />
       <TypeSelection
         type={type}
@@ -84,10 +84,10 @@ const AddNewQuestionScreen: FC<PropsFromRedux> = ({
         mode="contained"
         onPress={addNewQuestion}
         disabled={hasErrors}
-        accessibilityLabel={t("questions:create")}
-        accessibilityHint={t("questions:createButtonA11yHint")}
+        accessibilityLabel={t('questions:create')}
+        accessibilityHint={t('questions:createButtonA11yHint')}
       >
-        {t("questions:create")}
+        {t('questions:create')}
       </Button>
     </View>
   );

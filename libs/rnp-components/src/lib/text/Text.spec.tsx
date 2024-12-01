@@ -5,7 +5,7 @@ import Text from './Text';
 
 describe('Text', () => {
   it('should render successfully', () => {
-    const { root } = render(< Text />);
+    const { root } = render(<Text />);
     expect(root).toBeTruthy();
   });
 });

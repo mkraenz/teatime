@@ -1,19 +1,19 @@
-import { useNavigation } from "@react-navigation/native";
-import type { StackScreenProps } from "@react-navigation/stack";
-import React, { FC, useState } from "react";
-import { StyleSheet, View } from "react-native";
-import { Button, TextInput, useTheme } from "react-native-paper";
-import { connect, ConnectedProps } from "react-redux";
-import { toggleDialogOpen } from "../accessibility/accessibility.slice";
-import { useTranslation } from "../localization/useTranslations";
-import { RootState } from "../store";
-import ArchiveConfirmationDialog from "./ArchiveConfirmationDialog";
+import { useNavigation } from '@react-navigation/native';
+import type { StackScreenProps } from '@react-navigation/stack';
+import React, { FC, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Button, TextInput, useTheme } from 'react-native-paper';
+import { connect, ConnectedProps } from 'react-redux';
+import { toggleDialogOpen } from '../accessibility/accessibility.slice';
+import { useTranslation } from '../localization/useTranslations';
+import { RootState } from '../store';
+import ArchiveConfirmationDialog from './ArchiveConfirmationDialog';
 import type {
   QuestionsNavigationProp,
   QuestionsStackParamList,
-} from "./questions-nav";
-import { archiveQuestion, editQuestion } from "./questions.slice";
-import TypeSelection from "./TypeSelection";
+} from './questions-nav';
+import { archiveQuestion, editQuestion } from './questions.slice';
+import TypeSelection from './TypeSelection';
 
 const styles = StyleSheet.create({
   marginBottom: {
@@ -29,7 +29,7 @@ const connector = connect(mapState, mapDispatch);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const EditQuestionsScreen: FC<
-  PropsFromRedux & StackScreenProps<QuestionsStackParamList, "Edit Question">
+  PropsFromRedux & StackScreenProps<QuestionsStackParamList, 'Edit Question'>
 > = ({
   autofocusEnabled,
   editQuestion,
@@ -41,7 +41,7 @@ const EditQuestionsScreen: FC<
   const nav = useNavigation<QuestionsNavigationProp>();
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedQuestionLong, setEditedQuestionLong] = useState(questionLong);
-  const [editedType, setEditedType] = useState<"points" | "fulltext">(type);
+  const [editedType, setEditedType] = useState<'points' | 'fulltext'>(type);
 
   const [archiveConfirmationShown, showArchiveConfirmation] =
     React.useState(false);
@@ -67,17 +67,17 @@ const EditQuestionsScreen: FC<
     nav.goBack();
   };
 
-  const hasErrors = editedTitle === "";
+  const hasErrors = editedTitle === '';
 
   return (
     <View
       style={[
         StyleSheet.absoluteFill,
-        { justifyContent: "center", paddingHorizontal: 12 },
+        { justifyContent: 'center', paddingHorizontal: 12 },
       ]}
     >
       <TextInput
-        label={t("questions:title")}
+        label={t('questions:title')}
         onChangeText={setEditedTitle}
         value={editedTitle}
         autoFocus={autofocusEnabled}
@@ -86,7 +86,7 @@ const EditQuestionsScreen: FC<
         error={hasErrors}
       />
       <TextInput
-        label={t("questions:longQuestion")}
+        label={t('questions:longQuestion')}
         multiline={true}
         onChangeText={setEditedQuestionLong}
         value={editedQuestionLong}
@@ -103,10 +103,10 @@ const EditQuestionsScreen: FC<
         onPress={saveEdits}
         style={styles.marginBottom}
         disabled={hasErrors}
-        accessibilityLabel={t("questions:save")}
-        accessibilityHint={t("questions:saveA11yHint")}
+        accessibilityLabel={t('questions:save')}
+        accessibilityHint={t('questions:saveA11yHint')}
       >
-        {t("questions:save")}
+        {t('questions:save')}
       </Button>
       <Button
         mode="contained"
@@ -115,10 +115,10 @@ const EditQuestionsScreen: FC<
           toggleDialogOpen();
           showArchiveConfirmation(true);
         }}
-        accessibilityHint={t("questions:archiveA11yHint")}
-        accessibilityLabel={t("questions:archive")}
+        accessibilityHint={t('questions:archiveA11yHint')}
+        accessibilityLabel={t('questions:archive')}
       >
-        {t("questions:archive")}
+        {t('questions:archive')}
       </Button>
       <ArchiveConfirmationDialog
         visible={archiveConfirmationShown}

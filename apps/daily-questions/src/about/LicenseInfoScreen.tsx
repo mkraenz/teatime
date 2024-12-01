@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { StyleSheet, View } from "react-native";
-import { Paragraph, Title } from "react-native-paper";
-import { useTranslation } from "../localization/useTranslations";
-import { LibraryInfo } from "./about-nav";
+import React, { FC } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Paragraph, Title } from 'react-native-paper';
+import { useTranslation } from '../localization/useTranslations';
+import { LibraryInfo } from './about-nav';
 
 interface Props {
   route: {
@@ -13,7 +13,7 @@ interface Props {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingHorizontal: 12,
   },
 });
@@ -26,13 +26,13 @@ const LicenseInfoScreen: FC<Props> = (props) => {
     <View style={styles.container}>
       <Title accessibilityRole="header">{name}</Title>
       <Paragraph>
-        {t("about:licenseInfoLicense", { license: licenseType })}
+        {t('about:licenseInfoLicense', { license: licenseType })}
       </Paragraph>
-      <Paragraph>{t("about:licenseInfoAuthor", { author })}</Paragraph>
+      <Paragraph>{t('about:licenseInfoAuthor', { author })}</Paragraph>
       <Paragraph>
-        {t("about:licenseInfoVersion", { version: installedVersion })}
+        {t('about:licenseInfoVersion', { version: installedVersion })}
       </Paragraph>
-      <Paragraph>{t("about:licenseInfoLink", { link })}</Paragraph>
+      <Paragraph>{t('about:licenseInfoLink', { link })}</Paragraph>
     </View>
   );
 };

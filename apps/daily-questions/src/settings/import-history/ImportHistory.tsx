@@ -1,18 +1,18 @@
-import * as Clipboard from "expo-clipboard";
-import React, { FC, useState } from "react";
-import { connect, ConnectedProps } from "react-redux";
-import { toggleDialogOpen } from "../../accessibility/accessibility.slice";
-import { setHistory } from "../../history/history.slice";
-import { useTranslation } from "../../localization/useTranslations";
-import { setQuestions } from "../../questions/questions.slice";
-import { RootState } from "../../store";
-import SettingsButtonRow from "../SettingsButtonRow";
-import { ExportedHistoryAndQuestions } from "./ExportHistory";
-import { validateImportedHistoryString } from "./import-history-validation";
-import { validateImportedQuestionsString } from "./import-questions-validation";
-import ImportHistoryConfirmationDialog from "./ImportHistoryConfirmationDialog";
-import ImportHistoryErrorDialog from "./ImportHistoryErrorDialog";
-import ImportHistorySuccessMessage from "./ImportHistorySuccessMessage";
+import * as Clipboard from 'expo-clipboard';
+import React, { FC, useState } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
+import { toggleDialogOpen } from '../../accessibility/accessibility.slice';
+import { setHistory } from '../../history/history.slice';
+import { useTranslation } from '../../localization/useTranslations';
+import { setQuestions } from '../../questions/questions.slice';
+import { RootState } from '../../store';
+import SettingsButtonRow from '../SettingsButtonRow';
+import { ExportedHistoryAndQuestions } from './ExportHistory';
+import { validateImportedHistoryString } from './import-history-validation';
+import { validateImportedQuestionsString } from './import-questions-validation';
+import ImportHistoryConfirmationDialog from './ImportHistoryConfirmationDialog';
+import ImportHistoryErrorDialog from './ImportHistoryErrorDialog';
+import ImportHistorySuccessMessage from './ImportHistorySuccessMessage';
 
 const mapState = (state: RootState) => ({
   history: state.history.history,
@@ -75,9 +75,9 @@ const ImportHistory: FC<PropsFromRedux> = ({
         onConfirm={handleConfirm}
       />
       <SettingsButtonRow
-        title={t("settings:importHistory")}
-        accessibilityLabel={t("settings:importHistory")}
-        accessibilityHint={t("settings:importHistoryHint")}
+        title={t('settings:importHistory')}
+        accessibilityLabel={t('settings:importHistory')}
+        accessibilityHint={t('settings:importHistoryHint')}
         onPress={() => {
           toggleDialogOpen();
           showConfirmation(true);

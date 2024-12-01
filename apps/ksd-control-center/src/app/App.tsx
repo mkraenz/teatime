@@ -238,7 +238,7 @@ export const App = () => {
                     strokeLinejoin="round"
                     strokeWidth="2"
                     d="M9 5l7 7-7 7"
-                   />
+                  />
                 </Svg>
               </TouchableOpacity>
             </View>

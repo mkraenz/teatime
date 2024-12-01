@@ -1,8 +1,8 @@
-import * as React from "react";
-import { FC } from "react";
-import { View } from "react-native";
-import { Button, Dialog, Paragraph, Portal } from "react-native-paper";
-import { useTranslation } from "../localization/useTranslations";
+import * as React from 'react';
+import { FC } from 'react';
+import { View } from 'react-native';
+import { Button, Dialog, Paragraph, Portal } from 'react-native-paper';
+import { useTranslation } from '../localization/useTranslations';
 
 interface Props {
   visible: boolean;
@@ -20,23 +20,23 @@ const ArchiveConfirmationDialog: FC<Props> = ({
     <Portal>
       <Dialog visible={visible} onDismiss={onCancel}>
         <Dialog.Title accessibilityRole="header">
-          {t("questions:confirmArchival")}
+          {t('questions:confirmArchival')}
         </Dialog.Title>
         <Dialog.Content>
-          <Paragraph>{t("questions:archivalDialogDescription")}</Paragraph>
+          <Paragraph>{t('questions:archivalDialogDescription')}</Paragraph>
         </Dialog.Content>
-        <View style={{ flexDirection: "row-reverse" }}>
+        <View style={{ flexDirection: 'row-reverse' }}>
           <Dialog.Actions>
             <Button
               onPress={onConfirm}
-              accessibilityLabel={t("general:confirm")}
-              accessibilityHint={t("questions:archivalDialogConfirmA11yHint")}
+              accessibilityLabel={t('general:confirm')}
+              accessibilityHint={t('questions:archivalDialogConfirmA11yHint')}
             >
-              {t("general:confirm")}
+              {t('general:confirm')}
             </Button>
           </Dialog.Actions>
           <Dialog.Actions>
-            <Button onPress={onCancel}>{t("general:cancel")}</Button>
+            <Button onPress={onCancel}>{t('general:cancel')}</Button>
           </Dialog.Actions>
         </View>
       </Dialog>
