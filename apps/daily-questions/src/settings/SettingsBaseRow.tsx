@@ -4,7 +4,6 @@ import { List } from 'react-native-paper';
 import { useTheme } from '../theme';
 
 type Props = {
-  value?: string | boolean;
   onPress: () => void;
 } & ComponentProps<typeof List.Item>;
 
@@ -13,7 +12,6 @@ const styles = StyleSheet.create({
 });
 
 const SettingsBaseRow: FC<Props> = ({
-  value,
   disabled,
   accessibilityRole = 'button',
   onPress,
@@ -30,6 +28,7 @@ const SettingsBaseRow: FC<Props> = ({
       accessible
       // workaround: avoid error `hook.js:608 A non-serializable value was detected in an action, in the path: `payload`. Value:`
       onPress={() => onPress()}
+      disabled={disabled}
       {...props}
     />
   );

@@ -38,6 +38,7 @@ const SettingsButtonRow: FC<Props> = ({ value, disabled, ...props }) => {
             )
           : undefined
       }
+      disabled={disabled}
       {...props}
     />
   );

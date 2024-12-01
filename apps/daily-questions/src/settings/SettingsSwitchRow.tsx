@@ -41,6 +41,7 @@ const SettingsSwitchRow: FC<Props> = ({
       )}
       accessibilityValue={{ text: value ? t('general:on') : t('general:off') }}
       onPress={onPress}
+      disabled={disabled}
       {...props}
     />
   );

@@ -1,7 +1,7 @@
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
-import { MD2DarkTheme, MD2LightTheme } from 'react-native-paper';
+import { MD3DarkTheme, MD3LightTheme } from 'react-native-paper';
 
-export type FullTheme = typeof MD2LightTheme &
+export type FullTheme = typeof MD3LightTheme &
   typeof DefaultTheme & {
     colors: { appbarText: string };
   };
@@ -20,20 +20,19 @@ export enum Color {
 }
 
 export const lightTheme: FullTheme = {
-  ...MD2LightTheme,
+  ...MD3LightTheme,
   roundness: 12,
   colors: {
     ...DefaultTheme.colors,
-    ...MD2LightTheme.colors,
+    ...MD3LightTheme.colors,
     primary: Color.CorporateBlue,
-    accent: Color.Orange,
-    tooltip: Color.White,
+    secondary: Color.Orange,
+    tertiary: Color.White,
     appbarText: Color.White,
   },
-  // @ts-expect-error -- not worth fixing
   fonts: {
     ...DefaultTheme.fonts,
-    ...MD2LightTheme.fonts,
+    ...MD3LightTheme.fonts,
   },
 };
 
@@ -46,32 +45,30 @@ export const highContrastLightTheme: FullTheme = {
   colors: {
     ...lightTheme.colors,
     primary: Color.DarkCorporateBlue,
-    accent: Color.DarkerOrange,
-    tooltip: Color.White,
+    secondary: Color.DarkerOrange,
+    tertiary: Color.White,
     appbarText: Color.White,
   },
-  // @ts-expect-error -- not worth fixing
   fonts: {
     ...DefaultTheme.fonts,
-    ...MD2LightTheme.fonts,
+    ...MD3LightTheme.fonts,
   },
 };
 
 export const darkTheme: FullTheme = {
   ...DefaultTheme,
-  ...MD2DarkTheme,
+  ...MD3DarkTheme,
   roundness: 12,
   colors: {
     ...DarkTheme.colors,
-    ...MD2DarkTheme.colors,
+    ...MD3DarkTheme.colors,
     primary: Color.LightBlue,
-    accent: Color.LightOrange,
-    tooltip: Color.Grey,
+    secondary: Color.LightOrange,
+    tertiary: Color.Grey,
     appbarText: Color.White,
   },
-  // @ts-expect-error -- not worth fixing
   fonts: {
     ...DarkTheme.fonts,
-    ...MD2DarkTheme.fonts,
+    ...MD3DarkTheme.fonts,
   },
 };
