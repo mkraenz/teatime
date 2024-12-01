@@ -1,5 +1,5 @@
 import { inRange } from 'lodash';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { Button, Paragraph, TextInput, Title } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
+  id: string;
   title: string;
   questionLong: string;
   onAnswer: (answer: number | string) => void;
@@ -53,6 +54,7 @@ const parsePoints = (input: string) => {
 };
 
 const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
+  id,
   title,
   questionLong,
   answer,
@@ -64,6 +66,10 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
 }) => {
   const { t } = useTranslation();
   const [answerInput, setAnswerInput] = useState(answer?.toString() ?? '');
+  useEffect(() => {
+    // since we are using the same screen for different questions, we need to reset the input field when the question changes
+    setAnswerInput(answer?.toString() ?? '');
+  }, [setAnswerInput, id]);
 
   const handleChangeText = (text: string | undefined): void => {
     if (!text) return;
