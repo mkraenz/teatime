@@ -9,7 +9,6 @@ import { getDailiesDateOnly, submitDailies } from '../history/history.slice';
 import { useTranslation } from '../localization/useTranslations';
 import { selectQuestions } from '../questions/questions.selectors';
 import { RootState } from '../store';
-import { useTheme } from '../theme';
 import { resetDailies, setCurrentQuestionId } from './dailies.slice';
 import ResetDailiesBar from './ResetDailiesBar';
 import SuccessMessage from './SuccessMessage';
@@ -85,7 +84,6 @@ const PointsAnswer: FC<{
   answer: string | number;
   onClick: () => void;
 }> = ({ title, answer, onClick }) => {
-  const theme = useTheme();
   const { t } = useTranslation();
   return (
     <TouchableRipple
@@ -99,7 +97,7 @@ const PointsAnswer: FC<{
     >
       <View style={styles.pointsAnswerRow}>
         <Paragraph style={styles.answerTitle}>{title}</Paragraph>
-        <Button mode="outlined" color={theme.colors.text} accessible={false}>
+        <Button mode="outlined" accessible={false} onPress={onClick}>
           {answer}
         </Button>
       </View>
