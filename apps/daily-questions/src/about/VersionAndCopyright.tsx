@@ -33,7 +33,7 @@ const VersionAndCopyright = () => {
         accessibilityHint={t('about:companyWebsiteA11yHint')}
       >
         <Paragraph>
-          Copyright © 2022{' '}
+          Copyright © 2022-2024{' '}
           <Paragraph style={[styles.link, { color: theme.colors.accent }]}>
             Kraenz{nbsp}Software{nbsp}Development
           </Paragraph>
