@@ -19,7 +19,6 @@ export enum Color {
 
 export const lightTheme: FullTheme = {
   ...MD3LightTheme,
-  roundness: 12,
   colors: {
     ...DefaultTheme.colors,
     ...MD3LightTheme.colors,
@@ -57,7 +56,6 @@ export const highContrastLightTheme: FullTheme = {
 export const darkTheme: FullTheme = {
   ...DarkTheme,
   ...MD3DarkTheme,
-  roundness: 12,
   colors: {
     ...DarkTheme.colors,
     ...MD3DarkTheme.colors,
