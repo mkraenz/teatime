@@ -26,31 +26,81 @@ yarn eas login
 # verify you're logged in
 yarn eas whoami
 
+# from repository root
 # build and deploy
-yarn eas:build
+nx build daily-questions --platform=android
 
 # submit to Google Playstore
 # configure via eas.json
-yarn eas:submit
+nx submit daily-questions --platform=android
 
 # DEBUG: https://github.com/expo/fyi/blob/main/eas-build-archive.md
 ```
 
-### Old workflow
-
-```sh
-# complete rebuild
-yarn build-and-publish:expo:android:app-bundle:prod
-# or alternatively do an OTA update
-yarn deploy:ota:prod
-```
-
 ### Local installation on phone or emulator
 
+#### Install the production build on a device
+
+This is basically what Google Play does when an enduser downloads and installs the app.
+
+##### Overview
+
+- Download `.aab` file from EAS
+- Download keystore from EAS
+- Download bundletool
+- Unpack `.aab` into `.apks` and sign it
+- Connect device in USB debugging
+- Install the app on device
+
+##### Step by Step
+
+Build the app as usual, then click 'Download' button in the EAS Build UI to download the appbundle `.aab` file. Move the file into `apps/daily-questions/` and rename to `dq.aab`.
+
 ```sh
-java -jar bundletool.jar build-apks --bundle=daily-questions-signed.aab --output=daily-questions.apks --mode=universal
-java -jar bundletool.jar install-apks --apks=daily-questions.apks
+cd apps/daily-questions/
+npx eas-cli credentials --platform=android
+# select 'production'
+# select 'Keystore: Manage everything needed to build your project'
+# select 'Download existing keystore'
+# select 'yes' on the question about displaying sensitive information of the android keystore
 ```
+
+This will download the keystore into the current working directory, and the terminal will output:
+
+```txt
+Keystore password: asdf
+Key alias:         asdf==
+Key password:      asdf
+
+Path to Keystore:  @username__daily-questions.jks
+```
+
+Next, back to repository root, download bundletool, then back into the project root:
+
+```sh
+cd ../..
+nx download:bundletool-latest daily-questions
+cd apps/daily-questions
+```
+
+Next, lets unpack into almost installable `.apks` file:
+
+```sh
+KEYSTORE_FILE_NAME='@username__daily-questions.jks' # copy from above
+KEYSTORE_KEY_ALIAS='' # copy from above
+
+java -jar bundletool.jar build-apks --bundle=dq.aab --output=dq.apks --mode=universal --ks=$KEYSTORE_FILE_NAME --ks-key-alias=$KEYSTORE_KEY_ALIAS
+```
+
+It will ask for the keystore password and key password. Enter the password you got from downloading the keystore.
+
+Finally, connect your device and enable USB Debugging. Then run:
+
+```sh
+java -jar bundletool.jar install-apks --apks=dq.apks
+```
+
+If you get an error saying `Error: Device found but not authorized for connecting. Please allow USB debugging on the device.`, then check your device for the authorization popup, accept it, and try again.
 
 ### Local .apk build
 

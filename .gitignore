@@ -5,6 +5,9 @@ dist
 **/dist
 tmp
 /out-tsc
+bundletool.jar
+*.aab
+*.apks
 
 # dependencies
 node_modules
