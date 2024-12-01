@@ -1,5 +1,19 @@
 [
   {
+    "name": "@expo/metro-config",
+    "licenseType": "MIT",
+    "link": "git+https://github.com/expo/expo.git",
+    "installedVersion": "0.18.11",
+    "author": "650 Industries, Inc."
+  },
+  {
+    "name": "@expo/metro-runtime",
+    "licenseType": "MIT",
+    "link": "git+https://github.com/expo/expo.git",
+    "installedVersion": "3.2.3",
+    "author": "650 Industries, Inc."
+  },
+  {
     "name": "@react-native-async-storage/async-storage",
     "licenseType": "MIT",
     "link": "git+https://github.com/react-native-async-storage/async-storage.git",
