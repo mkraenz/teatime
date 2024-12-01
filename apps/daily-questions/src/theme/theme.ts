@@ -1,10 +1,7 @@
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { MD3DarkTheme, MD3LightTheme } from 'react-native-paper';
 
-export type FullTheme = typeof MD3LightTheme &
-  typeof DefaultTheme & {
-    colors: { appbarText: string };
-  };
+export type FullTheme = typeof MD3LightTheme & typeof DefaultTheme;
 
 export enum Color {
   LightBlue = '#00C0FA',
@@ -17,6 +14,7 @@ export enum Color {
   DarkerOrange = '#992F00', // somewhat brown
   Orange = '#AD5A00',
   LightOrange = '#E8AF4B',
+  SemitransparentWhite = 'rgba(231, 224, 236, 0.5)',
 }
 
 export const lightTheme: FullTheme = {
@@ -28,7 +26,8 @@ export const lightTheme: FullTheme = {
     primary: Color.CorporateBlue,
     secondary: Color.Orange,
     tertiary: Color.White,
-    appbarText: Color.White,
+    inversePrimary: Color.Orange,
+    surfaceVariant: Color.SemitransparentWhite,
   },
   fonts: {
     ...DefaultTheme.fonts,
@@ -47,7 +46,7 @@ export const highContrastLightTheme: FullTheme = {
     primary: Color.DarkCorporateBlue,
     secondary: Color.DarkerOrange,
     tertiary: Color.White,
-    appbarText: Color.White,
+    inversePrimary: Color.DarkerOrange,
   },
   fonts: {
     ...DefaultTheme.fonts,
@@ -56,7 +55,7 @@ export const highContrastLightTheme: FullTheme = {
 };
 
 export const darkTheme: FullTheme = {
-  ...DefaultTheme,
+  ...DarkTheme,
   ...MD3DarkTheme,
   roundness: 12,
   colors: {
@@ -65,7 +64,8 @@ export const darkTheme: FullTheme = {
     primary: Color.LightBlue,
     secondary: Color.LightOrange,
     tertiary: Color.Grey,
-    appbarText: Color.White,
+    inversePrimary: Color.LightOrange,
+    surfaceVariant: MD3DarkTheme.colors.backdrop,
   },
   fonts: {
     ...DarkTheme.fonts,

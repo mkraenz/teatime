@@ -18,7 +18,9 @@ const SettingsBaseRow: FC<Props> = ({
   ...props
 }) => {
   const theme = useTheme();
-  const textColor = disabled ? theme.colors.disabled : theme.colors.text;
+  const textColor = disabled
+    ? theme.colors.onSurfaceDisabled
+    : theme.colors.text;
   return (
     <List.Item
       titleStyle={[{ color: textColor }]}

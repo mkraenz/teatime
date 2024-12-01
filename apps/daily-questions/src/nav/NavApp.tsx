@@ -4,7 +4,6 @@ import {
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
 import React, { FC } from 'react';
 import { List } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
@@ -89,8 +88,6 @@ const NavigationApp: FC<PropsFromRedux> = ({
 
   return (
     <NavigationContainer theme={theme}>
-      {/* for some reason, translucent status bar is not automatically enabled on android which caused a too large appbar to be rendered */}
-      <StatusBar translucent />
       <Drawer.Navigator
         initialRouteName={initialRoute}
         screenOptions={{

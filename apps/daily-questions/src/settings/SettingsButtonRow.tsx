@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
 
 const SettingsButtonRow: FC<Props> = ({ value, disabled, ...props }) => {
   const theme = useTheme();
-  const textColor = disabled ? theme.colors.disabled : theme.colors.text;
+  const textColor = disabled
+    ? theme.colors.onSurfaceDisabled
+    : theme.colors.text;
   return (
     <SettingsBaseRow
       accessibilityValue={{ text: value }}

@@ -73,7 +73,6 @@ const Chart: FC<Props> = ({ selectedQuestions, history, width, height }) => {
         propsForDots: {
           r: '6',
           strokeWidth: '2',
-          stroke: theme.colors.placeholder,
         },
       }}
       // hack to render chart up to the max on y axis

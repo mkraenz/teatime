@@ -34,7 +34,7 @@ const VersionAndCopyright = () => {
       >
         <Paragraph>
           Copyright © 2022-2024{' '}
-          <Paragraph style={[styles.link, { color: theme.colors.accent }]}>
+          <Paragraph style={[styles.link, { color: theme.colors.secondary }]}>
             Kraenz{nbsp}Software{nbsp}Development
           </Paragraph>
         </Paragraph>

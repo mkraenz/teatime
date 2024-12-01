@@ -31,7 +31,7 @@ const SettingsSwitchRow: FC<Props> = ({
       right={() => (
         <Switch
           style={styles.switch}
-          onChange={onPress}
+          onChange={() => onPress()}
           value={value}
           // workaround: accessible={false} did not work
           accessibilityElementsHidden
@@ -40,7 +40,7 @@ const SettingsSwitchRow: FC<Props> = ({
         />
       )}
       accessibilityValue={{ text: value ? t('general:on') : t('general:off') }}
-      onPress={onPress}
+      onPress={() => onPress()}
       disabled={disabled}
       {...props}
     />

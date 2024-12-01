@@ -13,7 +13,9 @@ interface Props {
 
 const WarningIcon: FC = () => {
   const theme = useTheme();
-  return <FontAwesome name={'warning'} size={24} color={theme.colors.accent} />;
+  return (
+    <FontAwesome name={'warning'} size={24} color={theme.colors.secondary} />
+  );
 };
 
 const ImportHistoryErrorDialog: FC<Props> = ({ visible, onDismiss }) => {

@@ -32,7 +32,7 @@ const SuccessMessage: FC<Props> = ({
         accessibilityHint: dismissActionA11yHint,
       }}
       style={{
-        backgroundColor: theme.colors.tooltip,
+        backgroundColor: theme.colors.tertiary,
         borderColor: Color.LightGrey,
         borderWidth: 1,
       }}

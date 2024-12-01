@@ -31,7 +31,7 @@ const GithubNote: FC = () => {
     >
       <Paragraph>
         {t('about:githubDescription')}
-        <Paragraph style={[styles.link, { color: theme.colors.accent }]}>
+        <Paragraph style={[styles.link, { color: theme.colors.secondary }]}>
           {t('about:githubLinkText')}
         </Paragraph>
       </Paragraph>
