@@ -17,7 +17,9 @@ const GithubNote: FC = () => {
   const theme = useTheme();
   const { t } = useTranslation();
   const openGithub = () => {
-    Linking.openURL('https://github.com/proSingularity/daily-questions');
+    Linking.openURL(
+      'https://github.com/mkraenz/teatime/tree/main/apps/daily-questions'
+    );
   };
   return (
     <TouchableRipple
