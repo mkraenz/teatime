@@ -17,7 +17,7 @@ Note this feature is experimental. Use at your own risk.
 7. You can now close the app now and open your file manager or file browser app of your choice.
 8. Navigate to the location where you saved the file and do whatever you like with the file.
 
-### JSON File format
+### JSON file format
 
 The following example shows the structure of the exported JSON file. It contains the questions and your answer history.
 
@@ -82,6 +82,6 @@ Note that the following is not valid JSON as it contains comments. Remove the co
 
 Note this feature is experimental. Use at your own risk.
 
-This is similar to the Export feature prescribed above. Follow the instructions above but instead of selecting 'Export to file', select 'Import from file' and select the file you want to import. Then choose the file to import and confirm. On success, the app will show a success message. Double-check your questions or your history. You should now be able to use the app as normal. Congratulations.
+This is similar to the Export feature prescribed above. Follow the instructions above but instead of selecting 'Export to file', select 'Import from file'. Then select the `.json` file you want to import and confirm. The file structure must match the [JSON File Format](#json-file-format). On success, the app will show a success message. Double-check your questions or your history. You should now be able to use the app as normal. Congratulations.
 
 If you run into any issues, please contact us under the email address provided on the Play Store, or create a publicly visible [GitHub issue](https://github.com/mkraenz/teatime/issues). Make sure to **NOT** include any personal data in the issue description though.
