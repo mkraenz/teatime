@@ -45,7 +45,13 @@
           "icon": "./assets/notification-icon.png"
         }
       ],
-      "expo-localization"
+      "expo-localization",
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
+      ]
     ],
     "extra": {
       "eas": {

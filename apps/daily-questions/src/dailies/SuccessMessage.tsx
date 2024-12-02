@@ -43,10 +43,7 @@ const SuccessMessage: FC<Props> = ({
           size={20}
           color={theme.colors.primary}
         />
-        {/* TODO #18 color */}
-        <Text style={{ color: theme.dark ? theme.colors.primary : undefined }}>
-          {text}
-        </Text>
+        <Text>{text}</Text>
       </View>
     </Snackbar>
   );

@@ -11,6 +11,7 @@ import HighContrastModeSwitch from './HighContrastModeSwitch';
 import ExportHistory from './import-history/ExportHistory';
 import ExportHistoryFileSystem from './import-history/ExportHistoryFileSystem';
 import ImportHistory from './import-history/ImportHistory';
+import ImportHistoryFileSystem from './import-history/ImportHistoryFileSystem';
 import LanguageSelect from './LanguageSelect';
 import NotificationSwitch from './NotificationSwitch';
 import NotificationTimePicker from './NotificationTimePicker';
@@ -59,8 +60,9 @@ const SettingsScreen = () => {
           {t('settings:sectionAdvanced')}
         </List.Subheader>
         <ExportHistory />
-        <ExportHistoryFileSystem />
         <ImportHistory />
+        <ExportHistoryFileSystem />
+        <ImportHistoryFileSystem />
         <DevModeSwitch />
       </List.Section>
     </ScrollView>
