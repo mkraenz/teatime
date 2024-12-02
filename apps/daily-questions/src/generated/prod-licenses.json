@@ -84,6 +84,20 @@
     "author": "650 Industries, Inc."
   },
   {
+    "name": "expo-document-picker",
+    "licenseType": "MIT",
+    "link": "git+https://github.com/expo/expo.git",
+    "installedVersion": "12.0.2",
+    "author": "650 Industries, Inc."
+  },
+  {
+    "name": "expo-file-system",
+    "licenseType": "MIT",
+    "link": "git+https://github.com/expo/expo.git",
+    "installedVersion": "17.0.1",
+    "author": "650 Industries, Inc."
+  },
+  {
     "name": "expo-localization",
     "licenseType": "MIT",
     "link": "git+https://github.com/expo/expo.git",
