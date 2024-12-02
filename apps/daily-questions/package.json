@@ -61,7 +61,6 @@
     "fuse.js": "*",
     "react-native-chart-kit": "*",
     "expo-file-system": "*",
-    "expo-dev-client": "*",
     "expo-document-picker": "*"
   },
   "scripts": {
