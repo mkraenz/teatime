@@ -43,25 +43,30 @@ const ExportHistoryFileSystem: FC<PropsFromRedux> = ({
       const content = JSON.stringify({ questions, history });
       const filename = getFilename();
 
-      if (Platform.OS !== 'android') {
+      if (Platform.OS !== 'android')
         return Alert.alert(`Not implemented on ${Platform.OS}`);
-      }
 
       const permissions =
         await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
-      if (permissions.granted) {
-        const uri = await FileSystem.StorageAccessFramework.createFileAsync(
-          permissions.directoryUri,
-          filename,
-          mimeType
-        );
-        await FileSystem.writeAsStringAsync(uri, content, {
-          encoding: FileSystem.EncodingType.UTF8,
-        });
-        Alert.alert(`success. File saved to ${uri}`);
-      }
+
+      if (!permissions.granted)
+        return Alert.alert(`Error. Directory access permissions denied.`);
+
+      const uri = await FileSystem.StorageAccessFramework.createFileAsync(
+        permissions.directoryUri,
+        filename,
+        mimeType
+      );
+      await FileSystem.writeAsStringAsync(uri, content, {
+        encoding: FileSystem.EncodingType.UTF8,
+      });
+      Alert.alert(`Success. File saved to ${uri}`);
     } catch (error) {
       console.error(error);
+      const message = error instanceof Error ? error.message : 'no message';
+      Alert.alert(
+        `An unknown error occured. Please try again. Error message: ${message}`
+      );
     }
   };
 
