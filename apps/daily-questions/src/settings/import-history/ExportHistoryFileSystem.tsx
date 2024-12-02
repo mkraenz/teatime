@@ -31,7 +31,11 @@ const getFilename = () => {
   return `daily-questions-export-${nowString}.json`;
 };
 
-const ExportHistory: FC<PropsFromRedux> = ({ history, questions, devMode }) => {
+const ExportHistoryFileSystem: FC<PropsFromRedux> = ({
+  history,
+  questions,
+  devMode,
+}) => {
   const { t } = useTranslation();
   const handlePress = async () => {
     try {
@@ -73,4 +77,4 @@ const ExportHistory: FC<PropsFromRedux> = ({ history, questions, devMode }) => {
   );
 };
 
-export default connector(ExportHistory);
+export default connector(ExportHistoryFileSystem);
