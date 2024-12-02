@@ -110,7 +110,7 @@ const EditQuestionsScreen: FC<
       </Button>
       <Button
         mode="contained"
-        color={theme.colors.error}
+        buttonColor={theme.colors.error}
         onPress={() => {
           toggleDialogOpen();
           showArchiveConfirmation(true);

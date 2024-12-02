@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { Button, Paragraph, Title } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
-import { useTheme } from '../theme';
 import { HistoricEntryParams } from './history-nav';
 
 const styles = StyleSheet.create({
@@ -40,7 +39,6 @@ const PointsAnswer: FC<{
   title?: string;
   answer: string | number;
 }> = ({ title, answer }) => {
-  const theme = useTheme();
   const { t } = useTranslation();
   return (
     <View
@@ -54,12 +52,7 @@ const PointsAnswer: FC<{
       <Paragraph style={styles.answerTitle}>
         {title ?? t('history:questionNotFound')}
       </Paragraph>
-      <Button
-        mode="outlined"
-        color={theme.colors.text}
-        accessibilityRole="text"
-        accessible={false}
-      >
+      <Button mode="outlined" accessibilityRole="text" accessible={false}>
         {answer}
       </Button>
     </View>
