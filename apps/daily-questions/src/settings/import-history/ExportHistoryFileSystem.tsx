@@ -2,7 +2,7 @@ import * as FileSystem from 'expo-file-system';
 import React, { FC } from 'react';
 import { Alert, Platform } from 'react-native';
 import { connect, ConnectedProps } from 'react-redux';
-import { HiddenFromNonDevMode } from '../../common';
+import { Hidden } from '../../common';
 import { History } from '../../history/history.slice';
 import { useTranslation } from '../../localization/useTranslations';
 import { selectQuestions } from '../../questions/questions.selectors';
@@ -13,6 +13,7 @@ import SettingsButtonRow from '../SettingsButtonRow';
 const mapState = (state: RootState) => ({
   questions: selectQuestions(state),
   history: state.history.history,
+  devMode: state.settings.devMode,
 });
 const connector = connect(mapState);
 type PropsFromRedux = ConnectedProps<typeof connector>;
@@ -30,7 +31,7 @@ const getFilename = () => {
   return `daily-questions-export-${nowString}.json`;
 };
 
-const ExportHistory: FC<PropsFromRedux> = ({ history, questions }) => {
+const ExportHistory: FC<PropsFromRedux> = ({ history, questions, devMode }) => {
   const { t } = useTranslation();
   const handlePress = async () => {
     try {
@@ -61,14 +62,14 @@ const ExportHistory: FC<PropsFromRedux> = ({ history, questions }) => {
   };
 
   return (
-    <HiddenFromNonDevMode>
+    <Hidden hidden={!devMode}>
       <SettingsButtonRow
         title={t('settings:exportHistoryExperimental')}
         accessibilityLabel={t('settings:exportHistoryExperimental')}
         accessibilityHint={t('settings:exportHistoryExperimental')}
         onPress={handlePress}
       />
-    </HiddenFromNonDevMode>
+    </Hidden>
   );
 };
 
