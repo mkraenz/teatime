@@ -6,9 +6,9 @@ import { useTranslation } from '../localization/useTranslations';
 import SettingsButtonRow from './SettingsButtonRow';
 
 const langCodeToLanguage = {
-  en: 'English',
-  de: 'Deutsch',
-  ja: '日本語',
+  en: '🇬🇧 English',
+  de: '🇩🇪 Deutsch',
+  ja: '🇯🇵 日本語',
 };
 
 const mapDispatch = { toggleDialogOpen };
@@ -50,9 +50,18 @@ const LanguageSelect: FC<PropsFromRedux> = ({ toggleDialogOpen }) => {
         />
       }
     >
-      <Menu.Item title={'🇬🇧 English'} onPress={() => changeLanguage('en')} />
-      <Menu.Item title={'🇩🇪 Deutsch'} onPress={() => changeLanguage('de')} />
-      <Menu.Item title={'🇯🇵 日本語'} onPress={() => changeLanguage('ja')} />
+      <Menu.Item
+        title={langCodeToLanguage.en}
+        onPress={() => changeLanguage('en')}
+      />
+      <Menu.Item
+        title={langCodeToLanguage.de}
+        onPress={() => changeLanguage('de')}
+      />
+      <Menu.Item
+        title={langCodeToLanguage.ja}
+        onPress={() => changeLanguage('ja')}
+      />
     </Menu>
   );
 };
