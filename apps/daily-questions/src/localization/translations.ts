@@ -97,6 +97,9 @@ const en = {
       'This will enable experimental features. This may result in permanent (!) damage to your app data. Do you really want to enable development mode?',
     exportHistory: 'Export questions & history',
     exportHistoryHint: 'Open a share dialog for exporting',
+    exportHistoryExperimental: '(Experimental) Export to file',
+    exportHistoryHintExperimental:
+      'Experimental export squestions & history to file',
     importHistory: 'Import questions & history',
     importHistoryHint:
       'Opens a dialog to confirm importing history and questions from clipboard',
@@ -363,6 +366,9 @@ export const translations: Translations = {
       exportHistory: 'Verlauf & Fragen exportieren',
       exportHistoryHint:
         'Öffnet ein Dialogfeld zum Teilen mit anderer App für das Exportieren',
+      exportHistoryExperimental: '(Experimental) Exportiere zu Datei',
+      exportHistoryHintExperimental:
+        'Experimentaler Export von Fragen und Verlauf zu Datei',
       importHistory: 'Verlauf & Fragen importieren',
       importHistoryHint:
         'Öffnet ein Dialogfeld zum Bestätigen des Imports von Verlauf und Fragen von der Zwischenablage',
@@ -608,6 +614,10 @@ export const translations: Translations = {
       exportHistory: '履歴と質問をエクスポート',
       exportHistoryHint:
         '履歴と質問をエクスポートするための共有ダイアログ・ボックスを開く',
+
+      exportHistoryExperimental: '(実験的) ファイルにエクスポート',
+      exportHistoryHintExperimental:
+        '質問と履歴をファイルにエクスポートするための実験的な機能を開く',
       importHistory: '履歴と質問をインポート',
       importHistoryHint:
         '歴史と質問をクリップボードからインポートするための確認ダイアログボックスを開く',

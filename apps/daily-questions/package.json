@@ -59,7 +59,9 @@
     "react-native-gesture-handler": "*",
     "expo-constants": "*",
     "fuse.js": "*",
-    "react-native-chart-kit": "*"
+    "react-native-chart-kit": "*",
+    "expo-file-system": "*",
+    "expo-dev-client": "*"
   },
   "scripts": {
     "download:bundletool-latest": "wget $(curl -s https://api.github.com/repos/google/bundletool/releases/latest | jq -r '.assets[] | select(.state | contains (\"uploaded\")) | .browser_download_url') -O bundletool.jar && echo \"Downloaded latest bundletool.jar to $(pwd)/bundletool.jar\"",
