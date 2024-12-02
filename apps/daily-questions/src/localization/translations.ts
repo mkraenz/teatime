@@ -103,6 +103,9 @@ const en = {
     importHistory: 'Import questions & history',
     importHistoryHint:
       'Opens a dialog to confirm importing history and questions from clipboard',
+    importHistoryExperimental: '(Experimental) Import from file',
+    importHistoryHintExperimental:
+      'Opens a dialog to confirm importing history and questions from file',
     importHistoryDialogTitle: 'Confirm Import',
     importHistoryDialogDescription:
       'Warning! This will permanently overwrite your current history and questions. Do you really want to import history and questions from clipboard?',
@@ -366,12 +369,15 @@ export const translations: Translations = {
       exportHistory: 'Verlauf & Fragen exportieren',
       exportHistoryHint:
         'Öffnet ein Dialogfeld zum Teilen mit anderer App für das Exportieren',
-      exportHistoryExperimental: '(Experimental) Exportiere zu Datei',
+      exportHistoryExperimental: '(Experimentell) Exportiere zu Datei',
       exportHistoryHintExperimental:
         'Experimentaler Export von Fragen und Verlauf zu Datei',
       importHistory: 'Verlauf & Fragen importieren',
       importHistoryHint:
         'Öffnet ein Dialogfeld zum Bestätigen des Imports von Verlauf und Fragen von der Zwischenablage',
+      importHistoryExperimental: '(Experimentell) Import von Datei',
+      importHistoryHintExperimental:
+        'Öffnet ein Dialogfeld zum Bestätigen des Imports von Verlauf und Fragen vom Dateisystem',
       importHistoryDialogTitle: 'Import bestätigen',
       importHistoryDialogDescription:
         'Achtung! Diese Aktion überschreibt deinen aktuellen Verlauf und deine Fragen dauerhaft. Möchtest du wirklich mit dem Import eines neuen Verlaufs von der Zwischenablage fortfahren?',
@@ -621,6 +627,9 @@ export const translations: Translations = {
       importHistory: '履歴と質問をインポート',
       importHistoryHint:
         '歴史と質問をクリップボードからインポートするための確認ダイアログボックスを開く',
+      importHistoryExperimental: '(実験的) ファイルからインポート',
+      importHistoryHintExperimental:
+        '歴史と質問をファイルからインポートするための確認ダイアログボックスを開く',
       importHistoryDialogTitle: 'インポートの確認',
       importHistoryDialogDescription:
         '警告! この操作は現在の履歴と質問を上書きします。本当にクリップボードからの履歴をインポートしますか?',

@@ -52,7 +52,6 @@ const HistoryAppbar: FC<DrawerHeaderProps & PropsFromRedux> = (props) => {
           accessibilityRole="search"
           accessibilityValue={{ text: searchQuery }}
           clearAccessibilityLabel={t('history:clearSearchA11yLabel')}
-          // TODO can we improve this somehow for responsiveness?
           style={{ maxWidth: '80%' }}
           onIconPress={hideSearch}
           onChangeText={onChangeSearch}
