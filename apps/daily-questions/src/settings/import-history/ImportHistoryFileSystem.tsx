@@ -18,7 +18,6 @@ import ImportHistoryErrorDialog from './ImportHistoryErrorDialog';
 import ImportHistorySuccessMessage from './ImportHistorySuccessMessage';
 
 const mapState = (state: RootState) => ({
-  history: state.history.history,
   devMode: state.settings.devMode,
 });
 const mapDispatch = {

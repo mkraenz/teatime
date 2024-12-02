@@ -5,7 +5,6 @@ import { toggleDialogOpen } from '../../accessibility/accessibility.slice';
 import { setHistory } from '../../history/history.slice';
 import { useTranslation } from '../../localization/useTranslations';
 import { setQuestions } from '../../questions/questions.slice';
-import { RootState } from '../../store';
 import SettingsButtonRow from '../SettingsButtonRow';
 import { ExportedHistoryAndQuestions } from './ExportHistory';
 import { validateImportedHistoryString } from './import-history-validation';
@@ -14,15 +13,12 @@ import ImportHistoryConfirmationDialog from './ImportHistoryConfirmationDialog';
 import ImportHistoryErrorDialog from './ImportHistoryErrorDialog';
 import ImportHistorySuccessMessage from './ImportHistorySuccessMessage';
 
-const mapState = (state: RootState) => ({
-  history: state.history.history,
-});
 const mapDispatch = {
   setHistory,
   setQuestions,
   toggleDialogOpen,
 };
-const connector = connect(mapState, mapDispatch);
+const connector = connect(null, mapDispatch);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const ImportHistory: FC<PropsFromRedux> = ({
