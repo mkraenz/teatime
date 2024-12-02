@@ -67,6 +67,8 @@ const ImportHistoryFileSystem: FC<PropsFromRedux> = ({
       }
       showConfirmation(false);
     } catch (error) {
+      console.error(error);
+      showErrorDialog(true);
     } finally {
       toggleDialogOpen();
     }
