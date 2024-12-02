@@ -44,7 +44,7 @@ const ExportHistoryFileSystem: FC<PropsFromRedux> = ({
       const filename = getFilename();
 
       if (Platform.OS !== 'android') {
-        Alert.alert(`Not implemented on ${Platform.OS}`);
+        return Alert.alert(`Not implemented on ${Platform.OS}`);
       }
 
       const permissions =
