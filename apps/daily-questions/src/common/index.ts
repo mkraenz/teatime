@@ -1,2 +1,2 @@
 export { DateTimePickerModal } from './components/DateTimePickerModal';
-export { default as HiddenFromNonDevMode } from './components/HiddenFromNonDevMode';
+export { Hidden } from './components/Hidden';
