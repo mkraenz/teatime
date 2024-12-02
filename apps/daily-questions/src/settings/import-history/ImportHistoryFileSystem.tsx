@@ -41,9 +41,8 @@ const ImportHistoryFileSystem: FC<PropsFromRedux> = ({
 
   const handleConfirm = async () => {
     try {
-      // const pastedText = await Clipboard.getStringAsync();
       const pick = await DocumentPicker.getDocumentAsync({
-        // type: 'application/json',
+        // type: 'application/json', // for some reason I was not able to pick the previously exported file when setting this.
         copyToCacheDirectory: true,
       });
 
