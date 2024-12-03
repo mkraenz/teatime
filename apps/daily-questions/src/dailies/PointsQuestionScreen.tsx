@@ -1,7 +1,11 @@
 import { Button, Paragraph, TextInput, Title } from '@teatime/rnp-components';
 import { inRange } from 'lodash';
-import React, { FC, useEffect, useState } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import {
+  ScrollView,
+  StyleSheet,
+  type TextInput as RNTextInput,
+} from 'react-native';
 import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from '../localization/useTranslations';
 import { RootState } from '../store';
@@ -66,9 +70,13 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
 }) => {
   const { t } = useTranslation();
   const [answerInput, setAnswerInput] = useState(answer?.toString() ?? '');
+  const textInput = useRef<RNTextInput | null>(null);
   useEffect(() => {
     // since we are using the same screen for different questions, we need to reset the input field when the question changes
     setAnswerInput(answer?.toString() ?? '');
+    const shouldFocus =
+      textInput.current && !textInput.current.isFocused() && autofocusEnabled;
+    if (shouldFocus) textInput.current?.focus();
   }, [setAnswerInput, id]);
 
   const handleChangeText = (text: string | undefined): void => {
@@ -90,6 +98,7 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
       <Title style={styles.title}>{title}</Title>
       <Paragraph>{questionLong}</Paragraph>
       <TextInput
+        ref={textInput}
         label={title}
         keyboardType="numeric"
         onChangeText={handleChangeText}
