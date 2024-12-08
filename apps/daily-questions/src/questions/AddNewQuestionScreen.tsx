@@ -1,8 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
-import { Button } from '@teatime/rnp-components';
+import { Button, TextInput } from '@teatime/rnp-components';
 import React, { FC, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { TextInput } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from '../localization/useTranslations';
 import { RootState } from '../store';
