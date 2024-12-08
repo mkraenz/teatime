@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react-native';
-
 import Checkbox from './Checkbox';
 
 describe('Checkbox', () => {
