@@ -1,22 +1,14 @@
-import { FontAwesome } from '@expo/vector-icons';
 import { Button, Dialog, Paragraph, Portal } from '@teatime/rnp-components';
 import * as React from 'react';
 import { FC } from 'react';
 import { View } from 'react-native';
+import { WarningIcon } from '../../common/components/WarningIcon';
 import { useTranslation } from '../../localization/useTranslations';
-import { useTheme } from '../../theme';
 
 interface Props {
   visible: boolean;
   onDismiss: () => void;
 }
-
-const WarningIcon: FC = () => {
-  const theme = useTheme();
-  return (
-    <FontAwesome name={'warning'} size={24} color={theme.colors.secondary} />
-  );
-};
 
 const ImportHistoryErrorDialog: FC<Props> = ({ visible, onDismiss }) => {
   const { t } = useTranslation();

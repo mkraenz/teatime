@@ -1,5 +1,4 @@
-import { FontAwesome } from '@expo/vector-icons';
-import { Snackbar, Text } from '@teatime/rnp-components';
+import { Icon, Snackbar, Text } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { View } from 'react-native';
 import { useTheme } from '../theme';
@@ -38,11 +37,7 @@ const SuccessMessage: FC<Props> = ({
       }}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-        <FontAwesome
-          name="info-circle"
-          size={20}
-          color={theme.colors.primary}
-        />
+        <Icon name="info-circle" size={20} color={theme.colors.primary} />
         <Text>{text}</Text>
       </View>
     </Snackbar>
