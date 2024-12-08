@@ -23,6 +23,7 @@ module.exports = [
             'TouchableRipple',
             'Portal',
             'Appbar',
+            'ActivityIndicator',
           ],
           message: 'Please import from @teatime/rnp-components instead.',
         },
