@@ -27,6 +27,8 @@ module.exports = [
             'List',
             'Divider',
             'Dialog',
+            'IconButton',
+            'Searchbar',
           ],
           message: 'Please import from @teatime/rnp-components instead.',
         },
