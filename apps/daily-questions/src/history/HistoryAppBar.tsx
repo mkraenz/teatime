@@ -1,9 +1,9 @@
 import { DrawerHeaderProps } from '@react-navigation/drawer';
+import { Appbar } from '@teatime/rnp-components';
 import React, { FC, useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import BaseAppBar from '../BaseAppBar';
-import AppbarAction from '../common/components/AppbarAction';
 import { useTranslation } from '../localization/useTranslations';
 import { RootState } from '../store';
 import { setSearchQuery } from './unpersisted-history.slice';
@@ -34,7 +34,7 @@ const HistoryAppbar: FC<DrawerHeaderProps & PropsFromRedux> = (props) => {
   return (
     <BaseAppBar {...props}>
       {!searchShown && (
-        <AppbarAction
+        <Appbar.Action
           icon="magnify"
           onPress={toggleSearch}
           accessibilityRole="button"
