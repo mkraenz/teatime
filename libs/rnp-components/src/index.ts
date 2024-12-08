@@ -1,4 +1,6 @@
 
+export * from './lib/snackbar/Snackbar';
+
 export * from './lib/searchbar/Searchbar';
 
 export * from './lib/icon-button/IconButton';
