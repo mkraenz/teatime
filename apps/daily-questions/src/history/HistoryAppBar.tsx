@@ -1,7 +1,6 @@
 import { DrawerHeaderProps } from '@react-navigation/drawer';
-import { Appbar } from '@teatime/rnp-components';
+import { Appbar, Searchbar } from '@teatime/rnp-components';
 import React, { FC, useState } from 'react';
-import { Searchbar } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import BaseAppBar from '../BaseAppBar';
 import { useTranslation } from '../localization/useTranslations';
