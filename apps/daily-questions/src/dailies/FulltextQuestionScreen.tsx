@@ -1,6 +1,7 @@
+import { Button } from '@teatime/rnp-components';
 import React, { FC, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button, Paragraph, TextInput, Title } from 'react-native-paper';
+import { Paragraph, TextInput, Title } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from '../localization/useTranslations';
 import { RootState } from '../store';

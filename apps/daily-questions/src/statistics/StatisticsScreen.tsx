@@ -1,6 +1,7 @@
+import { Button } from '@teatime/rnp-components';
 import React, { FC, useEffect, useState } from 'react';
 import { Dimensions, ScrollView, View } from 'react-native';
-import { Button, Paragraph, useTheme } from 'react-native-paper';
+import { Paragraph, useTheme } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { clearHistory, mockHistory } from '../history/history.slice';
 import { useTranslation } from '../localization/useTranslations';
