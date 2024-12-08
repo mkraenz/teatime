@@ -1,5 +1,5 @@
+import { Portal } from '@teatime/rnp-components';
 import React, { FC } from 'react';
-import { Portal } from 'react-native-paper';
 import SuccessMessage from '../../dailies/SuccessMessage';
 import { useTranslation } from '../../localization/useTranslations';
 
