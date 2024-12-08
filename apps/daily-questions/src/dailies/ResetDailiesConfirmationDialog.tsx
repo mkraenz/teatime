@@ -1,8 +1,8 @@
-import { Button, Paragraph } from '@teatime/rnp-components';
+import { Button, Paragraph, Portal } from '@teatime/rnp-components';
 import * as React from 'react';
 import { FC } from 'react';
 import { View } from 'react-native';
-import { Dialog, Portal } from 'react-native-paper';
+import { Dialog } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 
 interface Props {

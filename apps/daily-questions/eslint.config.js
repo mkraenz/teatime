@@ -21,6 +21,7 @@ module.exports = [
             'useTheme',
             'TextInput',
             'TouchableRipple',
+            'Portal',
           ],
           message: 'Please import from @teatime/rnp-components instead.',
         },
