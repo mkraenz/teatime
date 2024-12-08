@@ -1,7 +1,8 @@
 import { FontAwesome } from '@expo/vector-icons';
+import { Text } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { View } from 'react-native';
-import { Snackbar, Text } from 'react-native-paper';
+import { Snackbar } from 'react-native-paper';
 import { useTheme } from '../theme';
 import { Color } from '../theme/theme';
 

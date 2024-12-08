@@ -1,6 +1,6 @@
+import { Text } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { AccessibilityRole, StyleSheet } from 'react-native';
-import { Text } from 'react-native-paper';
 import { useTheme } from '../theme';
 import SettingsBaseRow from './SettingsBaseRow';
 
