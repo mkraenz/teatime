@@ -44,4 +44,4 @@ jobs:
       # - run: yarn nx affected -t lint test build e2e
 
       # Note: Debugging guide in README.md
-      - run: yarn nx affected -t lint test
+      - run: yarn nx affected -t lint test tsc
