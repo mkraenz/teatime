@@ -4,7 +4,7 @@ import { debounce } from 'lodash';
 import moment from 'moment';
 import React, { FC, useState } from 'react';
 import { ScrollView, Share, StyleSheet, View } from 'react-native';
-import { TouchableRipple } from 'react-native-paper';
+import { Portal, TouchableRipple } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { getDailiesDateOnly, submitDailies } from '../history/history.slice';
 import { useTranslation } from '../localization/useTranslations';
@@ -269,15 +269,17 @@ const SummaryScreen: FC<PropsFromRedux> = ({
           handleSharePressed={handleSharePressed}
         />
       )}
-      <SuccessMessage
-        visible={successMessageShown}
-        onDismiss={() => showSuccessMessage(false)}
-        text={t('dailies:confirmedSuccessfully')}
-        dismissActionLabel={t('dailies:ok')}
-        dismissActionA11yHint={t(
-          'dailies:confirmedSuccessfullySnackbarDismissActionA11yHint'
-        )}
-      />
+      <Portal>
+        <SuccessMessage
+          visible={successMessageShown}
+          onDismiss={() => showSuccessMessage(false)}
+          text={t('dailies:confirmedSuccessfully')}
+          dismissActionLabel={t('dailies:ok')}
+          dismissActionA11yHint={t(
+            'dailies:confirmedSuccessfullySnackbarDismissActionA11yHint'
+          )}
+        />
+      </Portal>
     </ScrollView>
   );
 };
