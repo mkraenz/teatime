@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { Button } from '@teatime/rnp-components';
+import { Button, List } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import {
   NestableDraggableFlatList,
@@ -7,7 +7,6 @@ import {
   RenderItemParams,
   ScaleDecorator,
 } from 'react-native-draggable-flatlist';
-import { List } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from '../localization/useTranslations';
 import { RootState } from '../store';

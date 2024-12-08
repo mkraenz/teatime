@@ -4,8 +4,8 @@ import {
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import { List } from '@teatime/rnp-components';
 import React, { FC } from 'react';
-import { List } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import AboutNav from '../about/AboutNav';
 import BaseAppBar from '../BaseAppBar';
