@@ -1,4 +1,6 @@
 
+export * from './lib/checkbox/Checkbox';
+
 export * from './lib/switch/Switch';
 
 export * from './lib/snackbar/Snackbar';
