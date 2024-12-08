@@ -47,6 +47,8 @@ const en = {
     timeSpanSelectButtonA11yLabel:
       'Currently selected time span of statistic charts: {{ timeSpan }}',
     timeSpanSelectButtonA11yHint: 'Opens time span selection menu',
+    warningActionButton: 'Display all',
+    warningDescription: 'Please select at least one question to display.',
   },
   settings: {
     sectionGeneral: 'General',
@@ -316,6 +318,8 @@ export const translations: Translations = {
       timeSpanSelectButtonA11yLabel:
         'Ausgewählter Zeitraum für Statistiken: {{ timeSpan }}',
       timeSpanSelectButtonA11yHint: 'Zeitraumauswahlmenü öffnen',
+      warningActionButton: 'Alle anzeigen',
+      warningDescription: 'Bitte wähle mindestens eine anzuzeigende Frage aus.',
     },
     settings: {
       sectionGeneral: 'Allgemein',
@@ -569,6 +573,8 @@ export const translations: Translations = {
       timeSpanSelectMenuA11yLabel: '期間選択メニューを閉まる',
       timeSpanSelectButtonA11yLabel: '選択された系統期間: {{ timeSpan }}',
       timeSpanSelectButtonA11yHint: '期間選択メニューを開く',
+      warningActionButton: '全てを表示',
+      warningDescription: '表示する質問を選択してください。',
     },
     settings: {
       sectionGeneral: '全般設定',
