@@ -1,4 +1,5 @@
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
+// eslint-disable-next-line no-restricted-imports
 import { MD3DarkTheme, MD3LightTheme } from 'react-native-paper';
 
 export type FullTheme = typeof MD3LightTheme & typeof DefaultTheme;
