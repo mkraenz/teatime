@@ -1,4 +1,6 @@
 
+export * from './lib/appbar/Appbar';
+
 export * from './lib/portal/Portal';
 
 export * from './lib/touchable-ripple/TouchableRipple';
