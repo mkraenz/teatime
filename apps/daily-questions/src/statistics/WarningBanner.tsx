@@ -1,7 +1,7 @@
-import { FontAwesome } from '@expo/vector-icons';
 import { Banner } from '@teatime/rnp-components';
 import * as React from 'react';
 import { FC } from 'react';
+import { WarningIcon } from '../common/components/WarningIcon';
 import { useTranslation } from '../localization/useTranslations';
 import { useTheme } from '../theme';
 
@@ -22,9 +22,7 @@ const WarningBanner: FC<Props> = ({ visible, onPress }) => {
           onPress,
         },
       ]}
-      icon={({ size }) => (
-        <FontAwesome name={'warning'} size={size} color={theme.colors.error} />
-      )}
+      icon={WarningIcon}
     >
       {t('statistics:warningDescription')}
     </Banner>
