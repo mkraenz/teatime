@@ -1,4 +1,8 @@
 
+export * from './lib/searchbar/Searchbar';
+
+export * from './lib/icon-button/IconButton';
+
 export * from './lib/dialog/Dialog';
 
 export * from './lib/list/List';
