@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useWindowDimensions } from 'react-native';
 import { Menu } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { toggleDialogOpen } from '../accessibility/accessibility.slice';
@@ -19,6 +20,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 const LanguageSelect: FC<PropsFromRedux> = ({ toggleDialogOpen }) => {
   const [visible, setVisible] = React.useState(false);
   const { i18n, t } = useTranslation();
+  const { width } = useWindowDimensions();
 
   const openMenu = () => {
     toggleDialogOpen();
@@ -38,6 +40,7 @@ const LanguageSelect: FC<PropsFromRedux> = ({ toggleDialogOpen }) => {
   return (
     <Menu
       visible={visible}
+      anchorPosition="bottom"
       onDismiss={closeMenu}
       overlayAccessibilityLabel={t('general:cancelDialogA11yHint')}
       anchor={
@@ -50,18 +53,14 @@ const LanguageSelect: FC<PropsFromRedux> = ({ toggleDialogOpen }) => {
         />
       }
     >
-      <Menu.Item
-        title={langCodeToLanguage.en}
-        onPress={() => changeLanguage('en')}
-      />
-      <Menu.Item
-        title={langCodeToLanguage.de}
-        onPress={() => changeLanguage('de')}
-      />
-      <Menu.Item
-        title={langCodeToLanguage.ja}
-        onPress={() => changeLanguage('ja')}
-      />
+      {Object.keys(langCodeToLanguage).map((lang) => (
+        <Menu.Item
+          key={lang}
+          title={langCodeToLanguage[lang as keyof typeof langCodeToLanguage]}
+          onPress={() => changeLanguage(lang)}
+          style={{ width }}
+        />
+      ))}
     </Menu>
   );
 };
