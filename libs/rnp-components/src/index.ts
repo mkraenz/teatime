@@ -1,4 +1,6 @@
 
+export * from './lib/spinner/LoadingSpinner';
+
 export * from './lib/appbar/Appbar';
 
 export * from './lib/portal/Portal';
