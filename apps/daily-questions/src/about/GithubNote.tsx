@@ -1,6 +1,7 @@
+import { Paragraph } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { Linking, StyleSheet } from 'react-native';
-import { Paragraph, TouchableRipple } from 'react-native-paper';
+import { TouchableRipple } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import { useTheme } from '../theme';
 

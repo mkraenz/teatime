@@ -1,8 +1,7 @@
-import { Button } from '@teatime/rnp-components';
+import { Button, Paragraph, Title } from '@teatime/rnp-components';
 import { isInteger, isString } from 'lodash';
 import React, { FC } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
-import { Paragraph, Title } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import { HistoricEntryParams } from './history-nav';
 

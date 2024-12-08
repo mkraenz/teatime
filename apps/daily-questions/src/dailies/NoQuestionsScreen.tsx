@@ -1,8 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
-import { Button } from '@teatime/rnp-components';
+import { Button, Paragraph } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Paragraph } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import { GlobalDrawerNavigationProp } from '../nav/nav.types';
 

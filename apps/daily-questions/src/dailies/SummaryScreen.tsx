@@ -1,10 +1,10 @@
-import { Button } from '@teatime/rnp-components';
+import { Button, Paragraph, Title } from '@teatime/rnp-components';
 import * as Notifications from 'expo-notifications';
 import { debounce } from 'lodash';
 import moment from 'moment';
 import React, { FC, useState } from 'react';
 import { ScrollView, Share, StyleSheet, View } from 'react-native';
-import { Paragraph, Title, TouchableRipple } from 'react-native-paper';
+import { TouchableRipple } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { getDailiesDateOnly, submitDailies } from '../history/history.slice';
 import { useTranslation } from '../localization/useTranslations';
