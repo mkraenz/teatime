@@ -1,8 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
+import { Divider, List } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList } from 'react-native';
-import { Divider, List } from 'react-native-paper';
 import licenses from '../generated/prod-licenses.json';
 import type { AboutNavigationProp, LibraryInfo } from './about-nav';
 

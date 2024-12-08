@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
+import { Divider, List } from '@teatime/rnp-components';
 import Fuse from 'fuse.js';
 import { isEmpty } from 'lodash';
 import React, { FC } from 'react';
 import { FlatList } from 'react-native';
-import { Divider, List } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from '../localization/useTranslations';
 import { Question } from '../questions/questions.slice';
