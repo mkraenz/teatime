@@ -1,3 +1,4 @@
+export * from './lib/icons/Icon';
 export * from './lib/appbar/Appbar';
 export * from './lib/banner/Banner';
 export * from './lib/button/Button';
