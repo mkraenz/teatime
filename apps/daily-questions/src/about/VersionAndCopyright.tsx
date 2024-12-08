@@ -1,8 +1,7 @@
-import { Paragraph } from '@teatime/rnp-components';
+import { Paragraph, TouchableRipple } from '@teatime/rnp-components';
 import Constants from 'expo-constants';
 import React from 'react';
 import { Linking, StyleSheet, View } from 'react-native';
-import { TouchableRipple } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import { useTheme } from '../theme';
 
