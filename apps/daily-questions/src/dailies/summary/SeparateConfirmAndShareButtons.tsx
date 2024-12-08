@@ -1,6 +1,6 @@
+import { Button } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
 import { useTranslation } from '../../localization/useTranslations';
 
 const styles = StyleSheet.create({

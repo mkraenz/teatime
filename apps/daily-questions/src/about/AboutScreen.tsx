@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
+import { Button } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { Linking, StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import { AboutNavigationProp } from './about-nav';
 import GithubNote from './GithubNote';

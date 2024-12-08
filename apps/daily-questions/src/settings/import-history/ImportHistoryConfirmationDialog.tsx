@@ -1,14 +1,9 @@
 import { FontAwesome } from '@expo/vector-icons';
+import { Button } from '@teatime/rnp-components';
 import * as React from 'react';
 import { FC } from 'react';
 import { View } from 'react-native';
-import {
-  Button,
-  Dialog,
-  Paragraph,
-  Portal,
-  useTheme,
-} from 'react-native-paper';
+import { Dialog, Paragraph, Portal, useTheme } from 'react-native-paper';
 import { useTranslation } from '../../localization/useTranslations';
 
 interface Props {
