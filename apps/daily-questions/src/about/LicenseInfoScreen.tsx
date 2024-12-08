@@ -1,6 +1,6 @@
+import { Paragraph, Title } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Paragraph, Title } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import { LibraryInfo } from './about-nav';
 
