@@ -1,4 +1,6 @@
 
+export * from './lib/switch/Switch';
+
 export * from './lib/snackbar/Snackbar';
 
 export * from './lib/searchbar/Searchbar';
