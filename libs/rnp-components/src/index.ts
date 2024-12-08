@@ -1,4 +1,6 @@
 
+export * from './lib/dialog/Dialog';
+
 export * from './lib/list/List';
 
 export * from './lib/divider/Divider';
