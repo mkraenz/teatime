@@ -1,7 +1,7 @@
 import { FontAwesome } from '@expo/vector-icons';
+import { Banner } from '@teatime/rnp-components';
 import * as React from 'react';
 import { FC } from 'react';
-import { Banner } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import { useTheme } from '../theme';
 
