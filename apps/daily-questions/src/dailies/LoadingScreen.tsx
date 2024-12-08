@@ -1,6 +1,6 @@
+import { LoadingSpinner } from '@teatime/rnp-components';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ActivityIndicator } from 'react-native-paper';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 const LoadingScreen = () => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator animating />
+      <LoadingSpinner animating />
     </View>
   );
 };
