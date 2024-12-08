@@ -1,6 +1,6 @@
+import { Switch } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { AccessibilityRole, StyleSheet } from 'react-native';
-import { Switch } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import SettingsBaseRow from './SettingsBaseRow';
 
