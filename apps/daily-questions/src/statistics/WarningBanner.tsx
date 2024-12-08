@@ -1,7 +1,8 @@
 import { FontAwesome } from '@expo/vector-icons';
 import * as React from 'react';
 import { FC } from 'react';
-import { Banner, useTheme } from 'react-native-paper';
+import { Banner } from 'react-native-paper';
+import { useTheme } from '../theme';
 
 interface Props {
   visible: boolean;

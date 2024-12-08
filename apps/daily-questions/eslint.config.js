@@ -12,7 +12,14 @@ module.exports = [
         'error',
         {
           name: 'react-native-paper',
-          importNames: ['Button', 'Menu', 'Text', 'Title', 'Paragraph'],
+          importNames: [
+            'Button',
+            'Menu',
+            'Text',
+            'Title',
+            'Paragraph',
+            'useTheme',
+          ],
         },
       ],
     },
