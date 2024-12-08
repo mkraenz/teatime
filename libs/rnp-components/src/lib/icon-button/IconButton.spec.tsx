@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react-native';
-
 import IconButton from './IconButton';
 
 describe('IconButton', () => {

@@ -7,6 +7,7 @@ export * from './lib/divider/Divider';
 export * from './lib/icon-button/IconButton';
 export * from './lib/list/List';
 export * from './lib/menu/Menu';
+export * from './lib/paper-provider/PaperProvider';
 export * from './lib/portal/Portal';
 export * from './lib/searchbar/Searchbar';
 export * from './lib/snackbar/Snackbar';
