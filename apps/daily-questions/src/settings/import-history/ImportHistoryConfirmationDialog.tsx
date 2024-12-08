@@ -3,8 +3,9 @@ import { Button, Paragraph } from '@teatime/rnp-components';
 import * as React from 'react';
 import { FC } from 'react';
 import { View } from 'react-native';
-import { Dialog, Portal, useTheme } from 'react-native-paper';
+import { Dialog, Portal } from 'react-native-paper';
 import { useTranslation } from '../../localization/useTranslations';
+import { useTheme } from '../../theme';
 
 interface Props {
   visible: boolean;

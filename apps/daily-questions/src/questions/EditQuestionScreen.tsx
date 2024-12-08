@@ -3,11 +3,12 @@ import type { StackScreenProps } from '@react-navigation/stack';
 import { Button } from '@teatime/rnp-components';
 import React, { FC, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { TextInput, useTheme } from 'react-native-paper';
+import { TextInput } from 'react-native-paper';
 import { connect, ConnectedProps } from 'react-redux';
 import { toggleDialogOpen } from '../accessibility/accessibility.slice';
 import { useTranslation } from '../localization/useTranslations';
 import { RootState } from '../store';
+import { useTheme } from '../theme';
 import ArchiveConfirmationDialog from './ArchiveConfirmationDialog';
 import type {
   QuestionsNavigationProp,
