@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react-native';
-
 import Text from '../text/Text';
 import Banner from './Banner';
 
