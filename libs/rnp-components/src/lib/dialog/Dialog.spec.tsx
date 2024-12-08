@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react-native';
-
 import { PaperProvider } from 'react-native-paper';
 import Text from '../text/Text';
 import Dialog from './Dialog';
