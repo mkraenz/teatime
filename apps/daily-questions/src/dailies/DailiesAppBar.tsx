@@ -1,9 +1,9 @@
 import { DrawerHeaderProps } from '@react-navigation/drawer';
+import { Appbar } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { connect, ConnectedProps, useSelector } from 'react-redux';
 import { toggleDialogOpen } from '../accessibility/accessibility.slice';
 import BaseAppBar from '../BaseAppBar';
-import AppbarAction from '../common/components/AppbarAction';
 import { useTranslation } from '../localization/useTranslations';
 import { selectIsEmptyActiveQuestions } from '../questions/questions.selectors';
 import { RootState } from '../store';
@@ -40,7 +40,7 @@ const DailiesAppBar: FC<DrawerHeaderProps & PropsFromRedux> = (props) => {
         }}
       />
       {!activeQuestionsEmpty && (
-        <AppbarAction
+        <Appbar.Action
           icon="restart"
           onPress={() => {
             props.toggleDialogOpen();
