@@ -1,6 +1,11 @@
 import { Button, Paragraph } from '@teatime/rnp-components';
 import React, { FC, useEffect, useState } from 'react';
-import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import { connect, ConnectedProps } from 'react-redux';
 import { clearHistory, mockHistory } from '../history/history.slice';
 import { useTranslation } from '../localization/useTranslations';
@@ -102,6 +107,7 @@ const StatisticsScreen: FC<PropsFromRedux> = ({
   const [timeSpan, setTimeSpan] = useState<TimeSpan>('last7days');
   const { t } = useTranslation();
   const theme = useTheme();
+  const { width, height } = useWindowDimensions();
 
   const selectAllQuestions = () =>
     setSelectedQuestions(getAllQuestionsSelected(questions));
@@ -140,8 +146,8 @@ const StatisticsScreen: FC<PropsFromRedux> = ({
         <Chart
           history={historyInTimeSpan}
           selectedQuestions={selectedQuestions}
-          width={Dimensions.get('window').width}
-          height={Math.floor((Dimensions.get('window').height * 2) / 3)}
+          width={width}
+          height={Math.floor((height * 2) / 3)}
         />
       ) : (
         <WarningBanner
