@@ -1,9 +1,8 @@
 import { FontAwesome } from '@expo/vector-icons';
-import { Button, Paragraph, Portal } from '@teatime/rnp-components';
+import { Button, Dialog, Paragraph, Portal } from '@teatime/rnp-components';
 import * as React from 'react';
 import { FC } from 'react';
 import { View } from 'react-native';
-import { Dialog } from 'react-native-paper';
 import { useTranslation } from '../../localization/useTranslations';
 import { useTheme } from '../../theme';
 
