@@ -1,4 +1,8 @@
 
+export * from './lib/list/List';
+
+export * from './lib/divider/Divider';
+
 export * from './lib/spinner/LoadingSpinner';
 
 export * from './lib/appbar/Appbar';

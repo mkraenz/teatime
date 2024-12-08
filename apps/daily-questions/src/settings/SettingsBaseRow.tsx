@@ -1,6 +1,6 @@
+import { List } from '@teatime/rnp-components';
 import React, { ComponentProps, FC } from 'react';
 import { StyleSheet } from 'react-native';
-import { List } from 'react-native-paper';
 import { useTheme } from '../theme';
 
 type Props = {

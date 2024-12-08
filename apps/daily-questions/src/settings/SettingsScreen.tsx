@@ -1,6 +1,6 @@
+import { List } from '@teatime/rnp-components';
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { List } from 'react-native-paper';
 import { useTranslation } from '../localization/useTranslations';
 import AutofocusSwitch from './AutofocusSwitch';
 import AutoNavigateOnAnswerSwitch from './AutoNavigateOnAnswerSwitch';
