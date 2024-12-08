@@ -1,6 +1,6 @@
+import { Checkbox } from '@teatime/rnp-components';
 import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Checkbox } from 'react-native-paper';
 
 interface Question {
   id: string;
