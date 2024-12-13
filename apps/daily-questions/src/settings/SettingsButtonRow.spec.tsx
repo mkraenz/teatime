@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react-native';
 import { noop } from 'lodash';
-import * as React from 'react';
 import SettingsButtonRow from './SettingsButtonRow';
 
 test('renders correctly', () => {
