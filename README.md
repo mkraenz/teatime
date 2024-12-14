@@ -1,34 +1,53 @@
 # Teatime
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
-
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/expo?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
-
 ## Finish your CI setup
 
 [Click here to finish setting up your workspace!](https://cloud.nx.app/connect/oL5dBIou3c)
 
-## Run tasks
+## Prerequisites
 
-To run the dev server for your app, use:
+- [Node.js](https://nodejs.org/en/download/current/)
+- [Yarn](https://yarnpkg.com/getting-started/install)
+
+### Optional
+
+- Android Studio
+  - mainly for the Android Emulator
+- Java v17
+  - for running `bundletool` and building the app locally. Typically, everything can be done in the Expo Build Service though.
+- A physical Android device
+
+## Getting Started
 
 ```sh
-npx nx serve ksd-control-center
+yarn install --frozen-lockfile
+yarn nx serve daily-questions
 ```
 
-To create a production bundle:
+This should open the app Daily Questions in your browser. Replace `daily-questions` with the name of the project you want to run.
+
+To get an overview of the workspace and its projects, run:
 
 ```sh
-npx nx build ksd-control-center
+yarn nx graph
+```
+
+## Run tasks
+
+Replace `daily-questions` with the name of the project you want to run a task for.
+
+```sh
+# run dev server
+yarn nx serve daily-questions
+
+# create production build
+yarn nx build daily-questions
+
+# list all available tasks
+yarn nx show project daily-questions
 ```
 
 To see all available targets to run for a project, run:
-
-```sh
-npx nx show project ksd-control-center
-```
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
 
@@ -43,16 +62,16 @@ Use the plugin's generator to create new projects.
 To generate a new application, use:
 
 ```sh
-npx nx g @nx/expo:app demo
+yarn nx g @nx/expo:app demo
 ```
 
 To generate a new library, use:
 
 ```sh
-npx nx g @nx/react:lib mylib
+yarn nx g @nx/react:lib mylib
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+You can use `yarn nx list` to get a list of installed plugins. Then, run `yarn nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
 
 [Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
@@ -66,6 +85,10 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 ## Useful links
 
+- [nx cloud dashboard](https://cloud.nx.app/orgs/657a07188090a230ff3649a6/workspaces/674a31767cf8fa3c76741446/overview)
+
+### Nx Docs
+
 Learn more:
 
 - [Learn more about this workspace setup](https://nx.dev/nx-api/expo?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
@@ -73,14 +96,9 @@ Learn more:
 - [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-And join the Nx community:
+## Debugging
 
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Debugging Nx and CI
+### Debugging Nx and CI
 
 Prerequisites
 
