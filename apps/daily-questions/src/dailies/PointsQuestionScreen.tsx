@@ -1,3 +1,4 @@
+import { myLibFunction, Text } from '@teatime/rnp-components';
 import { inRange } from 'lodash';
 import React, { FC, useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
@@ -90,7 +91,7 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
       <Title style={styles.title} accessibilityRole="header">
         {title}
       </Title>
-      <Paragraph>{questionLong}</Paragraph>
+      <Text>{myLibFunction()}</Text>
       <TextInput
         label={title}
         keyboardType="numeric"
