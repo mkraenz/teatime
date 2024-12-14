@@ -1,9 +1,8 @@
-// import { Text as RnpText } from 'react-native-paper';
-import { Text as RnText } from 'react-native';
+import { Text as RnpText } from 'react-native-paper';
 
 // export const Text = RnpText;
 // export default Text;
 
 export const Text = (props: any) => (
-  <RnText style={{ color: 'blue' }} {...props} />
+  <RnpText style={{ color: 'red' }} {...props} />
 );
