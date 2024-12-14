@@ -61,13 +61,16 @@
     "fuse.js": "*",
     "react-native-chart-kit": "*",
     "expo-file-system": "*",
-    "expo-document-picker": "*"
+    "expo-document-picker": "*",
+    "expo-dev-client": "*"
   },
   "scripts": {
     "download:bundletool-latest": "wget $(curl -s https://api.github.com/repos/google/bundletool/releases/latest | jq -r '.assets[] | select(.state | contains (\"uploaded\")) | .browser_download_url') -O bundletool.jar && echo \"Downloaded latest bundletool.jar to $(pwd)/bundletool.jar\"",
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/daily-questions",
     "pregenerate:used-licenses": "mkdir -p ./src/generated",
-    "generate:used-licenses": "license-report --output=json --config license-report.config.json --only=prod > ./src/generated/prod-licenses.json"
+    "generate:used-licenses": "license-report --output=json --config license-report.config.json --only=prod > ./src/generated/prod-licenses.json",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "devDependencies": {},
   "packageManager": "yarn@1.22.19"
