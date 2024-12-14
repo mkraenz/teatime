@@ -6,17 +6,6 @@ This repo was moved into the monorepo from [mkraenz/daily-questions](https://git
 
 Check the [Readme of You are Awesome App! Daily Motivation Up!](https://github.com/proSingularity/you-are-awesome-app) on how to debug and much more.
 
-<!-- TODO rewrite for monorepo setup -->
-
-## Getting Started
-
-```sh
-yarn install --frozen-lockfile
-yarn dev
-```
-
-**Warning**: At least for me on Ubuntu 22 with Expo 49 and 50, I was not able to run the app inside Expo Go on an Android Emulator. However, using an actual device with Expo Go (v2.30.8) installed everything works just fine, as long as you're on the same wifi network.
-
 ## Deployment
 
 See also [EAS Build Guide](https://docs.expo.dev/build/setup/).
@@ -28,11 +17,11 @@ yarn eas whoami
 
 # from repository root
 # build and deploy
-nx build daily-questions --platform=android
+yarn nx build daily-questions --platform=android
 
 # submit to Google Playstore
 # configure via eas.json
-nx submit daily-questions --platform=android
+yarn nx submit daily-questions --platform=android
 
 # DEBUG: https://github.com/expo/fyi/blob/main/eas-build-archive.md
 ```
@@ -57,8 +46,7 @@ This is basically what Google Play does when an enduser downloads and installs t
 Build the app as usual, then click 'Download' button in the EAS Build UI to download the appbundle `.aab` file. Move the file into `apps/daily-questions/` and rename to `dq.aab`.
 
 ```sh
-cd apps/daily-questions/
-npx eas-cli credentials --platform=android
+nx run daily-questions:eas credentials --platform android
 # select 'production'
 # select 'Keystore: Manage everything needed to build your project'
 # select 'Download existing keystore'
@@ -75,11 +63,10 @@ Key password:      asdf
 Path to Keystore:  @username__daily-questions.jks
 ```
 
-Next, back to repository root, download bundletool, then back into the project root:
+Next, again from repository root, download bundletool, then back into the project root:
 
 ```sh
-cd ../..
-nx download:bundletool-latest daily-questions
+yarn nx download:bundletool-latest daily-questions
 cd apps/daily-questions
 ```
 

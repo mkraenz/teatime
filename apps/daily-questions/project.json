@@ -17,6 +17,12 @@
     },
     "tsc": {
       "command": "tsc -p {projectRoot}/tsconfig.app.json --noEmit"
+    },
+    "eas": {
+      "command": "eas",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
     }
   }
 }
