@@ -103,7 +103,29 @@ rm ${PROJECT_ROOT}/*__daily-questions.jks ${PROJECT_ROOT}/bundletool.jar ${PROJE
 
 If you get an error saying `Error: Device found but not authorized for connecting. Please allow USB debugging on the device.`, then check your device for the authorization popup, accept it, and try again.
 
-### Local .apk build
+## Development
+
+### Local Development
+
+The fastest way to develop is to run the app
+
+- the browser
+- the Expo Go app on your phone
+- the Expo Go app in an emulator.
+
+using
+
+```sh
+yarn nx serve daily-questions
+```
+
+To access native features however you need to run the app in an emulator or on a real device. To do so, run
+
+```sh
+yarn nx build daily-questions --platform=android --profile=development
+```
+
+#### Local .apk build aka development build
 
 To speed up development, it is sometimes possible to build an apk without using EAS. This may require some setup (like Android Studio, Java 17 and maybe more).
 
@@ -126,8 +148,6 @@ yarn nx build daily-questions --platform=android --local
 ```
 
 After that, you will need to follow the instruction of how to install the production ap on a device without the Playstore doing it for you.
-
-## Development
 
 ### FAQ
 

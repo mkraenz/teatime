@@ -98,6 +98,14 @@ Learn more:
 
 ## Debugging
 
+### Frequent issues
+
+#### Nx is refusing to do anything
+
+Start by running `yarn nx reset` and rerun your command.
+
+If that doesn't work, clear your `node_modules`. **Don't forget to clear the `node_modules` in the project roots as well!** Sometimes some task may create those without you noticing.
+
 ### Debugging Nx and CI
 
 Prerequisites

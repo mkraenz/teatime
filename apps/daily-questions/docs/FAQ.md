@@ -11,11 +11,12 @@ Note this feature is experimental. Use at your own risk.
 1. Open the Daily Questions app.
 2. Open the drawer menu (either tap the hamburger menu at the top-left, or swipe from left side of the screen to the right) and select 'Settings'.
 3. Under 'Advanced', activate 'Development mode', read the warning, and confirm the dialog if you are understand the risk.
-4. Under 'Advenced', select '(Experimental) Export to file'.
+   1. Note: Depending on your language settings the precise might be translated.
+4. Under 'Advanced', select '(Experimental) Export to file'.
 5. Select the location where you want to save the file and confirm.
+   1. Important: On some devices you might not be able to select the location or the export fails. This might be caused by a permission issue (for example, for the Downloads directory). In this case, try to repeat this procedure but before saving the file, create a new folder and select the new folder as the location to save the file.
 6. Wait until the export is finished and shows the success message.
-7. You can now close the app now and open your file manager or file browser app of your choice.
-8. Navigate to the location where you saved the file and do whatever you like with the file.
+7. Navigate to the location where you saved the file and do whatever you like with the file.
 
 ### JSON file format
 
