@@ -35,6 +35,17 @@
       "options": {
         "cwd": "{projectRoot}"
       }
+    },
+    "test-debug": {
+      "command": "node --inspect-brk node_modules/.bin/jest",
+      "options": {
+        "jestConfig": "{projectRoot}/jest.config.ts",
+        "runInBand": true,
+        "detectOpenHandles": true,
+        "watch": false,
+        "debug": true,
+        "testPatternPath": "{projectRoot}/src"
+      }
     }
   }
 }
