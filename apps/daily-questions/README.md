@@ -91,11 +91,27 @@ If you get an error saying `Error: Device found but not authorized for connectin
 
 ### Local .apk build
 
-To speed up development, it is sometimes possible to build an apk without using the expo build services (Turtle). This may require some setup (like Android Studio and maybe more).
+To speed up development, it is sometimes possible to build an apk without using EAS. This may require some setup (like Android Studio, Java 17 and maybe more).
+
+For the dev build,
 
 ```sh
-yarn build:local
+# needed to sync between dev server and the development app
+yarn nx install daily-questions --packages=eas-dev-client
+
+yarn nx build daily-questions --platform=android --profile=development --local
+
+# Once completed, the previous command will print the absolute path to the apk. Copy it. If you have an android emultor, or a physical device running and connected to your computer with USB debugging enabled, you can install the apk with the following command:
+adb install <PATH TO THE .APK>
 ```
+
+For the production build,
+
+```sh
+yarn nx build daily-questions --platform=android --local
+```
+
+After that, you will need to follow the instruction of how to install the production ap on a device without the Playstore doing it for you.
 
 ## Development
 
@@ -132,6 +148,20 @@ where `clearHistory` is an action creator injected using react-redux' `connect` 
   Clear history
 </Button>
 ```
+
+#### My app build is crashing. How do I access the logs?
+
+Connect the device via USB, enable USB debugging, and run
+
+```sh
+adb devices
+# get the device id from the output, then
+adb -s "<DEVICE_ID>" logcat | tee android-device.log
+```
+
+#### How does the app know about the libraries?
+
+There is a customization in the [metro config](/apps/daily-questions/metro.config.js) that includes the libs directories in the build process of the app. ([following the first part of this comment](https://github.com/nrwl/nx/issues/22261#issuecomment-1988315361))
 
 ## Licence
 
