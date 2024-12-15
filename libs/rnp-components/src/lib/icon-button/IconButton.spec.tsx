@@ -4,6 +4,6 @@ import IconButton from './IconButton';
 describe('IconButton', () => {
   it('should render successfully', () => {
     const { root } = render(<IconButton icon={'menu'} />);
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });

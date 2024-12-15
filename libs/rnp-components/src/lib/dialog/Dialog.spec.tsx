@@ -15,8 +15,8 @@ describe('Dialog', () => {
         </Dialog>
       </PaperProvider>
     );
-    expect(root).toBeTruthy();
-    expect(getByText('Beautiful day')).toBeTruthy();
-    expect(getByText('Hi there')).toBeTruthy();
+    expect(root).toBeVisible();
+    expect(getByText('Beautiful day')).toBeVisible();
+    expect(getByText('Hi there')).toBeVisible();
   });
 });

@@ -8,6 +8,6 @@ describe('TextInput', () => {
 
   it('should render successfully', () => {
     const { root } = render(<TextInput />);
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });

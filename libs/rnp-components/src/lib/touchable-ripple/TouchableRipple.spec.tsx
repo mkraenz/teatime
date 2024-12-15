@@ -9,6 +9,6 @@ describe('TouchableRipple', () => {
         <Text>Teatime rocks</Text>
       </TouchableRipple>
     );
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });

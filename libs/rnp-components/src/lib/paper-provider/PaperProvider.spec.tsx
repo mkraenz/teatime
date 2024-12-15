@@ -9,6 +9,6 @@ describe('PaperProvider', () => {
         <Text>Hi</Text>
       </PaperProvider>
     );
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });

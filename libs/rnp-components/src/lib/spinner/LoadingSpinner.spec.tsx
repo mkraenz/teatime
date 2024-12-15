@@ -4,6 +4,6 @@ import LoadingSpinner from './LoadingSpinner';
 describe('LoadingSpinner', () => {
   it('should render successfully', () => {
     const { root } = render(<LoadingSpinner />);
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });

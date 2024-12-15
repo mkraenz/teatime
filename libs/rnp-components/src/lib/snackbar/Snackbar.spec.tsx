@@ -13,6 +13,6 @@ describe('Snackbar', () => {
         </Snackbar>
       </PaperProvider>
     );
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });

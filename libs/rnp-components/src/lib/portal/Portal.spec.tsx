@@ -12,6 +12,6 @@ describe('Portal', () => {
         </Portal>
       </PaperProvider>
     );
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });
