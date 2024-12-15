@@ -23,6 +23,18 @@
       "options": {
         "cwd": "{projectRoot}"
       }
+    },
+    "list-latest-android-build": {
+      "command": "eas build:list --json --non-interactive --limit=1 --platform=android",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "download-latest-android-build": {
+      "command": "./tools/download-latest-android-build.sh",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
     }
   }
 }
