@@ -43,10 +43,18 @@ This is basically what Google Play does when an enduser downloads and installs t
 
 ##### Step by Step
 
-Build the app as usual, then click 'Download' button in the EAS Build UI to download the appbundle `.aab` file. Move the file into `apps/daily-questions/` and rename to `dq.aab`.
+Build the app as usual. Then download.
 
 ```sh
-nx run daily-questions:eas credentials --platform android
+yarn nx download-latest-android-build daily-questions dq.aab
+```
+
+Manual alternative: click 'Download' button in the EAS Build UI to download the appbundle `.aab` file. Move the file into `apps/daily-questions/` and rename to `dq.aab`.
+
+With the app downloaded, let's get to
+
+```sh
+yarn nx run daily-questions:eas credentials --platform android
 # select 'production'
 # select 'Keystore: Manage everything needed to build your project'
 # select 'Download existing keystore'
@@ -67,16 +75,16 @@ Next, again from repository root, download bundletool, then back into the projec
 
 ```sh
 yarn nx download:bundletool-latest daily-questions
-cd apps/daily-questions
 ```
 
 Next, lets unpack into almost installable `.apks` file:
 
 ```sh
+PROJECT_ROOT=apps/daily-questions
 KEYSTORE_FILE_NAME='@username__daily-questions.jks' # copy from above
 KEYSTORE_KEY_ALIAS='' # copy from above
 
-java -jar bundletool.jar build-apks --bundle=dq.aab --output=dq.apks --mode=universal --ks=$KEYSTORE_FILE_NAME --ks-key-alias=$KEYSTORE_KEY_ALIAS
+java -jar ${PROJECT_ROOT}/bundletool.jar build-apks --bundle=${PROJECT_ROOT}/dq.aab --output=${PROJECT_ROOT}/dq.apks --mode=universal --ks=${PROJECT_ROOT}/$KEYSTORE_FILE_NAME --ks-key-alias=$KEYSTORE_KEY_ALIAS
 ```
 
 It will ask for the keystore password and key password. Enter the password you got from downloading the keystore.
@@ -84,7 +92,13 @@ It will ask for the keystore password and key password. Enter the password you g
 Finally, connect your device and enable USB Debugging. Then run:
 
 ```sh
-java -jar bundletool.jar install-apks --apks=dq.apks
+java -jar ${PROJECT_ROOT}/bundletool.jar install-apks --apks=${PROJECT_ROOT}/dq.apks
+```
+
+Once completed, you should probably clean up
+
+```sh
+rm ${PROJECT_ROOT}/*__daily-questions.jks ${PROJECT_ROOT}/bundletool.jar ${PROJECT_ROOT}/dq.aab ${PROJECT_ROOT}/dq.apks
 ```
 
 If you get an error saying `Error: Device found but not authorized for connecting. Please allow USB debugging on the device.`, then check your device for the authorization popup, accept it, and try again.
