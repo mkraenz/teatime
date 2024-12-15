@@ -263,8 +263,9 @@ export type TranslationKeys =
   | TranslationKey<'defaultQuestions'>
   | TranslationKey<'history'>;
 
+export type Language = 'en' | 'de' | 'ja';
 type Translations = {
-  [key: string]: typeof en;
+  [key in Language]: typeof en;
 };
 
 export const translations: Translations = {
