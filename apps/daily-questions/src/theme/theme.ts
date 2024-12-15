@@ -2,7 +2,8 @@ import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 // eslint-disable-next-line no-restricted-imports
 import { MD3DarkTheme, MD3LightTheme } from 'react-native-paper';
 
-export type FullTheme = typeof MD3LightTheme & typeof DefaultTheme;
+export type FullTheme = typeof MD3LightTheme &
+  typeof DefaultTheme & { spacing: typeof spacing };
 
 export enum Color {
   LightBlue = '#00C0FA',
@@ -18,7 +19,19 @@ export enum Color {
   SemitransparentWhite = 'rgba(231, 224, 236, 0.5)',
 }
 
+const spacing = {
+  xs: 2,
+  sm: 4,
+  md: 8,
+  lg: 16,
+  xl: 24,
+};
+const themeExtras = {
+  spacing,
+};
+
 export const lightTheme: FullTheme = {
+  ...themeExtras,
   ...MD3LightTheme,
   colors: {
     ...DefaultTheme.colors,
@@ -55,6 +68,7 @@ export const highContrastLightTheme: FullTheme = {
 };
 
 export const darkTheme: FullTheme = {
+  ...themeExtras,
   ...DarkTheme,
   ...MD3DarkTheme,
   colors: {

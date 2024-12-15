@@ -1,9 +1,9 @@
 import { Menu } from '@teatime/rnp-components';
 import React, { FC } from 'react';
-import { useWindowDimensions } from 'react-native';
 import { connect, ConnectedProps } from 'react-redux';
 import { toggleDialogOpen } from '../accessibility/accessibility.slice';
 import { useTranslation } from '../localization/useTranslations';
+import { useTheme } from '../theme';
 import SettingsButtonRow from './SettingsButtonRow';
 
 const langCodeToLanguage = {
@@ -15,12 +15,11 @@ const langCodeToLanguage = {
 const mapDispatch = { toggleDialogOpen };
 const connector = connect(null, mapDispatch);
 type PropsFromRedux = ConnectedProps<typeof connector>;
-// remember to wrap your component in connector!
 
 const LanguageSelect: FC<PropsFromRedux> = ({ toggleDialogOpen }) => {
   const [visible, setVisible] = React.useState(false);
   const { i18n, t } = useTranslation();
-  const { width } = useWindowDimensions();
+  const { spacing } = useTheme();
 
   const openMenu = () => {
     toggleDialogOpen();
@@ -39,6 +38,7 @@ const LanguageSelect: FC<PropsFromRedux> = ({ toggleDialogOpen }) => {
     langCodeToLanguage[i18n.language as keyof typeof langCodeToLanguage];
   return (
     <Menu
+      style={{ width: '100%', paddingHorizontal: spacing.lg }}
       visible={visible}
       anchorPosition="bottom"
       onDismiss={closeMenu}
@@ -58,7 +58,10 @@ const LanguageSelect: FC<PropsFromRedux> = ({ toggleDialogOpen }) => {
           key={lang}
           title={langCodeToLanguage[lang as keyof typeof langCodeToLanguage]}
           onPress={() => changeLanguage(lang)}
-          style={{ width }}
+          style={{
+            width: '100%',
+            maxWidth: null, // remove the default maxWidth which did not stretch the full width
+          }}
         />
       ))}
     </Menu>
