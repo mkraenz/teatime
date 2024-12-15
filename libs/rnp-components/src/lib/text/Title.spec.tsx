@@ -5,6 +5,6 @@ describe('Title', () => {
   it('should render successfully', () => {
     const { root, getByRole } = render(<Title>Hi there</Title>);
     expect(root).toBeVisible();
-    expect(getByRole('heading'));
+    expect(getByRole('heading')).toBeVisible();
   });
 });
