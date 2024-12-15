@@ -3,7 +3,8 @@ import { Title } from './Title';
 
 describe('Title', () => {
   it('should render successfully', () => {
-    const { root } = render(<Title>Hi there</Title>);
+    const { root, getByRole } = render(<Title>Hi there</Title>);
     expect(root).toBeTruthy();
+    expect(getByRole('heading'));
   });
 });
