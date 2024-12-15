@@ -12,9 +12,11 @@ describe('Menu', () => {
         </Menu>
       </PaperProvider>
     );
-    expect(root).toBeTruthy();
-    expect(getByText('Some Button')).toBeTruthy();
-    expect(getByText('Item 1')).toBeTruthy();
-    expect(getByText('Item 2')).toBeTruthy();
+    expect(root).toBeVisible();
+    expect(getByText('Some Button')).toBeVisible();
+    expect(getByText('Item 1')).toBeOnTheScreen();
+    expect(getByText('Item 1')).toBeOnTheScreen();
+    expect(getByText('Item 2')).not.toBeVisible();
+    expect(getByText('Item 2')).not.toBeVisible();
   });
 });

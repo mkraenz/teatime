@@ -14,6 +14,6 @@ describe('Appbar', () => {
         </Appbar>
       </PaperProvider>
     );
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });

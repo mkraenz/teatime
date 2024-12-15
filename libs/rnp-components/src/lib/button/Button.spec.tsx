@@ -4,6 +4,6 @@ import { Button } from './Button';
 describe('Button', () => {
   it('should render successfully', () => {
     const { root } = render(<Button>Hello</Button>);
-    expect(root).toBeTruthy();
+    expect(root).toBeVisible();
   });
 });

@@ -10,8 +10,8 @@ describe('List', () => {
         renderItem={(props) => <List.Item title={props.item.a} />}
       />
     );
-    expect(root).toBeTruthy();
-    expect(getByText('hi')).toBeTruthy();
-    expect(getByText('hello')).toBeTruthy();
+    expect(root).toBeVisible();
+    expect(getByText('hi')).toBeVisible();
+    expect(getByText('hello')).toBeVisible();
   });
 });

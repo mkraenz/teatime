@@ -9,7 +9,7 @@ describe('Banner', () => {
         <Text>This is a banner.</Text>
       </Banner>
     );
-    expect(root).toBeTruthy();
-    expect(getByText('This is a banner.')).toBeTruthy();
+    expect(root).toBeVisible();
+    expect(getByText('This is a banner.')).toBeVisible();
   });
 });
