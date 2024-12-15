@@ -87,9 +87,7 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
 
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
-      <Title style={styles.title} accessibilityRole="header">
-        {title}
-      </Title>
+      <Title style={styles.title}>{title}</Title>
       <Paragraph>{questionLong}</Paragraph>
       <TextInput
         label={title}

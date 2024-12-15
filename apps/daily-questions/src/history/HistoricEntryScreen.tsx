@@ -83,7 +83,7 @@ const HistoricEntryScreen: FC<{ route: { params: HistoricEntryParams } }> = (
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
     >
-      <Title style={styles.title} accessibilityRole="header">
+      <Title style={styles.title}>
         {t('dailies:summaryHeader', { today: date })}
       </Title>
       <View style={styles.pointsQuestionsContainer}>

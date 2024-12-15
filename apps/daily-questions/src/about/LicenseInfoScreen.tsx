@@ -24,7 +24,7 @@ const LicenseInfoScreen: FC<Props> = (props) => {
     props.route.params;
   return (
     <View style={styles.container}>
-      <Title accessibilityRole="header">{name}</Title>
+      <Title>{name}</Title>
       <Paragraph>
         {t('about:licenseInfoLicense', { license: licenseType })}
       </Paragraph>

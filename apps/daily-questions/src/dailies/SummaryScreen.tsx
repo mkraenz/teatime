@@ -229,7 +229,7 @@ const SummaryScreen: FC<PropsFromRedux> = ({
       contentContainerStyle={styles.contentContainer}
     >
       {!appbarShown && <ResetDailiesBar />}
-      <Title style={styles.title} accessibilityRole="header">
+      <Title style={styles.title}>
         {t('dailies:summaryHeader', { today })}
       </Title>
       <View style={styles.pointsQuestionsContainer}>
