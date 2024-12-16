@@ -88,6 +88,7 @@ const FulltextQuestionScreen: FC<Props & PropsFromRedux> = ({
         style={styles.textInput}
         autoComplete="off"
         error={errored}
+        testID="fulltext-input"
       />
       <Button
         onPress={onNext}
