@@ -117,6 +117,7 @@ const PointsQuestionScreen: FC<Props & PropsFromRedux> = ({
             ? t('dailies:pointsQuestionInputWithAutoNavigateA11yHint')
             : t('dailies:pointsQuestionInputWithoutAutoNavigateA11yHint')
         }
+        testID="points-input"
       />
 
       <Paragraph
