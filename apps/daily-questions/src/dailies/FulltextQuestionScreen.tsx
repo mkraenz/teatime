@@ -1,6 +1,6 @@
 import { Button, Paragraph, TextInput, Title } from '@teatime/rnp-components';
-import React, { FC, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { StyleSheet, View, type TextInput as RNTextInput } from 'react-native';
 import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from '../localization/useTranslations';
 import { RootState } from '../store';
@@ -58,8 +58,12 @@ const FulltextQuestionScreen: FC<Props & PropsFromRedux> = ({
   const { t } = useTranslation();
   const [text, setText] = useState(answer?.toString() ?? '');
   const [errored, setError] = useState(false);
+  const textInput = useRef<RNTextInput | null>(null);
   useEffect(() => {
     setText(answer?.toString() ?? '');
+    const shouldFocus =
+      textInput.current && !textInput.current.isFocused() && autofocusEnabled;
+    if (shouldFocus) textInput.current?.focus();
   }, [id, answer]);
 
   const onNext = () => {
@@ -80,6 +84,7 @@ const FulltextQuestionScreen: FC<Props & PropsFromRedux> = ({
       <Title style={styles.title}>{title}</Title>
       <Paragraph>{questionLong}</Paragraph>
       <TextInput
+        ref={textInput}
         label={title}
         multiline={true}
         onChangeText={handleChangeText}
