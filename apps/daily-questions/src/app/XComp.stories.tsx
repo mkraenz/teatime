@@ -1,10 +1,17 @@
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
-// import { PaperProvider, Text } from '@teatime/rnp-components';
-import { Text } from 'react-native';
+import { Button, PaperProvider, Text } from '@teatime/rnp-components';
+import { MD3LightTheme } from 'react-native-paper';
 
-const XComp = () => <Text>hi</Text>;
+const XComp = () => (
+  <PaperProvider theme={MD3LightTheme}>
+    <Text>hi</Text>
+    <Button mode="contained">
+      <Text>Holey smokes</Text>
+    </Button>
+  </PaperProvider>
+);
 
 const meta: Meta<typeof XComp> = {
   component: XComp,

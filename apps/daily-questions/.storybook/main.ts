@@ -3,6 +3,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import react from '@vitejs/plugin-react';
 import { mergeConfig } from 'vite';
+import reactNativeWeb from 'vite-plugin-react-native-web';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
@@ -14,7 +15,7 @@ const config: StorybookConfig = {
 
   viteFinal: async (config) =>
     mergeConfig(config, {
-      plugins: [react(), nxViteTsPaths()],
+      plugins: [react(), reactNativeWeb(), nxViteTsPaths()],
       resolve: {
         sourceExts: [
           'js',
@@ -28,15 +29,15 @@ const config: StorybookConfig = {
           '.web.ts',
           '.web.tsx',
         ],
-        alias: {
-          // replace all imports from react-native by react-native-web
-          'react-native': 'react-native-web',
-          // 'react-native-safe-area-context':
-          //   'react-native-safe-area-context/jest/mock',
-          // '@react-native/assets-registry/registry':
-          //   'react-native-safe-area-context/jest/mock',
-          // 'react-native-vector-icons': 'src/ugh',
-        },
+        // alias: {
+        // replace all imports from react-native by react-native-web
+        // 'react-native': 'react-native-web',
+        // 'react-native-safe-area-context':
+        //   'react-native-safe-area-context/jest/mock',
+        // '@react-native/assets-registry/registry':
+        //   'react-native-safe-area-context/jest/mock',
+        // 'react-native-vector-icons': 'src/ugh',
+        // },
       },
       optimizeDeps: {
         force: true,
